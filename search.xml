@@ -1,8 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Linux命令</title>
+    <url>/Linux%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<div class="note default"><h1 id="Linux命令"><a href="#Linux命令" class="headerlink" title="Linux命令"></a>Linux命令</h1><h2 id="编译结果输出到文件"><a href="#编译结果输出到文件" class="headerlink" title="编译结果输出到文件"></a>编译结果输出到文件</h2><ul>
+<li><p>针对中断产生的编译结果，可以输出到指定文件中以供分析</p>
+<blockquote>
+<p>tee : 输出结果的同时也保留终端输出</p>
+<p>1：正确运行输出</p>
+<p>2：错误运行输出</p>
+</blockquote>
+<ul>
+<li><p><strong>输出正确运行和错误运行结果（即输出全部编译结果）</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make 2&gt;&amp;1 | <span class="built_in">tee</span> out.txt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>输出正确运行结果</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make &gt; out.txt    OR   make 1&gt; out.txt   </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>输出错误运行结果</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make 2&gt; out.txt</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h2 id="后台不挂断地执行命令"><a href="#后台不挂断地执行命令" class="headerlink" title="后台不挂断地执行命令"></a>后台不挂断地执行命令</h2><blockquote>
+<p>nohup : 不挂断地运行命令（没有后台运行的功能）<br>&amp; : 在后台运行，当用户退出（挂起）的时候，命令自动跟着结束</p>
+<p>输出结果自动存放在nohup.out中</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">nohup</span> ./Allwmake &amp;</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>查找进程并kill</li>
+</ul>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ps -aux  //显示所有程序</span><br><span class="line">ps -ef | grep 进程关键字  //查找指定进程</span><br><span class="line"><span class="built_in">kill</span> -9 进程号PID    //kill进程</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>参考链接：<a href="https://www.cnblogs.com/yunwangjun-python-520/p/10713564.html#_label0_0">https://www.cnblogs.com/yunwangjun-python-520/p/10713564.html#_label0_0</a></p>
+</blockquote>
+<h2 id="Permission-denied的解决办法"><a href="#Permission-denied的解决办法" class="headerlink" title="Permission denied的解决办法"></a>Permission denied的解决办法</h2><blockquote>
+<p>赋予全部权限777（rwx）</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 777 xxx.sh</span><br></pre></td></tr></table></figure>
+
+</div>
+
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>bash</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>BLOG</category>
+      </categories>
+      <tags>
+        <tag>NexT</tag>
+        <tag>HEXO</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>远程工作站安装OpenFOAM</title>
-    <url>/2023/09/27/OpenFOAM%E5%AE%89%E8%A3%85/</url>
+    <url>/OpenFOAM%E5%AE%89%E8%A3%85/</url>
     <content><![CDATA[<h1 id="远程工作站安装OpenFOAM教程"><a href="#远程工作站安装OpenFOAM教程" class="headerlink" title="远程工作站安装OpenFOAM教程"></a>远程工作站安装OpenFOAM教程</h1><blockquote>
 <p>一般来说，Linux下安装OpenFOAM有两种方法：</p>
 <p>一种是直接用apt下载，但是此种方法仅限于个人电脑（因为需要sudo权限）；</p>
@@ -44,13 +123,13 @@
         <category>vsfFOAM</category>
       </categories>
       <tags>
-        <tag>OpenFOAM</tag>
         <tag>Linux</tag>
+        <tag>OpenFOAM</tag>
       </tags>
   </entry>
   <entry>
     <title>HELLO</title>
-    <url>/2023/09/27/HELLO/</url>
+    <url>/HELLO/</url>
     <content><![CDATA[<h1 id="THIS-IS-MY-FIRST-BOLG"><a href="#THIS-IS-MY-FIRST-BOLG" class="headerlink" title="THIS IS MY FIRST BOLG !"></a>THIS IS MY FIRST BOLG !</h1>]]></content>
       <categories>
         <category>vsfFOAM</category>
@@ -58,31 +137,6 @@
       <tags>
         <tag>CODE</tag>
         <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2023/09/26/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>BLOG</category>
-      </categories>
-      <tags>
-        <tag>NexT</tag>
-        <tag>HEXO</tag>
       </tags>
   </entry>
 </search>

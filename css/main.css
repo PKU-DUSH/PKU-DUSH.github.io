@@ -18,10 +18,10 @@
   --btn-default-hover-bg: #222;
   --btn-default-hover-color: #fff;
   --btn-default-hover-border-color: #222;
-  --highlight-background: #f3f3f3;
-  --highlight-foreground: #444;
-  --highlight-gutter-background: #e1e1e1;
-  --highlight-gutter-foreground: #555;
+  --highlight-background: #282c34;
+  --highlight-foreground: #abb2bf;
+  --highlight-gutter-background: #353941;
+  --highlight-gutter-foreground: #9da4b1;
   color-scheme: light;
 }
 html {
@@ -365,15 +365,73 @@ td {
   top: -6px;
   transform: rotate(-45deg);
 }
-/*!
-  Theme: Default
-  Description: Original highlight.js style
-  Author: (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
-  Maintainer: @highlightjs/core-team
-  Website: https://highlightjs.org/
-  License: see project LICENSE
-  Touched: 2021
-*/pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{background:#f3f3f3;color:#444}.hljs-comment{color:#697070}.hljs-punctuation,.hljs-tag{color:#444a}.hljs-tag .hljs-attr,.hljs-tag .hljs-name{color:#444}.hljs-attribute,.hljs-doctag,.hljs-keyword,.hljs-meta .hljs-keyword,.hljs-name,.hljs-selector-tag{font-weight:700}.hljs-deletion,.hljs-number,.hljs-quote,.hljs-selector-class,.hljs-selector-id,.hljs-string,.hljs-template-tag,.hljs-type{color:#800}.hljs-section,.hljs-title{color:#800;font-weight:700}.hljs-link,.hljs-operator,.hljs-regexp,.hljs-selector-attr,.hljs-selector-pseudo,.hljs-symbol,.hljs-template-variable,.hljs-variable{color:#ab5656}.hljs-literal{color:#695}.hljs-addition,.hljs-built_in,.hljs-bullet,.hljs-code{color:#397300}.hljs-meta{color:#1f7199}.hljs-meta .hljs-string{color:#38a}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}
+pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{color:#abb2bf;background:#282c34}.hljs-comment,.hljs-quote{color:#5c6370;font-style:italic}.hljs-doctag,.hljs-formula,.hljs-keyword{color:#c678dd}.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#e06c75}.hljs-literal{color:#56b6c2}.hljs-addition,.hljs-attribute,.hljs-meta .hljs-string,.hljs-regexp,.hljs-string{color:#98c379}.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#d19a66}.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#61aeee}.hljs-built_in,.hljs-class .hljs-title,.hljs-title.class_{color:#e6c07b}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}.hljs-link{text-decoration:underline}
+.highlight:hover .copy-btn,
+.code-container:hover .copy-btn {
+  opacity: 1;
+}
+.code-container {
+  position: relative;
+}
+.copy-btn {
+  color: #333;
+  cursor: pointer;
+  line-height: 1.6;
+  opacity: 0;
+  padding: 2px 6px;
+  position: absolute;
+  transition: opacity 0.2s ease-in-out;
+  color: var(--highlight-foreground);
+  font-size: 14px;
+  right: 0;
+  top: 2px;
+}
+figure.highlight {
+  border-radius: 5px;
+  box-shadow: 0 10px 30px 0 rgba(0,0,0,0.4);
+  padding-top: 30px;
+}
+figure.highlight .table-container {
+  border-radius: 0 0 5px 5px;
+}
+figure.highlight::before {
+  background: #fc625d;
+  box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
+  left: 12px;
+  margin-top: -20px;
+  position: absolute;
+  border-radius: 50%;
+  content: ' ';
+  height: 12px;
+  width: 12px;
+}
+.expand-btn {
+  bottom: 0;
+  color: var(--highlight-foreground);
+  cursor: pointer;
+  display: none;
+  left: 0;
+  right: 0;
+  position: absolute;
+  text-align: center;
+}
+.fold-cover {
+  background-image: linear-gradient(to top, var(--highlight-background) 0, rgba(0,0,0,0) 100%);
+  bottom: 0;
+  display: none;
+  height: 50px;
+  left: 0;
+  right: 0;
+  position: absolute;
+}
+.highlight-fold {
+  max-height: 500px;
+  overflow-y: hidden !important;
+}
+.highlight-fold .expand-btn,
+.highlight-fold .fold-cover {
+  display: block;
+}
 code,
 kbd,
 figure.highlight,
@@ -1774,6 +1832,22 @@ pre code {
   margin: initial;
   overflow-wrap: break-word;
 }
+.posts-expand .post-title .post-edit-link {
+  border-bottom: 0;
+  color: #bbb;
+  float: right;
+  font-size: 1.25em;
+  margin-left: -1.2em;
+  transition: color 0.2s ease-in;
+}
+@media (max-width: 567px) {
+  .posts-expand .post-title .post-edit-link {
+    margin-left: initial;
+  }
+}
+.posts-expand .post-title .post-edit-link:hover {
+  color: #fc6423;
+}
 .posts-expand .post-title-link {
   border-bottom: 0;
   color: var(--link-color);
@@ -1882,6 +1956,24 @@ pre code {
 }
 .post-block:last-of-type .post-eof {
   display: none;
+}
+.post-copyright ul {
+  list-style: none;
+  overflow: hidden;
+  padding: 0.5em 1em;
+  position: relative;
+  background: var(--card-bg-color);
+  border-left: 3px solid #ff2a2a;
+  margin: 1em 0 0;
+}
+.post-copyright ul::after {
+  content: '\f25e';
+  font-family: 'Font Awesome 6 Brands';
+  font-size: 200px;
+  opacity: 0.1;
+  position: absolute;
+  right: -50px;
+  top: -150px;
 }
 .post-tags {
   margin-top: 40px;
