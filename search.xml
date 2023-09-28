@@ -13,79 +13,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>BLOG</category>
-      </categories>
-      <tags>
-        <tag>NexT</tag>
-        <tag>HEXO</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>远程工作站安装OpenFOAM</title>
-    <url>/OpenFOAM%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[<h1 id="远程工作站安装OpenFOAM教程"><a href="#远程工作站安装OpenFOAM教程" class="headerlink" title="远程工作站安装OpenFOAM教程"></a>远程工作站安装OpenFOAM教程</h1><blockquote>
-<p>一般来说，Linux下安装OpenFOAM有两种方法：</p>
-<p>一种是直接用apt下载，但是此种方法仅限于个人电脑（因为需要sudo权限）；</p>
-<p>另外一种更为推荐的常用办法是用<strong>源代码编译安装</strong>，由于需要远程连接实验室的电脑，在实验室的Linux环境下安装，所以也只能用这个办法。</p>
-</blockquote>
-<blockquote>
-<p>推荐直接根据官方教程来，注意是Source Pack：<a href="https://openfoam.org/download/11-source/">https://openfoam.org/download/11-source/</a></p>
-</blockquote>
-<h2 id="下载并解压源文件"><a href="#下载并解压源文件" class="headerlink" title="下载并解压源文件"></a>下载并解压源文件</h2><h3 id="step1-：-建立OpenFOAM文件夹"><a href="#step1-：-建立OpenFOAM文件夹" class="headerlink" title="step1 ： 建立OpenFOAM文件夹"></a>step1 ： 建立OpenFOAM文件夹</h3><p><img src="https://s2.loli.net/2023/09/24/xBYPZWgMnkvzK4r.png" alt="image-20230924144932715"></p>
-<h3 id="step2-：执行下载解压命令"><a href="#step2-：执行下载解压命令" class="headerlink" title="step2 ：执行下载解压命令"></a>step2 ：执行下载解压命令</h3><p><img src="https://s2.loli.net/2023/09/24/7oLWQOd95IB1bME.png" alt="image-20230924150351555"></p>
-<p><img src="https://s2.loli.net/2023/09/24/fXPTIvrAEUWm7nG.png" alt="image-20230924150504744"></p>
-<h3 id="step3-：改文件名，便于以后使用"><a href="#step3-：改文件名，便于以后使用" class="headerlink" title="step3 ：改文件名，便于以后使用"></a>step3 ：改文件名，便于以后使用</h3><p><img src="https://s2.loli.net/2023/09/24/amTJlYC87QdWSAP.png" alt="image-20230924150737127"></p>
-<h2 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h2><blockquote>
-<p>注意是在~&#x2F;.bashrc中设置</p>
-</blockquote>
-<p><img src="https://s2.loli.net/2023/09/24/LKj5nD4fk3z1eXV.png" alt="image-20230924152124605"></p>
-<p><img src="https://s2.loli.net/2023/09/24/5jQ1pDItLcUZVdS.png" alt="image-20230924152114681"></p>
-<blockquote>
-<p>最后运行一下bashrc脚本</p>
-</blockquote>
-<p><img src="https://s2.loli.net/2023/09/24/1iLYepaK732XVBw.png" alt="image-20230924152235522"></p>
-<h2 id="下载编译第三方库（包括paraview）"><a href="#下载编译第三方库（包括paraview）" class="headerlink" title="下载编译第三方库（包括paraview）"></a>下载编译第三方库（包括paraview）</h2><h3 id="Installing-Scotch-PT-Scotch"><a href="#Installing-Scotch-PT-Scotch" class="headerlink" title="Installing Scotch&#x2F;PT-Scotch"></a>Installing Scotch&#x2F;PT-Scotch</h3><p><img src="https://s2.loli.net/2023/09/24/6TENoFiHRfj97Y2.png" alt="image-20230924154149151"></p>
-<h3 id="Installing-ParaView"><a href="#Installing-ParaView" class="headerlink" title="Installing ParaView"></a>Installing ParaView</h3><p><img src="https://s2.loli.net/2023/09/24/ldoEZeqDvt6PAHu.png" alt="image-20230924154308317"></p>
-<blockquote>
-<ul>
-<li>这里出问题了，但是不用管，可以用<strong>paraFoam -builtin</strong>代替</li>
-</ul>
-<p><img src="https://s2.loli.net/2023/09/24/cEt6iRV1BNHpf9m.png" alt="image-20230924155942595"></p>
-</blockquote>
-<h2 id="编译OpenFOAM"><a href="#编译OpenFOAM" class="headerlink" title="编译OpenFOAM"></a>编译OpenFOAM</h2><p><img src="https://s2.loli.net/2023/09/24/vuVrpsQejiHLNtI.png" alt="image-20230924160049450"></p>
-<h2 id="运行简单算例并可视化"><a href="#运行简单算例并可视化" class="headerlink" title="运行简单算例并可视化"></a>运行简单算例并可视化</h2><h3 id="创建运行文件夹"><a href="#创建运行文件夹" class="headerlink" title="创建运行文件夹"></a>创建运行文件夹</h3><p><img src="https://s2.loli.net/2023/09/24/WD2LAREJhTSl5aO.png" alt="image-20230924160932211"></p>
-<h3 id="运行简单算例"><a href="#运行简单算例" class="headerlink" title="运行简单算例"></a>运行简单算例</h3><p><img src="https://s2.loli.net/2023/09/25/ugl7SPyibWa9vI3.png" alt="image-20230925212038629"></p>
-<ul>
-<li>成功运行</li>
-</ul>
-<p>​	<img src="https://s2.loli.net/2023/09/25/MPivyQYuLrEoksH.png" alt="image-20230925212121916"></p>
-]]></content>
-      <categories>
-        <category>vsfFOAM</category>
-      </categories>
-      <tags>
-        <tag>OpenFOAM</tag>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Linux命令</title>
     <url>/Linux%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<div class="note warning"><h1 id="Linux命令n"><a href="#Linux命令n" class="headerlink" title="Linux命令n"></a>Linux命令n</h1><h2 id="编译结果输出到文件"><a href="#编译结果输出到文件" class="headerlink" title="编译结果输出到文件"></a>编译结果输出到文件</h2><ul>
@@ -140,11 +67,82 @@
       </tags>
   </entry>
   <entry>
+    <title>远程工作站安装OpenFOAM</title>
+    <url>/OpenFOAM%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<h1 id="远程工作站安装OpenFOAM教程"><a href="#远程工作站安装OpenFOAM教程" class="headerlink" title="远程工作站安装OpenFOAM教程"></a>远程工作站安装OpenFOAM教程</h1><blockquote>
+<p>一般来说，Linux下安装OpenFOAM有两种方法：</p>
+<p>一种是直接用apt下载，但是此种方法仅限于个人电脑（因为需要sudo权限）；</p>
+<p>另外一种更为推荐的常用办法是用<strong>源代码编译安装</strong>，由于需要远程连接实验室的电脑，在实验室的Linux环境下安装，所以也只能用这个办法。</p>
+</blockquote>
+<blockquote>
+<p>推荐直接根据官方教程来，注意是Source Pack：<a href="https://openfoam.org/download/11-source/">https://openfoam.org/download/11-source/</a></p>
+</blockquote>
+<h2 id="下载并解压源文件"><a href="#下载并解压源文件" class="headerlink" title="下载并解压源文件"></a>下载并解压源文件</h2><h3 id="step1-：-建立OpenFOAM文件夹"><a href="#step1-：-建立OpenFOAM文件夹" class="headerlink" title="step1 ： 建立OpenFOAM文件夹"></a>step1 ： 建立OpenFOAM文件夹</h3><p><img src="https://s2.loli.net/2023/09/24/xBYPZWgMnkvzK4r.png" alt="image-20230924144932715"></p>
+<h3 id="step2-：执行下载解压命令"><a href="#step2-：执行下载解压命令" class="headerlink" title="step2 ：执行下载解压命令"></a>step2 ：执行下载解压命令</h3><p><img src="https://s2.loli.net/2023/09/24/7oLWQOd95IB1bME.png" alt="image-20230924150351555"></p>
+<p><img src="https://s2.loli.net/2023/09/24/fXPTIvrAEUWm7nG.png" alt="image-20230924150504744"></p>
+<h3 id="step3-：改文件名，便于以后使用"><a href="#step3-：改文件名，便于以后使用" class="headerlink" title="step3 ：改文件名，便于以后使用"></a>step3 ：改文件名，便于以后使用</h3><p><img src="https://s2.loli.net/2023/09/24/amTJlYC87QdWSAP.png" alt="image-20230924150737127"></p>
+<h2 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h2><blockquote>
+<p>注意是在~&#x2F;.bashrc中设置</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/09/24/LKj5nD4fk3z1eXV.png" alt="image-20230924152124605"></p>
+<p><img src="https://s2.loli.net/2023/09/24/5jQ1pDItLcUZVdS.png" alt="image-20230924152114681"></p>
+<blockquote>
+<p>最后运行一下bashrc脚本</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/09/24/1iLYepaK732XVBw.png" alt="image-20230924152235522"></p>
+<h2 id="下载编译第三方库（包括paraview）"><a href="#下载编译第三方库（包括paraview）" class="headerlink" title="下载编译第三方库（包括paraview）"></a>下载编译第三方库（包括paraview）</h2><h3 id="Installing-Scotch-PT-Scotch"><a href="#Installing-Scotch-PT-Scotch" class="headerlink" title="Installing Scotch&#x2F;PT-Scotch"></a>Installing Scotch&#x2F;PT-Scotch</h3><p><img src="https://s2.loli.net/2023/09/24/6TENoFiHRfj97Y2.png" alt="image-20230924154149151"></p>
+<h3 id="Installing-ParaView"><a href="#Installing-ParaView" class="headerlink" title="Installing ParaView"></a>Installing ParaView</h3><p><img src="https://s2.loli.net/2023/09/24/ldoEZeqDvt6PAHu.png" alt="image-20230924154308317"></p>
+<blockquote>
+<ul>
+<li>这里出问题了，但是不用管，可以用<strong>paraFoam -builtin</strong>代替</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/09/24/cEt6iRV1BNHpf9m.png" alt="image-20230924155942595"></p>
+</blockquote>
+<h2 id="编译OpenFOAM"><a href="#编译OpenFOAM" class="headerlink" title="编译OpenFOAM"></a>编译OpenFOAM</h2><p><img src="https://s2.loli.net/2023/09/24/vuVrpsQejiHLNtI.png" alt="image-20230924160049450"></p>
+<h2 id="运行简单算例并可视化"><a href="#运行简单算例并可视化" class="headerlink" title="运行简单算例并可视化"></a>运行简单算例并可视化</h2><h3 id="创建运行文件夹"><a href="#创建运行文件夹" class="headerlink" title="创建运行文件夹"></a>创建运行文件夹</h3><p><img src="https://s2.loli.net/2023/09/24/WD2LAREJhTSl5aO.png" alt="image-20230924160932211"></p>
+<h3 id="运行简单算例"><a href="#运行简单算例" class="headerlink" title="运行简单算例"></a>运行简单算例</h3><p><img src="https://s2.loli.net/2023/09/25/ugl7SPyibWa9vI3.png" alt="image-20230925212038629"></p>
+<ul>
+<li>成功运行</li>
+</ul>
+<p>​	<img src="https://s2.loli.net/2023/09/25/MPivyQYuLrEoksH.png" alt="image-20230925212121916"></p>
+]]></content>
+      <categories>
+        <category>vsfFOAM</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>OpenFOAM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>BLOG</category>
+      </categories>
+      <tags>
+        <tag>NexT</tag>
+        <tag>HEXO</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>远程工作站安装vsfFOAM</title>
     <url>/%E8%BF%9C%E7%A8%8B%E5%B7%A5%E4%BD%9C%E7%AB%99%E5%AE%89%E8%A3%85vsfFOAM/</url>
-    <content><![CDATA[<details class="note "><summary><p>blue</p>
-</summary>
-<h1 id="vsfFOAM安装"><a href="#vsfFOAM安装" class="headerlink" title="vsfFOAM安装"></a>vsfFOAM安装</h1><blockquote>
+    <content><![CDATA[<div class="note warning"><h1 id="vsfFOAM安装"><a href="#vsfFOAM安装" class="headerlink" title="vsfFOAM安装"></a>vsfFOAM安装</h1><blockquote>
 <p>将vsfFOAM文件夹直接从PC拖入远程工作站的OpenFOAM文件夹内 后出现问题：</p>
 <p><img src="https://s2.loli.net/2023/09/25/yZEikHJnRmPYtld.png" alt="image-20230925150025410"></p>
 <ol>
@@ -220,15 +218,14 @@
 </blockquote>
 <h3 id="paraFoam-builtin后处理"><a href="#paraFoam-builtin后处理" class="headerlink" title="paraFoam -builtin后处理"></a>paraFoam -builtin后处理</h3><p><img src="https://s2.loli.net/2023/09/27/vR2LHDcAF9mib6p.png" alt="image-20230927213541886"></p>
 <p><img src="https://s2.loli.net/2023/09/27/IFOfxmJ2jiysdGY.png" alt="image-20230927213631892"></p>
-
-</details>
+</div>
 ]]></content>
       <categories>
         <category>vsfFOAM</category>
       </categories>
       <tags>
-        <tag>OpenFOAM</tag>
         <tag>Linux</tag>
+        <tag>OpenFOAM</tag>
         <tag>vsfFOAM</tag>
       </tags>
   </entry>
