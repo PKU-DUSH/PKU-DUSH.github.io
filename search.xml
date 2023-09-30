@@ -13,85 +13,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux命令</title>
-    <url>/Linux%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<div class="note warning"><h1 id="Linux命令n"><a href="#Linux命令n" class="headerlink" title="Linux命令n"></a>Linux命令n</h1><h2 id="编译结果输出到文件"><a href="#编译结果输出到文件" class="headerlink" title="编译结果输出到文件"></a>编译结果输出到文件</h2><ul>
-<li><p>针对中断产生的编译结果，可以输出到指定文件中以供分析</p>
-<blockquote>
-<p>tee : 输出结果的同时也保留终端输出</p>
-<p>1：正确运行输出</p>
-<p>2：错误运行输出</p>
-</blockquote>
-<ul>
-<li><p><strong>输出正确运行和错误运行结果（即输出全部编译结果）</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make 2&gt;&amp;1 | <span class="built_in">tee</span> out.txt</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>输出正确运行结果</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make &gt; out.txt    OR   make 1&gt; out.txt   </span><br></pre></td></tr></table></figure>
-</li>
-<li><p>输出错误运行结果</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make 2&gt; out.txt</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-<h2 id="后台不挂断地执行命令"><a href="#后台不挂断地执行命令" class="headerlink" title="后台不挂断地执行命令"></a>后台不挂断地执行命令</h2><blockquote>
-<p>nohup : 不挂断地运行命令（没有后台运行的功能）<br>&amp; : 在后台运行，当用户退出（挂起）的时候，命令自动跟着结束</p>
-<p>输出结果自动存放在nohup.out中</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">nohup</span> ./Allwmake &amp;</span><br></pre></td></tr></table></figure>
-
-
-
-<ul>
-<li>查找进程并kill</li>
-</ul>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ps -aux  //显示所有程序</span><br><span class="line">ps -ef | grep 进程关键字  //查找指定进程</span><br><span class="line"><span class="built_in">kill</span> -9 进程号PID    //kill进程</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>参考链接：<a href="https://www.cnblogs.com/yunwangjun-python-520/p/10713564.html#_label0_0">https://www.cnblogs.com/yunwangjun-python-520/p/10713564.html#_label0_0</a></p>
-</blockquote>
-<h2 id="Permission-denied的解决办法"><a href="#Permission-denied的解决办法" class="headerlink" title="Permission denied的解决办法"></a>Permission denied的解决办法</h2><blockquote>
-<p>赋予全部权限777（rwx）</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 777 xxx.sh</span><br></pre></td></tr></table></figure>
-
-</div>
-
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>BASH</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>BLOG</category>
-      </categories>
-      <tags>
-        <tag>NexT</tag>
-        <tag>HEXO</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Leetcode数组专题</title>
     <url>/Leetcode%E6%95%B0%E7%BB%84%E4%B8%93%E9%A2%98/</url>
     <content><![CDATA[<div class="note info"><h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><blockquote>
@@ -181,6 +102,28 @@
 </ul>
 </li>
 </ul>
+<h2 id="螺旋矩阵"><a href="#螺旋矩阵" class="headerlink" title="螺旋矩阵"></a>螺旋矩阵</h2><blockquote>
+<p>题目链接：<a href="https://leetcode.cn/problems/spiral-matrix-ii/description/">https://leetcode.cn/problems/spiral-matrix-ii/description/</a></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">generateMatrix</span>(<span class="type">int</span> n) &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">result</span>(n,<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(n, <span class="number">0</span>)); <span class="comment">//注意vector二维数组的创建方式</span></span><br><span class="line">        <span class="type">int</span> loop = n/<span class="number">2</span>;</span><br><span class="line">        <span class="type">int</span> count = <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> startx = <span class="number">0</span>,starty = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> offset = <span class="number">1</span>; <span class="comment">//key:每一次循环都要比上次少一圈</span></span><br><span class="line">        <span class="type">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (loop--) &#123;</span><br><span class="line">            <span class="keyword">for</span> (j = starty; j &lt; n - offset; j++)</span><br><span class="line">                result[startx][j] = count++;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (i = startx; i &lt; n - offset;i++)</span><br><span class="line">                result[i][j] = count++;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (; j &gt; starty; j--)</span><br><span class="line">                result[i][j] = count++;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (; i &gt; startx; i--)</span><br><span class="line">                result[i][j] = count++;</span><br><span class="line">            </span><br><span class="line">            startx++;</span><br><span class="line">            starty++;</span><br><span class="line">            offset++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (n%<span class="number">2</span> != <span class="number">0</span>)</span><br><span class="line">            result[n/<span class="number">2</span>][n/<span class="number">2</span>] = count;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>思路：</p>
+<ul>
+<li>要绕几圈？n&#x2F;2圈，单纯的循环while更简洁</li>
+<li>螺旋的要分四个for循环来，每一条边都要单独的for循环</li>
+<li>每一圈的赋值的起始点和终止点都有变化<ul>
+<li>起始点通过startx&#x2F;y++ 改变</li>
+<li>终止点通过offset++改变</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>注意奇偶区别，奇数的时候中间的要特殊逻辑（loop &#x3D; n&#x2F;2 + 1不行，因为n为偶数比如4的时候就是循环两次） </p>
+</li>
+<li><p>注意offset是控制循环终止边界的，因为开始边界是由while循环的startx++决定的</p>
+</li>
+</ul>
 </div>
 ]]></content>
       <categories>
@@ -190,6 +133,60 @@
         <tag>Array</tag>
         <tag>快慢指针</tag>
         <tag>滑动窗口</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux命令</title>
+    <url>/Linux%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<div class="note warning"><h1 id="Linux命令n"><a href="#Linux命令n" class="headerlink" title="Linux命令n"></a>Linux命令n</h1><h2 id="编译结果输出到文件"><a href="#编译结果输出到文件" class="headerlink" title="编译结果输出到文件"></a>编译结果输出到文件</h2><ul>
+<li><p>针对中断产生的编译结果，可以输出到指定文件中以供分析</p>
+<blockquote>
+<p>tee : 输出结果的同时也保留终端输出</p>
+<p>1：正确运行输出</p>
+<p>2：错误运行输出</p>
+</blockquote>
+<ul>
+<li><p><strong>输出正确运行和错误运行结果（即输出全部编译结果）</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make 2&gt;&amp;1 | <span class="built_in">tee</span> out.txt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>输出正确运行结果</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make &gt; out.txt    OR   make 1&gt; out.txt   </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>输出错误运行结果</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make 2&gt; out.txt</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h2 id="后台不挂断地执行命令"><a href="#后台不挂断地执行命令" class="headerlink" title="后台不挂断地执行命令"></a>后台不挂断地执行命令</h2><blockquote>
+<p>nohup : 不挂断地运行命令（没有后台运行的功能）<br>&amp; : 在后台运行，当用户退出（挂起）的时候，命令自动跟着结束</p>
+<p>输出结果自动存放在nohup.out中</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">nohup</span> ./Allwmake &amp;</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>查找进程并kill</li>
+</ul>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ps -aux  //显示所有程序</span><br><span class="line">ps -ef | grep 进程关键字  //查找指定进程</span><br><span class="line"><span class="built_in">kill</span> -9 进程号PID    //kill进程</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>参考链接：<a href="https://www.cnblogs.com/yunwangjun-python-520/p/10713564.html#_label0_0">https://www.cnblogs.com/yunwangjun-python-520/p/10713564.html#_label0_0</a></p>
+</blockquote>
+<h2 id="Permission-denied的解决办法"><a href="#Permission-denied的解决办法" class="headerlink" title="Permission denied的解决办法"></a>Permission denied的解决办法</h2><blockquote>
+<p>赋予全部权限777（rwx）</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 777 xxx.sh</span><br></pre></td></tr></table></figure>
+
+</div>
+
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>BASH</tag>
       </tags>
   </entry>
   <entry>
@@ -239,6 +236,31 @@
       <tags>
         <tag>Linux</tag>
         <tag>OpenFOAM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>BLOG</category>
+      </categories>
+      <tags>
+        <tag>NexT</tag>
+        <tag>HEXO</tag>
       </tags>
   </entry>
   <entry>
