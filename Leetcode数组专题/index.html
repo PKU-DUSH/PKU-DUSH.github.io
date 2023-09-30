@@ -29,7 +29,7 @@
 <meta property="og:description" content="此博客记录了Leetcode中的数组题目">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-09-28T16:15:09.000Z">
-<meta property="article:modified_time" content="2023-09-29T14:50:22.490Z">
+<meta property="article:modified_time" content="2023-09-30T15:36:43.505Z">
 <meta property="article:author" content="DUSH">
 <meta property="article:tag" content="Array">
 <meta property="article:tag" content="快慢指针">
@@ -117,7 +117,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E7%BB%84"><span class="nav-number">1.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE"><span class="nav-number">1.1.</span> <span class="nav-text">二分查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0"><span class="nav-number">1.2.</span> <span class="nav-text">移除元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E5%B9%B3%E6%96%B9"><span class="nav-number">1.3.</span> <span class="nav-text">有序数组的平方</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E7%BB%84"><span class="nav-number">1.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE"><span class="nav-number">1.1.</span> <span class="nav-text">二分查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0"><span class="nav-number">1.2.</span> <span class="nav-text">移除元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E5%B9%B3%E6%96%B9"><span class="nav-number">1.3.</span> <span class="nav-text">有序数组的平方</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%95%BF%E5%BA%A6%E6%9C%80%E5%B0%8F%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84"><span class="nav-number">1.4.</span> <span class="nav-text">长度最小的子数组</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -225,9 +225,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2023-09-29 00:15:09 / Modified: 22:50:22" itemprop="dateCreated datePublished" datetime="2023-09-29T00:15:09+08:00">2023-09-29</time>
+      <time title="Created: 2023-09-29 00:15:09" itemprop="dateCreated datePublished" datetime="2023-09-29T00:15:09+08:00">2023-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-09-30 23:36:43" itemprop="dateModified" datetime="2023-09-30T23:36:43+08:00">2023-09-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -292,12 +298,47 @@
 <ul>
 <li><p>双指针法：</p>
 <ul>
-<li><p>由于数组有序，那么平方之后最大值肯定在两侧，所以可以两侧都设置一个指针</p>
+<li>由于数组有序，那么平方之后最大值肯定在两侧，所以可以两侧都设置一个指针</li>
+<li>注意<code>i&lt;=j</code>，因为如果<code>i==j</code>就停止，那么i和j同时指向的这个元素就不会被放入新数组中</li>
+<li>这个思想有点像快排？</li>
+</ul>
 </li>
-<li><p>注意<code>i&lt;=j</code>，因为如果<code>i==j</code>就停止，那么i和j同时指向的这个元素就不会被放入新数组中</p>
+</ul>
+<h2 id="长度最小的子数组"><a href="#长度最小的子数组" class="headerlink" title="长度最小的子数组"></a>长度最小的子数组</h2><blockquote>
+<p>题目链接：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimum-size-subarray-sum/description/">https://leetcode.cn/problems/minimum-size-subarray-sum/description/</a></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//暴力解</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minSubArrayLen</span><span class="params">(<span class="type">int</span> target, vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> length = <span class="number">100000</span>; <span class="comment">//注意length变化的情况下要设为全局变量，并且有更新的逻辑</span></span><br><span class="line">        <span class="type">int</span> subLength = <span class="number">0</span>;       </span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="type">int</span> result = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = i; j &lt; nums.<span class="built_in">size</span>(); j++ ) &#123;</span><br><span class="line">                result += nums[j];</span><br><span class="line">                <span class="keyword">if</span> (result &gt;= target)&#123;</span><br><span class="line">                    subLength = j - i + <span class="number">1</span>;</span><br><span class="line">                    length = subLength &lt; length ? subLength : length; <span class="comment">//用此方式可以更简洁</span></span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                    </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> length == <span class="number">100000</span> ? <span class="number">0</span> : length;    </span><br><span class="line">    &#125;<span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minSubArrayLen</span><span class="params">(<span class="type">int</span> target, vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> length = INT_MAX;</span><br><span class="line">        <span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> subLength = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> result = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; nums.<span class="built_in">size</span>(); j++)&#123;</span><br><span class="line">            result += nums[j];</span><br><span class="line">            <span class="keyword">while</span> (result &gt;= target) &#123;</span><br><span class="line">                subLength = j - i + <span class="number">1</span>;</span><br><span class="line">                length = subLength &lt; length ? subLength : length;</span><br><span class="line">                result -= nums[i++]; </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> length == INT_MAX ? <span class="number">0</span> : length;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//滑动窗口</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minSubArrayLen</span><span class="params">(<span class="type">int</span> target, vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> length = INT_MAX; <span class="comment">//注意int最大值用INT_MAX表示比较好</span></span><br><span class="line">        <span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> subLength = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> result = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; nums.<span class="built_in">size</span>(); j++)&#123;</span><br><span class="line">            result += nums[j];</span><br><span class="line">            <span class="keyword">while</span> (result &gt;= target) &#123;</span><br><span class="line">                subLength = j - i + <span class="number">1</span>;</span><br><span class="line">                length = subLength &lt; length ? subLength : length;</span><br><span class="line">                result -= nums[i++]; </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> length == INT_MAX ? <span class="number">0</span> : length;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>两重for循环的本质是：<strong>第一个for循环确定起始位置，另一个for循环确定结束位置</strong></p>
 </li>
-<li><p>这个思想有点像快排？</p>
+<li><p>滑动窗口（也是双指针法的一种）：</p>
+<ul>
+<li>不像双重for一样每次for都会更新result，而是<strong>只在一个for中计算一次result【即总在结束位置累加计算】，然后通过起始位置减少result</strong>。</li>
+<li>在本题中实现滑动窗口，主要确定如下三点：<ul>
+<li>窗口内是什么？<ul>
+<li>窗口就是 <strong>满足其和 ≥ s 的长度最小的 连续 子数组</strong>。</li>
+</ul>
 </li>
+<li>如何移动窗口的起始位置？<ul>
+<li>窗口的起始位置如何移动：<strong>如果当前窗口的值大于s了，窗口就要向前移动了（也就是该缩小了）</strong>。</li>
+<li><code>result -= nums[i++]</code>  关键就是通过这句实现起始位置的移动</li>
+</ul>
+</li>
+<li>如何移动窗口的结束位置？<ul>
+<li>窗口的结束位置如何移动：<strong>窗口的结束位置就是遍历数组的指针，也就是for循环里的索引</strong>。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>思路（文字翻译成代码）：</p>
+<ul>
+<li><strong>判断条件是什么</strong>：和大于等于target  -&gt;  <strong>result</strong> &gt;&#x3D;target</li>
+<li>长度最小的数组：</li>
+<li>判断长度最小需要循环比较然后在更新，所以要全局变量length</li>
+<li>每个循环体要有局部变量用于比较是否最小  -&gt;  subLength</li>
 </ul>
 </li>
 </ul>

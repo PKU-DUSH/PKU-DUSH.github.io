@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>HELLO</title>
+    <url>/HELLO/</url>
+    <content><![CDATA[<h1 id="THIS-IS-MY-FIRST-BOLG"><a href="#THIS-IS-MY-FIRST-BOLG" class="headerlink" title="THIS IS MY FIRST BOLG !"></a>THIS IS MY FIRST BOLG !</h1>]]></content>
+      <categories>
+        <category>vsfFOAM</category>
+      </categories>
+      <tags>
+        <tag>CODE</tag>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Leetcode数组专题</title>
     <url>/Leetcode%E6%95%B0%E7%BB%84%E4%B8%93%E9%A2%98/</url>
     <content><![CDATA[<div class="note info"><h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><blockquote>
@@ -46,12 +58,47 @@
 <ul>
 <li><p>双指针法：</p>
 <ul>
-<li><p>由于数组有序，那么平方之后最大值肯定在两侧，所以可以两侧都设置一个指针</p>
+<li>由于数组有序，那么平方之后最大值肯定在两侧，所以可以两侧都设置一个指针</li>
+<li>注意<code>i&lt;=j</code>，因为如果<code>i==j</code>就停止，那么i和j同时指向的这个元素就不会被放入新数组中</li>
+<li>这个思想有点像快排？</li>
+</ul>
 </li>
-<li><p>注意<code>i&lt;=j</code>，因为如果<code>i==j</code>就停止，那么i和j同时指向的这个元素就不会被放入新数组中</p>
+</ul>
+<h2 id="长度最小的子数组"><a href="#长度最小的子数组" class="headerlink" title="长度最小的子数组"></a>长度最小的子数组</h2><blockquote>
+<p>题目链接：<a href="https://leetcode.cn/problems/minimum-size-subarray-sum/description/">https://leetcode.cn/problems/minimum-size-subarray-sum/description/</a></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//暴力解</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minSubArrayLen</span><span class="params">(<span class="type">int</span> target, vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> length = <span class="number">100000</span>; <span class="comment">//注意length变化的情况下要设为全局变量，并且有更新的逻辑</span></span><br><span class="line">        <span class="type">int</span> subLength = <span class="number">0</span>;       </span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="type">int</span> result = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = i; j &lt; nums.<span class="built_in">size</span>(); j++ ) &#123;</span><br><span class="line">                result += nums[j];</span><br><span class="line">                <span class="keyword">if</span> (result &gt;= target)&#123;</span><br><span class="line">                    subLength = j - i + <span class="number">1</span>;</span><br><span class="line">                    length = subLength &lt; length ? subLength : length; <span class="comment">//用此方式可以更简洁</span></span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                    </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> length == <span class="number">100000</span> ? <span class="number">0</span> : length;    </span><br><span class="line">    &#125;<span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minSubArrayLen</span><span class="params">(<span class="type">int</span> target, vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> length = INT_MAX;</span><br><span class="line">        <span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> subLength = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> result = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; nums.<span class="built_in">size</span>(); j++)&#123;</span><br><span class="line">            result += nums[j];</span><br><span class="line">            <span class="keyword">while</span> (result &gt;= target) &#123;</span><br><span class="line">                subLength = j - i + <span class="number">1</span>;</span><br><span class="line">                length = subLength &lt; length ? subLength : length;</span><br><span class="line">                result -= nums[i++]; </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> length == INT_MAX ? <span class="number">0</span> : length;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//滑动窗口</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minSubArrayLen</span><span class="params">(<span class="type">int</span> target, vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> length = INT_MAX; <span class="comment">//注意int最大值用INT_MAX表示比较好</span></span><br><span class="line">        <span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> subLength = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> result = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; nums.<span class="built_in">size</span>(); j++)&#123;</span><br><span class="line">            result += nums[j];</span><br><span class="line">            <span class="keyword">while</span> (result &gt;= target) &#123;</span><br><span class="line">                subLength = j - i + <span class="number">1</span>;</span><br><span class="line">                length = subLength &lt; length ? subLength : length;</span><br><span class="line">                result -= nums[i++]; </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> length == INT_MAX ? <span class="number">0</span> : length;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>两重for循环的本质是：<strong>第一个for循环确定起始位置，另一个for循环确定结束位置</strong></p>
 </li>
-<li><p>这个思想有点像快排？</p>
+<li><p>滑动窗口（也是双指针法的一种）：</p>
+<ul>
+<li>不像双重for一样每次for都会更新result，而是<strong>只在一个for中计算一次result【即总在结束位置累加计算】，然后通过起始位置减少result</strong>。</li>
+<li>在本题中实现滑动窗口，主要确定如下三点：<ul>
+<li>窗口内是什么？<ul>
+<li>窗口就是 <strong>满足其和 ≥ s 的长度最小的 连续 子数组</strong>。</li>
+</ul>
 </li>
+<li>如何移动窗口的起始位置？<ul>
+<li>窗口的起始位置如何移动：<strong>如果当前窗口的值大于s了，窗口就要向前移动了（也就是该缩小了）</strong>。</li>
+<li><code>result -= nums[i++]</code>  关键就是通过这句实现起始位置的移动</li>
+</ul>
+</li>
+<li>如何移动窗口的结束位置？<ul>
+<li>窗口的结束位置如何移动：<strong>窗口的结束位置就是遍历数组的指针，也就是for循环里的索引</strong>。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>思路（文字翻译成代码）：</p>
+<ul>
+<li><strong>判断条件是什么</strong>：和大于等于target  -&gt;  <strong>result</strong> &gt;&#x3D;target</li>
+<li>长度最小的数组：</li>
+<li>判断长度最小需要循环比较然后在更新，所以要全局变量length</li>
+<li>每个循环体要有局部变量用于比较是否最小  -&gt;  subLength</li>
 </ul>
 </li>
 </ul>
@@ -121,15 +168,28 @@
       </tags>
   </entry>
   <entry>
-    <title>HELLO</title>
-    <url>/HELLO/</url>
-    <content><![CDATA[<h1 id="THIS-IS-MY-FIRST-BOLG"><a href="#THIS-IS-MY-FIRST-BOLG" class="headerlink" title="THIS IS MY FIRST BOLG !"></a>THIS IS MY FIRST BOLG !</h1>]]></content>
+    <title>Hello World</title>
+    <url>/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
       <categories>
-        <category>vsfFOAM</category>
+        <category>BLOG</category>
       </categories>
       <tags>
-        <tag>CODE</tag>
-        <tag>C++</tag>
+        <tag>NexT</tag>
+        <tag>HEXO</tag>
       </tags>
   </entry>
   <entry>
@@ -269,31 +329,6 @@
         <tag>Linux</tag>
         <tag>OpenFOAM</tag>
         <tag>vsfFOAM</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>BLOG</category>
-      </categories>
-      <tags>
-        <tag>NexT</tag>
-        <tag>HEXO</tag>
       </tags>
   </entry>
 </search>
