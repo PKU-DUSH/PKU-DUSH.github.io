@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>HELLO</title>
+    <url>/HELLO/</url>
+    <content><![CDATA[<h1 id="THIS-IS-MY-FIRST-BOLG"><a href="#THIS-IS-MY-FIRST-BOLG" class="headerlink" title="THIS IS MY FIRST BOLG !"></a>THIS IS MY FIRST BOLG !</h1>]]></content>
+      <categories>
+        <category>vsfFOAM</category>
+      </categories>
+      <tags>
+        <tag>CODE</tag>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Leetcode数组专题</title>
     <url>/Leetcode%E6%95%B0%E7%BB%84%E4%B8%93%E9%A2%98/</url>
     <content><![CDATA[<div class="note info"><h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><blockquote>
@@ -124,18 +136,6 @@
       </tags>
   </entry>
   <entry>
-    <title>HELLO</title>
-    <url>/HELLO/</url>
-    <content><![CDATA[<h1 id="THIS-IS-MY-FIRST-BOLG"><a href="#THIS-IS-MY-FIRST-BOLG" class="headerlink" title="THIS IS MY FIRST BOLG !"></a>THIS IS MY FIRST BOLG !</h1>]]></content>
-      <categories>
-        <category>vsfFOAM</category>
-      </categories>
-      <tags>
-        <tag>CODE</tag>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Leetcode链表专题</title>
     <url>/Leetcode%E9%93%BE%E8%A1%A8%E4%B8%93%E9%A2%98/</url>
     <content><![CDATA[<div class="note info"><h1 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h1><h2 id="移除链表元素"><a href="#移除链表元素" class="headerlink" title="移除链表元素"></a>移除链表元素</h2><blockquote>
@@ -181,6 +181,45 @@
 <li>而cur是个指针，指向这个dummyHead</li>
 <li>所以cur可以改变dummyHead-&gt;next</li>
 </ul>
+</li>
+</ul>
+<h2 id="删除链表的倒数第N个结点"><a href="#删除链表的倒数第N个结点" class="headerlink" title="删除链表的倒数第N个结点"></a>删除链表的倒数第N个结点</h2><blockquote>
+<p>题目链接：<a href="https://leetcode.cn/problems/remove-nth-node-from-end-of-list/">https://leetcode.cn/problems/remove-nth-node-from-end-of-list/</a></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">removeNthFromEnd</span><span class="params">(ListNode* head, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        ListNode* fast = <span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">0</span>);</span><br><span class="line">        ListNode* slow = <span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">0</span>);</span><br><span class="line">        ListNode* dummyHead = <span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        dummyHead -&gt; next = head;</span><br><span class="line">        fast = dummyHead;</span><br><span class="line">        slow = dummyHead;</span><br><span class="line">        n++;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (n--)</span><br><span class="line">            fast = fast -&gt; next;</span><br><span class="line">        <span class="keyword">while</span> (fast)&#123;</span><br><span class="line">            fast = fast -&gt; next;</span><br><span class="line">            slow = slow -&gt; next;</span><br><span class="line">        &#125;</span><br><span class="line">        slow -&gt; next = slow -&gt; next -&gt; next;</span><br><span class="line"></span><br><span class="line">         <span class="keyword">return</span> dummyHead -&gt; next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>典型的快慢指针问题</p>
+<p><img src="https://s2.loli.net/2023/10/09/Oj3dnykKAEf41xa.png" alt="image-20231009124214423"></p>
+</li>
+</ul>
+<h2 id="链表相交"><a href="#链表相交" class="headerlink" title="链表相交"></a>链表相交</h2><blockquote>
+<p>题目链接：<a href="https://leetcode.cn/problems/intersection-of-two-linked-lists-lcci/description/">https://leetcode.cn/problems/intersection-of-two-linked-lists-lcci/description/</a></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> <span class="comment">//传统双指针方法</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode *<span class="title">getIntersectionNode</span><span class="params">(ListNode *headA, ListNode *headB)</span> </span>&#123;</span><br><span class="line">        ListNode* curA = headA;</span><br><span class="line">        ListNode* curB = headB;</span><br><span class="line">        <span class="type">int</span> lengthA = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> lengthB = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (curA)&#123;</span><br><span class="line">            lengthA++;</span><br><span class="line">            curA = curA -&gt; next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (curB)&#123;</span><br><span class="line">            lengthB++;</span><br><span class="line">            curB = curB -&gt; next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        curA = headA;</span><br><span class="line">        curB = headB; <span class="comment">//注意要将cur返回</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (lengthB &gt; lengthA)&#123;</span><br><span class="line">            <span class="built_in">swap</span>(lengthA, lengthB);</span><br><span class="line">            <span class="built_in">swap</span>(curA, curB);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> distance = lengthA - lengthB;</span><br><span class="line">        <span class="keyword">while</span> (distance--)</span><br><span class="line">            curA = curA -&gt; next;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (curA &amp;&amp; curB)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(curA == curB)</span><br><span class="line">                <span class="keyword">return</span> curA;</span><br><span class="line">            curA = curA -&gt; next;</span><br><span class="line">            curB = curB -&gt; next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>传统双指针：双指针先对齐，然后同时向后搜索</p>
+<p><img src="https://s2.loli.net/2023/10/09/frjqdV6YMApWOBT.png" alt="image-20231009163406450"></p>
+</li>
+<li><p>数学公式双指针：两个指针都搜索a+b+c的距离，此时一定是节点的位置</p>
+<p><img src="https://s2.loli.net/2023/10/09/UgPH4OQjkBvRroC.png" alt="image-20231009163005284"></p>
+</li>
+</ul>
+<h2 id="环形链表"><a href="#环形链表" class="headerlink" title="环形链表"></a>环形链表</h2><blockquote>
+<p>题目链接：</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>先快慢指针判断是否有环</p>
+</li>
+<li><p>有环情况下找到入口</p>
+<ul>
+<li>也就是<strong>从头结点出发一个指针，从相遇节点也出发一个指针，这两个指针每次只走一个节点， 那么当这两个指针相遇的时候就是 环形入口的节点</strong>（虽然可能从相遇节点出发的指针已经绕了好几圈）<br><img src="https://s2.loli.net/2023/10/09/gV763BlhrF1pPsR.png" alt="image-20231009171140021"></li>
+</ul>
+</li>
+<li><p>注意一旦有<code>fast -&gt;next -&gt;next</code>,那么不仅要判断<code>fast -&gt; next  != NULL</code>， 也要判断 <code>fast -&gt;next -&gt;next != NULL</code></p>
 </li>
 </ul>
 </div>
@@ -311,96 +350,6 @@
       </tags>
   </entry>
   <entry>
-    <title>远程工作站安装vsfFOAM</title>
-    <url>/%E8%BF%9C%E7%A8%8B%E5%B7%A5%E4%BD%9C%E7%AB%99%E5%AE%89%E8%A3%85vsfFOAM/</url>
-    <content><![CDATA[<div class="note warning"><h1 id="vsfFOAM安装"><a href="#vsfFOAM安装" class="headerlink" title="vsfFOAM安装"></a>vsfFOAM安装</h1><blockquote>
-<p>将vsfFOAM文件夹直接从PC拖入远程工作站的OpenFOAM文件夹内 后出现问题：</p>
-<p><img src="https://s2.loli.net/2023/09/25/yZEikHJnRmPYtld.png" alt="image-20230925150025410"></p>
-<ol>
-<li><p>尝试用chmod +x 赋予权限，但还是有问题</p>
-<p><img src="https://s2.loli.net/2023/09/25/DvkcgOIPx4TeKZM.png" alt="image-20230925175133908"></p>
-<p><img src="https://s2.loli.net/2023/09/25/kDRBigzvoxHuwTM.png" alt="image-20230925175048192"></p>
-</li>
-</ol>
-<ul>
-<li>此问题已解决：OpenFOAM11删除了fvCFD这个头文件，所以推荐vsfFOAM依赖OpenFOAM10使用</li>
-</ul>
-</blockquote>
-<h2 id="加载OpenFOAM-10环境"><a href="#加载OpenFOAM-10环境" class="headerlink" title="加载OpenFOAM-10环境"></a>加载OpenFOAM-10环境</h2><p><img src="https://s2.loli.net/2023/09/25/SQVFKahm4q2oz7y.png" alt="image-20230925212347606"></p>
-<h2 id="编译vsfFOAM"><a href="#编译vsfFOAM" class="headerlink" title="编译vsfFOAM"></a>编译vsfFOAM</h2><blockquote>
-<ul>
-<li><p>注意vsfFOAM位置</p>
-<p><img src="https://s2.loli.net/2023/09/25/LqjcFlIgV514Xfr.png" alt="image-20230925212448048"></p>
-</li>
-</ul>
-</blockquote>
-<ul>
-<li>编译</li>
-</ul>
-<p><img src="https://s2.loli.net/2023/09/25/UbuOm6LDZtjV4aR.png" alt="image-20230925212525526"></p>
-<h2 id="运行教学算例"><a href="#运行教学算例" class="headerlink" title="运行教学算例"></a>运行教学算例</h2><blockquote>
-<ul>
-<li>出现如下问题，原因是文件路径不符合，解决办法可以直接复制泰勒格林流文件夹里的文件到run文件夹下</li>
-</ul>
-<p><img src="https://s2.loli.net/2023/09/25/9A8DWP2NLqugSsj.png" alt="image-20230925213619260"></p>
-<ul>
-<li>加一个&#x2F;*即可<br><img src="https://s2.loli.net/2023/09/28/i6aDyVtUph5qsxj.png" alt="image-20230925214436191"><br><img src="https://s2.loli.net/2023/09/28/kFrYa4JtUlgXhMC.png" alt="image-20230925214542805"></li>
-</ul>
-</blockquote>
-<h3 id="构造网格"><a href="#构造网格" class="headerlink" title="构造网格"></a>构造网格</h3><p><img src="https://s2.loli.net/2023/09/25/7E5HTYBZpct4agk.png" alt="image-20230925214712144"></p>
-<h3 id="初始化流场"><a href="#初始化流场" class="headerlink" title="初始化流场"></a>初始化流场</h3><blockquote>
-<ul>
-<li><p>出现命令找不到的问题，因为vsfFOAM依赖于OpenFOAM，所以实际上是在OpenFOAM中找不到这个命令（如下二图）</p>
-<ul>
-<li>OpenFOAM中只有setFields能够设置简单的初始场，funkyxxx需要自行安装。</li>
-</ul>
-<p><img src="https://s2.loli.net/2023/09/25/jbh2nK7aX3uwits.png" alt="image-20230925220552066"></p>
-<p><img src="https://s2.loli.net/2023/09/25/3y9saYoefGlKpLR.png" alt="image-20230925220653957"></p>
-</li>
-</ul>
-</blockquote>
-<h4 id="安装funkySetFields"><a href="#安装funkySetFields" class="headerlink" title="安装funkySetFields"></a>安装funkySetFields</h4><blockquote>
-<ul>
-<li>可以根据这篇博客以及官方教程来<ul>
-<li><a href="https://blog.csdn.net/zq93538196/article/details/118310086">https://blog.csdn.net/zq93538196/article/details/118310086</a></li>
-<li><a href="https://openfoamwiki.net/index.php/Installation/swak4Foam">https://openfoamwiki.net/index.php/Installation/swak4Foam</a></li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<p><img src="https://s2.loli.net/2023/09/25/1komGpsQ4POtUZ3.png" alt="image-20230925235839051"></p>
-<h3 id="分解计算域"><a href="#分解计算域" class="headerlink" title="分解计算域"></a>分解计算域</h3><p><img src="https://s2.loli.net/2023/09/25/krHLUtGSWz8nc1D.png" alt="image-20230925235906887"></p>
-<h3 id="执行运算-重组计算域"><a href="#执行运算-重组计算域" class="headerlink" title="执行运算&amp;重组计算域"></a>执行运算&amp;重组计算域</h3><ul>
-<li><p>并行执行运算使用如下指令<img src="https://s2.loli.net/2023/09/28/Yv4L1iqtkpI92F8.png" alt="image-20230928153233799"></p>
-<ul>
-<li>并非使用UserGuide中的vsfFoam指令。</li>
-</ul>
-</li>
-<li><p>重组计算域使用如下指令：<img src="https://s2.loli.net/2023/09/28/KOk8RscVuMtHgiW.png" alt="image-20230928153400874"></p>
-</li>
-</ul>
-<blockquote>
-<p>此过程可能会耗费数个小时，建议使用nohup 和&amp; 指令，避免中途退出。</p>
-<ul>
-<li><p>最后产生的nohup.out文件大概有9w行数据（如下）：</p>
-<p><img src="https://s2.loli.net/2023/09/28/v1fKCHA7Z5RDeTO.png" alt="image-20230928153832170"></p>
-</li>
-</ul>
-</blockquote>
-<h3 id="paraFoam-builtin后处理"><a href="#paraFoam-builtin后处理" class="headerlink" title="paraFoam -builtin后处理"></a>paraFoam -builtin后处理</h3><p><img src="https://s2.loli.net/2023/09/27/vR2LHDcAF9mib6p.png" alt="image-20230927213541886"></p>
-<p><img src="https://s2.loli.net/2023/09/27/IFOfxmJ2jiysdGY.png" alt="image-20230927213631892"></p>
-</div>
-]]></content>
-      <categories>
-        <category>vsfFOAM</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>OpenFOAM</tag>
-        <tag>vsfFOAM</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -482,6 +431,96 @@
 </li>
 </ol>
 </div>]]></content>
+      <categories>
+        <category>vsfFOAM</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>OpenFOAM</tag>
+        <tag>vsfFOAM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>远程工作站安装vsfFOAM</title>
+    <url>/%E8%BF%9C%E7%A8%8B%E5%B7%A5%E4%BD%9C%E7%AB%99%E5%AE%89%E8%A3%85vsfFOAM/</url>
+    <content><![CDATA[<div class="note warning"><h1 id="vsfFOAM安装"><a href="#vsfFOAM安装" class="headerlink" title="vsfFOAM安装"></a>vsfFOAM安装</h1><blockquote>
+<p>将vsfFOAM文件夹直接从PC拖入远程工作站的OpenFOAM文件夹内 后出现问题：</p>
+<p><img src="https://s2.loli.net/2023/09/25/yZEikHJnRmPYtld.png" alt="image-20230925150025410"></p>
+<ol>
+<li><p>尝试用chmod +x 赋予权限，但还是有问题</p>
+<p><img src="https://s2.loli.net/2023/09/25/DvkcgOIPx4TeKZM.png" alt="image-20230925175133908"></p>
+<p><img src="https://s2.loli.net/2023/09/25/kDRBigzvoxHuwTM.png" alt="image-20230925175048192"></p>
+</li>
+</ol>
+<ul>
+<li>此问题已解决：OpenFOAM11删除了fvCFD这个头文件，所以推荐vsfFOAM依赖OpenFOAM10使用</li>
+</ul>
+</blockquote>
+<h2 id="加载OpenFOAM-10环境"><a href="#加载OpenFOAM-10环境" class="headerlink" title="加载OpenFOAM-10环境"></a>加载OpenFOAM-10环境</h2><p><img src="https://s2.loli.net/2023/09/25/SQVFKahm4q2oz7y.png" alt="image-20230925212347606"></p>
+<h2 id="编译vsfFOAM"><a href="#编译vsfFOAM" class="headerlink" title="编译vsfFOAM"></a>编译vsfFOAM</h2><blockquote>
+<ul>
+<li><p>注意vsfFOAM位置</p>
+<p><img src="https://s2.loli.net/2023/09/25/LqjcFlIgV514Xfr.png" alt="image-20230925212448048"></p>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>编译</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/09/25/UbuOm6LDZtjV4aR.png" alt="image-20230925212525526"></p>
+<h2 id="运行教学算例"><a href="#运行教学算例" class="headerlink" title="运行教学算例"></a>运行教学算例</h2><blockquote>
+<ul>
+<li>出现如下问题，原因是文件路径不符合，解决办法可以直接复制泰勒格林流文件夹里的文件到run文件夹下</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/09/25/9A8DWP2NLqugSsj.png" alt="image-20230925213619260"></p>
+<ul>
+<li>加一个&#x2F;*即可<br><img src="https://s2.loli.net/2023/09/28/i6aDyVtUph5qsxj.png" alt="image-20230925214436191"><br><img src="https://s2.loli.net/2023/09/28/kFrYa4JtUlgXhMC.png" alt="image-20230925214542805"></li>
+</ul>
+</blockquote>
+<h3 id="构造网格"><a href="#构造网格" class="headerlink" title="构造网格"></a>构造网格</h3><p><img src="https://s2.loli.net/2023/09/25/7E5HTYBZpct4agk.png" alt="image-20230925214712144"></p>
+<h3 id="初始化流场"><a href="#初始化流场" class="headerlink" title="初始化流场"></a>初始化流场</h3><blockquote>
+<ul>
+<li><p>出现命令找不到的问题，因为vsfFOAM依赖于OpenFOAM，所以实际上是在OpenFOAM中找不到这个命令（如下二图）</p>
+<ul>
+<li>OpenFOAM中只有setFields能够设置简单的初始场，funkyxxx需要自行安装。</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/09/25/jbh2nK7aX3uwits.png" alt="image-20230925220552066"></p>
+<p><img src="https://s2.loli.net/2023/09/25/3y9saYoefGlKpLR.png" alt="image-20230925220653957"></p>
+</li>
+</ul>
+</blockquote>
+<h4 id="安装funkySetFields"><a href="#安装funkySetFields" class="headerlink" title="安装funkySetFields"></a>安装funkySetFields</h4><blockquote>
+<ul>
+<li>可以根据这篇博客以及官方教程来<ul>
+<li><a href="https://blog.csdn.net/zq93538196/article/details/118310086">https://blog.csdn.net/zq93538196/article/details/118310086</a></li>
+<li><a href="https://openfoamwiki.net/index.php/Installation/swak4Foam">https://openfoamwiki.net/index.php/Installation/swak4Foam</a></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/09/25/1komGpsQ4POtUZ3.png" alt="image-20230925235839051"></p>
+<h3 id="分解计算域"><a href="#分解计算域" class="headerlink" title="分解计算域"></a>分解计算域</h3><p><img src="https://s2.loli.net/2023/09/25/krHLUtGSWz8nc1D.png" alt="image-20230925235906887"></p>
+<h3 id="执行运算-重组计算域"><a href="#执行运算-重组计算域" class="headerlink" title="执行运算&amp;重组计算域"></a>执行运算&amp;重组计算域</h3><ul>
+<li><p>并行执行运算使用如下指令<img src="https://s2.loli.net/2023/09/28/Yv4L1iqtkpI92F8.png" alt="image-20230928153233799"></p>
+<ul>
+<li>并非使用UserGuide中的vsfFoam指令。</li>
+</ul>
+</li>
+<li><p>重组计算域使用如下指令：<img src="https://s2.loli.net/2023/09/28/KOk8RscVuMtHgiW.png" alt="image-20230928153400874"></p>
+</li>
+</ul>
+<blockquote>
+<p>此过程可能会耗费数个小时，建议使用nohup 和&amp; 指令，避免中途退出。</p>
+<ul>
+<li><p>最后产生的nohup.out文件大概有9w行数据（如下）：</p>
+<p><img src="https://s2.loli.net/2023/09/28/v1fKCHA7Z5RDeTO.png" alt="image-20230928153832170"></p>
+</li>
+</ul>
+</blockquote>
+<h3 id="paraFoam-builtin后处理"><a href="#paraFoam-builtin后处理" class="headerlink" title="paraFoam -builtin后处理"></a>paraFoam -builtin后处理</h3><p><img src="https://s2.loli.net/2023/09/27/vR2LHDcAF9mib6p.png" alt="image-20230927213541886"></p>
+<p><img src="https://s2.loli.net/2023/09/27/IFOfxmJ2jiysdGY.png" alt="image-20230927213631892"></p>
+</div>
+]]></content>
       <categories>
         <category>vsfFOAM</category>
       </categories>
