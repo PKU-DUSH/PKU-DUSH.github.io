@@ -29,7 +29,7 @@
 <meta property="og:description" content="记录一下最近使用但容易遗忘的Linux命令">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-09-27T09:48:13.000Z">
-<meta property="article:modified_time" content="2023-10-22T10:28:46.070Z">
+<meta property="article:modified_time" content="2023-10-23T05:19:47.687Z">
 <meta property="article:author" content="DUSH">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="BASH">
@@ -131,13 +131,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -232,7 +232,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-10-22 18:28:46" itemprop="dateModified" datetime="2023-10-22T18:28:46+08:00">2023-10-22</time>
+      <time title="Modified: 2023-10-23 13:19:47" itemprop="dateModified" datetime="2023-10-23T13:19:47+08:00">2023-10-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -294,10 +294,16 @@
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">top    //查看CPU占用，<span class="built_in">shift</span>+m 按内存占用排序</span><br></pre></td></tr></table></figure>
 
-
-
-
-
+<ul>
+<li>解压命令</li>
+</ul>
+<blockquote>
+<ol>
+<li>*.tar 用 tar –xvf 解压</li>
+<li><em>.tar.gz和</em>.tgz 用 tar –xzf 解压</li>
+<li>*.zip 用 unzip 解压</li>
+</ol>
+</blockquote>
 <h2 id="Permission-denied的解决办法"><a href="#Permission-denied的解决办法" class="headerlink" title="Permission denied的解决办法"></a>Permission denied的解决办法</h2><blockquote>
 <p>赋予全部权限777（rwx）</p>
 </blockquote>
@@ -314,6 +320,11 @@
 <li>查看文件</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//在终端显示文件所有内容</span><br><span class="line"><span class="built_in">cat</span> file.txt</span><br><span class="line"></span><br><span class="line">//按页查看文件内容，适合查看大文件</span><br><span class="line">//按空格翻页，按q退出</span><br><span class="line">less file.txt</span><br><span class="line">less -N file.txt  //添加行号	</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>删除文件</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span>[选项] 文件或目录</span><br><span class="line">选项：</span><br><span class="line">-f：强制删除（force），和 -i 选项相反，使用 -f，系统将不再询问，而是直接删除目标文件或目录。</span><br><span class="line">-i：和 -f 正好相反，在删除文件或目录之前，系统会给出提示信息，使用 -i 可以有效防止不小心删除有用的文件或目录。</span><br><span class="line">-r：递归删除，主要用于删除目录，可删除指定目录及包含的所有内容，包括所有的子目录和文件。</span><br><span class="line">//删除目录是 <span class="built_in">rm</span> -r， 但是会一直提示，所以<span class="built_in">rm</span> -rf</span><br><span class="line">//虽然 <span class="string">&quot;-rf&quot;</span> 选项是用来删除目录的，但是删除文件也不会报错。所以，为了使用方便，一般不论是删除文件还是删除目录，都会直接使用 <span class="string">&quot;rm -rf&quot;</span> 选项</span><br></pre></td></tr></table></figure>
 
 
 

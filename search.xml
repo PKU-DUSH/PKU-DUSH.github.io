@@ -1,6 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>C++基础</title>
+    <url>/C++%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<h1 id="C-知识"><a href="#C-知识" class="headerlink" title="C++知识"></a>C++知识</h1><h2 id="C-内存基础"><a href="#C-内存基础" class="headerlink" title="C++内存基础"></a>C++内存基础</h2><h3 id="进程虚拟空间地址划分"><a href="#进程虚拟空间地址划分" class="headerlink" title="进程虚拟空间地址划分"></a>进程虚拟空间地址划分</h3><p><img src="https://s2.loli.net/2023/10/07/oV6nFMAJB5rpih2.png" alt="image-20231007213657680"></p>
+<p><img src="https://s2.loli.net/2023/10/07/GtWVpPKcloYHOT6.png" alt="image-20231007212931110"></p>
+<ul>
+<li>指令在运行的时候存放在在.text段；数据放在.data和.bbs段<ul>
+<li>.data：存放已经初始化的数据且数据不为0</li>
+<li>.bbs：存放未初始化的数据（系统会赋值为0，所以打印未初始化的数据会输出为0）</li>
+</ul>
+</li>
+<li>程序内局部变量都是指令；全局变量和静态变量都是数据</li>
+<li>指令存放在.text段，而指令执行的时候会在栈上开辟空间</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/10/07/feUsTCEPRav6V8j.png" alt="image-20231007213056216"></p>
+<ul>
+<li>对于不同的线程，用户空间是隔离的，内核空间是共享的</li>
+<li>管道通信实际上是在内核空间划分了内存，所以才能通信，因为用户空间是隔离的</li>
+</ul>
+<h3 id="从编译器角度理解C-代码的编译和链接原理"><a href="#从编译器角度理解C-代码的编译和链接原理" class="headerlink" title="从编译器角度理解C++代码的编译和链接原理"></a>从编译器角度理解C++代码的编译和链接原理</h3><ul>
+<li>编译过程如下：</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/10/23/7QoHJPys9A1L3mG.png" alt="image-20231023223509832"></p>
+<ul>
+<li><p>编译生成的.o文件组成</p>
+<ul>
+<li>这里的每一行称为段<br><img src="https://s2.loli.net/2023/10/23/rcIURvgo6GnLS9X.png" alt="image-20231023221321923"></li>
+</ul>
+</li>
+<li><p>编译中的符号表<br><img src="https://s2.loli.net/2023/10/23/6AUndlEhVjrNX5f.png" alt="image-20231023220927089"></p>
+<p><img src="https://s2.loli.net/2023/10/23/BZCtUo89REv7gTw.png" alt="image-20231023221039508"></p>
+<p><img src="https://s2.loli.net/2023/10/24/74OUCkfGo18MTEt.png" alt="image-20231023220457249"></p>
+<ul>
+<li>其中会标出 数据和指令存放的位置（.text和data），而引用的暂时标记为UND(可以出现很多UND，但是在代码中只能定义一次，要不就是重定义了)</li>
+<li>g：global  l：local，链接的时候只能链接global的符号</li>
+<li>编译过程中不分配地址，前面的地址都是0；但是指令在编译阶段就已经产生了，</li>
+</ul>
+</li>
+<li><p>链接 </p>
+<p><img src="https://s2.loli.net/2023/10/23/1nHxDJ9pz2LmRMS.png" alt="image-20231023223528196"></p>
+<ul>
+<li>第一步：合并编译后的.o文件的相同段（所以可执行文件也是一段一段的），并分配虚拟地址</li>
+<li>符号重定向：符号解析成功后分配虚拟地址，把虚拟地址写回指令中叫符号重定向（因为编译后不分配地址，地址都为0）</li>
+</ul>
+</li>
+<li><p>可执行文件</p>
+<ul>
+<li><p>和.o文件一样都是由段组成的，但是多了progrma heads，用于指明把哪些内容加载到内存<br><img src="https://s2.loli.net/2023/10/23/QDbs4n5KO9tzLvM.png" alt="image-20231023235152854"></p>
+</li>
+<li><p>此时.o文件在磁盘上，并有了虚拟地址，之后就是操作系统虚拟地址到物理地址的转换了</p>
+<p><img src="https://s2.loli.net/2023/10/23/EmSwrzRiOl4tgkJ.png" alt="image-20231023235539410"></p>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>C++笔记</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>HELLO</title>
     <url>/HELLO/</url>
     <content><![CDATA[<h1 id="THIS-IS-MY-FIRST-BOLG"><a href="#THIS-IS-MY-FIRST-BOLG" class="headerlink" title="THIS IS MY FIRST BOLG !"></a>THIS IS MY FIRST BOLG !</h1>]]></content>
@@ -8,8 +71,8 @@
         <category>vsfFOAM</category>
       </categories>
       <tags>
-        <tag>CODE</tag>
         <tag>C++</tag>
+        <tag>CODE</tag>
       </tags>
   </entry>
   <entry>
@@ -55,10 +118,16 @@
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">top    //查看CPU占用，<span class="built_in">shift</span>+m 按内存占用排序</span><br></pre></td></tr></table></figure>
 
-
-
-
-
+<ul>
+<li>解压命令</li>
+</ul>
+<blockquote>
+<ol>
+<li>*.tar 用 tar –xvf 解压</li>
+<li><em>.tar.gz和</em>.tgz 用 tar –xzf 解压</li>
+<li>*.zip 用 unzip 解压</li>
+</ol>
+</blockquote>
 <h2 id="Permission-denied的解决办法"><a href="#Permission-denied的解决办法" class="headerlink" title="Permission denied的解决办法"></a>Permission denied的解决办法</h2><blockquote>
 <p>赋予全部权限777（rwx）</p>
 </blockquote>
@@ -75,6 +144,11 @@
 <li>查看文件</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//在终端显示文件所有内容</span><br><span class="line"><span class="built_in">cat</span> file.txt</span><br><span class="line"></span><br><span class="line">//按页查看文件内容，适合查看大文件</span><br><span class="line">//按空格翻页，按q退出</span><br><span class="line">less file.txt</span><br><span class="line">less -N file.txt  //添加行号	</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>删除文件</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span>[选项] 文件或目录</span><br><span class="line">选项：</span><br><span class="line">-f：强制删除（force），和 -i 选项相反，使用 -f，系统将不再询问，而是直接删除目标文件或目录。</span><br><span class="line">-i：和 -f 正好相反，在删除文件或目录之前，系统会给出提示信息，使用 -i 可以有效防止不小心删除有用的文件或目录。</span><br><span class="line">-r：递归删除，主要用于删除目录，可删除指定目录及包含的所有内容，包括所有的子目录和文件。</span><br><span class="line">//删除目录是 <span class="built_in">rm</span> -r， 但是会一直提示，所以<span class="built_in">rm</span> -rf</span><br><span class="line">//虽然 <span class="string">&quot;-rf&quot;</span> 选项是用来删除目录的，但是删除文件也不会报错。所以，为了使用方便，一般不论是删除文件还是删除目录，都会直接使用 <span class="string">&quot;rm -rf&quot;</span> 选项</span><br></pre></td></tr></table></figure>
 
 
 
@@ -137,72 +211,6 @@
       <tags>
         <tag>Linux</tag>
         <tag>OpenFOAM</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ParaView使用</title>
-    <url>/ParaView%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<div class="note warning"><h1 id="ParaView使用"><a href="#ParaView使用" class="headerlink" title="ParaView使用"></a>ParaView使用</h1><h2 id="本地ParaView查看远程工作站文件"><a href="#本地ParaView查看远程工作站文件" class="headerlink" title="本地ParaView查看远程工作站文件"></a>本地ParaView查看远程工作站文件</h2><ol>
-<li><p>首先在远程终端输入<code>pvserver</code><br> <img src="https://s2.loli.net/2023/10/08/qIGsmbXt6exFWQ5.png" alt="image-20231007191801789"></p>
-</li>
-<li><p>在本地ParaView中 File-&gt;connect  进行配置</p>
-<ul>
-<li>Server Type 选择Client&#x2F;Server</li>
-<li>Host输入工作站IP</li>
-<li>port默认即可</li>
-</ul>
-</li>
-<li><p>双击刚创建好的Server即可连接到远程机器，直接打开远程文件</p>
-</li>
-</ol>
-<blockquote>
-<ul>
-<li>注意如果没有foam文件，手动创建一个run.foam的空文件，然后用ParaView打开此空文件即可</li>
-</ul>
-</blockquote>
-<h2 id="ParaView的基本使用"><a href="#ParaView的基本使用" class="headerlink" title="ParaView的基本使用"></a>ParaView的基本使用</h2><blockquote>
-<p>官方教程：<a href="https://docs.paraview.org/en/latest/UsersGuide/index.html">https://docs.paraview.org/en/latest/UsersGuide/index.html</a></p>
-</blockquote>
-<ol>
-<li><p>切片、切块</p>
-<ul>
-<li>Slice&#x2F;Clip，Properties中的Nomal调整方向（法向量）</li>
-</ul>
-<p><img src="https://s2.loli.net/2023/10/08/6FD8X1lZduhaMcQ.png" alt="image-20231008154400595"></p>
-</li>
-<li><p>显示外部、框架、内部</p>
-<p><img src="https://s2.loli.net/2023/10/08/8WhQRTYdKNI4qt3.png" alt="image-20231008155015532"></p>
-<ul>
-<li><p>外部：Surface&#x2F;Surface with edges&#x2F;Wireframe&#x2F;Feature Edges</p>
-</li>
-<li><p>内部：Volume（需要渲染，有点慢）</p>
-</li>
-</ul>
-</li>
-<li><p>画等值面</p>
-<ul>
-<li><p>contour -&gt;  properties -&gt; Value Range中设置参数（代表的就是值为该参数的等值面）</p>
-<p><img src="https://s2.loli.net/2023/10/08/3NyAhnGTLHjrzfx.png" alt="image-20231008160013396"></p>
-<p><img src="https://s2.loli.net/2023/10/08/7iuy14xfdB8Q65C.png" alt="image-20231008165533308"></p>
-</li>
-</ul>
-</li>
-<li><p>设置阈值（高于某值的一律设为最大值，低于某值则设为最小值）</p>
-<ul>
-<li><p>Lower&#x2F;Higher Threshold</p>
-<p><img src="https://s2.loli.net/2023/10/08/V7lciHktSv6nJj3.png" alt="image-20231008160619201"></p>
-</li>
-</ul>
-</li>
-</ol>
-</div>]]></content>
-      <categories>
-        <category>vsfFOAM</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>OpenFOAM</tag>
-        <tag>vsfFOAM</tag>
       </tags>
   </entry>
   <entry>
@@ -286,6 +294,72 @@
 <p><img src="https://s2.loli.net/2023/09/27/IFOfxmJ2jiysdGY.png" alt="image-20230927213631892"></p>
 </div>
 ]]></content>
+      <categories>
+        <category>vsfFOAM</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>OpenFOAM</tag>
+        <tag>vsfFOAM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ParaView使用</title>
+    <url>/ParaView%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<div class="note warning"><h1 id="ParaView使用"><a href="#ParaView使用" class="headerlink" title="ParaView使用"></a>ParaView使用</h1><h2 id="本地ParaView查看远程工作站文件"><a href="#本地ParaView查看远程工作站文件" class="headerlink" title="本地ParaView查看远程工作站文件"></a>本地ParaView查看远程工作站文件</h2><ol>
+<li><p>首先在远程终端输入<code>pvserver</code><br> <img src="https://s2.loli.net/2023/10/08/qIGsmbXt6exFWQ5.png" alt="image-20231007191801789"></p>
+</li>
+<li><p>在本地ParaView中 File-&gt;connect  进行配置</p>
+<ul>
+<li>Server Type 选择Client&#x2F;Server</li>
+<li>Host输入工作站IP</li>
+<li>port默认即可</li>
+</ul>
+</li>
+<li><p>双击刚创建好的Server即可连接到远程机器，直接打开远程文件</p>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>注意如果没有foam文件，手动创建一个run.foam的空文件，然后用ParaView打开此空文件即可</li>
+</ul>
+</blockquote>
+<h2 id="ParaView的基本使用"><a href="#ParaView的基本使用" class="headerlink" title="ParaView的基本使用"></a>ParaView的基本使用</h2><blockquote>
+<p>官方教程：<a href="https://docs.paraview.org/en/latest/UsersGuide/index.html">https://docs.paraview.org/en/latest/UsersGuide/index.html</a></p>
+</blockquote>
+<ol>
+<li><p>切片、切块</p>
+<ul>
+<li>Slice&#x2F;Clip，Properties中的Nomal调整方向（法向量）</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/10/08/6FD8X1lZduhaMcQ.png" alt="image-20231008154400595"></p>
+</li>
+<li><p>显示外部、框架、内部</p>
+<p><img src="https://s2.loli.net/2023/10/08/8WhQRTYdKNI4qt3.png" alt="image-20231008155015532"></p>
+<ul>
+<li><p>外部：Surface&#x2F;Surface with edges&#x2F;Wireframe&#x2F;Feature Edges</p>
+</li>
+<li><p>内部：Volume（需要渲染，有点慢）</p>
+</li>
+</ul>
+</li>
+<li><p>画等值面</p>
+<ul>
+<li><p>contour -&gt;  properties -&gt; Value Range中设置参数（代表的就是值为该参数的等值面）</p>
+<p><img src="https://s2.loli.net/2023/10/08/3NyAhnGTLHjrzfx.png" alt="image-20231008160013396"></p>
+<p><img src="https://s2.loli.net/2023/10/08/7iuy14xfdB8Q65C.png" alt="image-20231008165533308"></p>
+</li>
+</ul>
+</li>
+<li><p>设置阈值（高于某值的一律设为最大值，低于某值则设为最小值）</p>
+<ul>
+<li><p>Lower&#x2F;Higher Threshold</p>
+<p><img src="https://s2.loli.net/2023/10/08/V7lciHktSv6nJj3.png" alt="image-20231008160619201"></p>
+</li>
+</ul>
+</li>
+</ol>
+</div>]]></content>
       <categories>
         <category>vsfFOAM</category>
       </categories>

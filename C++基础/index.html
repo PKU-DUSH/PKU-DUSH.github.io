@@ -21,50 +21,40 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"idush.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="这篇博客记录了vsfFOAM在远程工作站上安装的过程">
+    <meta name="description" content="此笔记关于C++的一些基础知识">
 <meta property="og:type" content="article">
-<meta property="og:title" content="远程工作站安装vsfFOAM">
-<meta property="og:url" content="http://idush.top/%E8%BF%9C%E7%A8%8B%E5%B7%A5%E4%BD%9C%E7%AB%99%E5%AE%89%E8%A3%85vsfFOAM/index.html">
+<meta property="og:title" content="C++基础">
+<meta property="og:url" content="http://idush.top/C++%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="DUSH&#39;s Blog">
-<meta property="og:description" content="这篇博客记录了vsfFOAM在远程工作站上安装的过程">
+<meta property="og:description" content="此笔记关于C++的一些基础知识">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://s2.loli.net/2023/09/25/yZEikHJnRmPYtld.png">
-<meta property="og:image" content="https://s2.loli.net/2023/09/25/DvkcgOIPx4TeKZM.png">
-<meta property="og:image" content="https://s2.loli.net/2023/09/25/kDRBigzvoxHuwTM.png">
-<meta property="og:image" content="https://s2.loli.net/2023/09/25/SQVFKahm4q2oz7y.png">
-<meta property="og:image" content="https://s2.loli.net/2023/09/25/LqjcFlIgV514Xfr.png">
-<meta property="og:image" content="https://s2.loli.net/2023/09/25/UbuOm6LDZtjV4aR.png">
-<meta property="og:image" content="https://s2.loli.net/2023/09/25/9A8DWP2NLqugSsj.png">
-<meta property="og:image" content="https://s2.loli.net/2023/09/28/i6aDyVtUph5qsxj.png">
-<meta property="og:image" content="https://s2.loli.net/2023/09/28/kFrYa4JtUlgXhMC.png">
-<meta property="og:image" content="https://s2.loli.net/2023/09/25/7E5HTYBZpct4agk.png">
-<meta property="og:image" content="https://s2.loli.net/2023/09/25/jbh2nK7aX3uwits.png">
-<meta property="og:image" content="https://s2.loli.net/2023/09/25/3y9saYoefGlKpLR.png">
-<meta property="og:image" content="https://s2.loli.net/2023/09/25/1komGpsQ4POtUZ3.png">
-<meta property="og:image" content="https://s2.loli.net/2023/09/25/krHLUtGSWz8nc1D.png">
-<meta property="og:image" content="https://s2.loli.net/2023/09/28/Yv4L1iqtkpI92F8.png">
-<meta property="og:image" content="https://s2.loli.net/2023/09/28/KOk8RscVuMtHgiW.png">
-<meta property="og:image" content="https://s2.loli.net/2023/09/28/v1fKCHA7Z5RDeTO.png">
-<meta property="og:image" content="https://s2.loli.net/2023/09/27/vR2LHDcAF9mib6p.png">
-<meta property="og:image" content="https://s2.loli.net/2023/09/27/IFOfxmJ2jiysdGY.png">
-<meta property="article:published_time" content="2023-09-28T07:46:20.000Z">
-<meta property="article:modified_time" content="2023-09-28T08:03:43.752Z">
+<meta property="og:image" content="https://s2.loli.net/2023/10/07/oV6nFMAJB5rpih2.png">
+<meta property="og:image" content="https://s2.loli.net/2023/10/07/GtWVpPKcloYHOT6.png">
+<meta property="og:image" content="https://s2.loli.net/2023/10/07/feUsTCEPRav6V8j.png">
+<meta property="og:image" content="https://s2.loli.net/2023/10/23/7QoHJPys9A1L3mG.png">
+<meta property="og:image" content="https://s2.loli.net/2023/10/23/rcIURvgo6GnLS9X.png">
+<meta property="og:image" content="https://s2.loli.net/2023/10/23/6AUndlEhVjrNX5f.png">
+<meta property="og:image" content="https://s2.loli.net/2023/10/23/BZCtUo89REv7gTw.png">
+<meta property="og:image" content="https://s2.loli.net/2023/10/24/74OUCkfGo18MTEt.png">
+<meta property="og:image" content="https://s2.loli.net/2023/10/23/1nHxDJ9pz2LmRMS.png">
+<meta property="og:image" content="https://s2.loli.net/2023/10/23/QDbs4n5KO9tzLvM.png">
+<meta property="og:image" content="https://s2.loli.net/2023/10/23/EmSwrzRiOl4tgkJ.png">
+<meta property="article:published_time" content="2023-10-23T16:01:26.000Z">
+<meta property="article:modified_time" content="2023-10-23T16:03:34.682Z">
 <meta property="article:author" content="DUSH">
-<meta property="article:tag" content="Linux">
-<meta property="article:tag" content="OpenFOAM">
-<meta property="article:tag" content="vsfFOAM">
+<meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s2.loli.net/2023/09/25/yZEikHJnRmPYtld.png">
+<meta name="twitter:image" content="https://s2.loli.net/2023/10/07/oV6nFMAJB5rpih2.png">
 
 
-<link rel="canonical" href="http://idush.top/%E8%BF%9C%E7%A8%8B%E5%B7%A5%E4%BD%9C%E7%AB%99%E5%AE%89%E8%A3%85vsfFOAM/">
+<link rel="canonical" href="http://idush.top/C++%E5%9F%BA%E7%A1%80/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://idush.top/%E8%BF%9C%E7%A8%8B%E5%B7%A5%E4%BD%9C%E7%AB%99%E5%AE%89%E8%A3%85vsfFOAM/","path":"远程工作站安装vsfFOAM/","title":"远程工作站安装vsfFOAM"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://idush.top/C++%E5%9F%BA%E7%A1%80/","path":"C++基础/","title":"C++基础"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>远程工作站安装vsfFOAM | DUSH's Blog</title>
+<title>C++基础 | DUSH's Blog</title>
   
 
 
@@ -137,7 +127,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vsfFOAM%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">vsfFOAM安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E8%BD%BDOpenFOAM-10%E7%8E%AF%E5%A2%83"><span class="nav-number">1.1.</span> <span class="nav-text">加载OpenFOAM-10环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%AF%91vsfFOAM"><span class="nav-number">1.2.</span> <span class="nav-text">编译vsfFOAM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%95%99%E5%AD%A6%E7%AE%97%E4%BE%8B"><span class="nav-number">1.3.</span> <span class="nav-text">运行教学算例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E7%BD%91%E6%A0%BC"><span class="nav-number">1.3.1.</span> <span class="nav-text">构造网格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E6%B5%81%E5%9C%BA"><span class="nav-number">1.3.2.</span> <span class="nav-text">初始化流场</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85funkySetFields"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">安装funkySetFields</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E5%9F%9F"><span class="nav-number">1.3.3.</span> <span class="nav-text">分解计算域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E8%BF%90%E7%AE%97-%E9%87%8D%E7%BB%84%E8%AE%A1%E7%AE%97%E5%9F%9F"><span class="nav-number">1.3.4.</span> <span class="nav-text">执行运算&amp;重组计算域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#paraFoam-builtin%E5%90%8E%E5%A4%84%E7%90%86"><span class="nav-number">1.3.5.</span> <span class="nav-text">paraFoam -builtin后处理</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#C-%E7%9F%A5%E8%AF%86"><span class="nav-number">1.</span> <span class="nav-text">C++知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#C-%E5%86%85%E5%AD%98%E5%9F%BA%E7%A1%80"><span class="nav-number">1.1.</span> <span class="nav-text">C++内存基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E8%99%9A%E6%8B%9F%E7%A9%BA%E9%97%B4%E5%9C%B0%E5%9D%80%E5%88%92%E5%88%86"><span class="nav-number">1.1.1.</span> <span class="nav-text">进程虚拟空间地址划分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E7%BC%96%E8%AF%91%E5%99%A8%E8%A7%92%E5%BA%A6%E7%90%86%E8%A7%A3C-%E4%BB%A3%E7%A0%81%E7%9A%84%E7%BC%96%E8%AF%91%E5%92%8C%E9%93%BE%E6%8E%A5%E5%8E%9F%E7%90%86"><span class="nav-number">1.1.2.</span> <span class="nav-text">从编译器角度理解C++代码的编译和链接原理</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -217,7 +207,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://idush.top/%E8%BF%9C%E7%A8%8B%E5%B7%A5%E4%BD%9C%E7%AB%99%E5%AE%89%E8%A3%85vsfFOAM/">
+    <link itemprop="mainEntityOfPage" href="http://idush.top/C++%E5%9F%BA%E7%A1%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/headPortrait.jpg">
@@ -230,12 +220,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="远程工作站安装vsfFOAM | DUSH's Blog">
-      <meta itemprop="description" content="这篇博客记录了vsfFOAM在远程工作站上安装的过程">
+      <meta itemprop="name" content="C++基础 | DUSH's Blog">
+      <meta itemprop="description" content="此笔记关于C++的一些基础知识">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          远程工作站安装vsfFOAM<a href="https://github.com/user-name/repo-name/tree/branch-name/subdirectory-name/_posts/%E8%BF%9C%E7%A8%8B%E5%B7%A5%E4%BD%9C%E7%AB%99%E5%AE%89%E8%A3%85vsfFOAM.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
+          C++基础<a href="https://github.com/user-name/repo-name/tree/branch-name/subdirectory-name/_posts/C++%E5%9F%BA%E7%A1%80.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
         </h1>
 
         <div class="post-meta-container">
@@ -247,7 +237,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2023-09-28 15:46:20 / Modified: 16:03:43" itemprop="dateCreated datePublished" datetime="2023-09-28T15:46:20+08:00">2023-09-28</time>
+      <time title="Created: 2023-10-24 00:01:26 / Modified: 00:03:34" itemprop="dateCreated datePublished" datetime="2023-10-24T00:01:26+08:00">2023-10-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -255,97 +245,72 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/vsfFOAM/" itemprop="url" rel="index"><span itemprop="name">vsfFOAM</span></a>
+          <a href="/categories/C-%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">C++笔记</span></a>
         </span>
     </span>
 
   
 </div>
 
-            <div class="post-description">这篇博客记录了vsfFOAM在远程工作站上安装的过程</div>
+            <div class="post-description">此笔记关于C++的一些基础知识</div>
         </div>
       </header>
 
     
     
     
-    <div class="post-body" itemprop="articleBody"><div class="note warning"><h1 id="vsfFOAM安装"><a href="#vsfFOAM安装" class="headerlink" title="vsfFOAM安装"></a>vsfFOAM安装</h1><blockquote>
-<p>将vsfFOAM文件夹直接从PC拖入远程工作站的OpenFOAM文件夹内 后出现问题：</p>
-<p><img src="https://s2.loli.net/2023/09/25/yZEikHJnRmPYtld.png" alt="image-20230925150025410"></p>
-<ol>
-<li><p>尝试用chmod +x 赋予权限，但还是有问题</p>
-<p><img src="https://s2.loli.net/2023/09/25/DvkcgOIPx4TeKZM.png" alt="image-20230925175133908"></p>
-<p><img src="https://s2.loli.net/2023/09/25/kDRBigzvoxHuwTM.png" alt="image-20230925175048192"></p>
+    <div class="post-body" itemprop="articleBody"><h1 id="C-知识"><a href="#C-知识" class="headerlink" title="C++知识"></a>C++知识</h1><h2 id="C-内存基础"><a href="#C-内存基础" class="headerlink" title="C++内存基础"></a>C++内存基础</h2><h3 id="进程虚拟空间地址划分"><a href="#进程虚拟空间地址划分" class="headerlink" title="进程虚拟空间地址划分"></a>进程虚拟空间地址划分</h3><p><img src="https://s2.loli.net/2023/10/07/oV6nFMAJB5rpih2.png" alt="image-20231007213657680"></p>
+<p><img src="https://s2.loli.net/2023/10/07/GtWVpPKcloYHOT6.png" alt="image-20231007212931110"></p>
+<ul>
+<li>指令在运行的时候存放在在.text段；数据放在.data和.bbs段<ul>
+<li>.data：存放已经初始化的数据且数据不为0</li>
+<li>.bbs：存放未初始化的数据（系统会赋值为0，所以打印未初始化的数据会输出为0）</li>
+</ul>
 </li>
-</ol>
-<ul>
-<li>此问题已解决：OpenFOAM11删除了fvCFD这个头文件，所以推荐vsfFOAM依赖OpenFOAM10使用</li>
+<li>程序内局部变量都是指令；全局变量和静态变量都是数据</li>
+<li>指令存放在.text段，而指令执行的时候会在栈上开辟空间</li>
 </ul>
-</blockquote>
-<h2 id="加载OpenFOAM-10环境"><a href="#加载OpenFOAM-10环境" class="headerlink" title="加载OpenFOAM-10环境"></a>加载OpenFOAM-10环境</h2><p><img src="https://s2.loli.net/2023/09/25/SQVFKahm4q2oz7y.png" alt="image-20230925212347606"></p>
-<h2 id="编译vsfFOAM"><a href="#编译vsfFOAM" class="headerlink" title="编译vsfFOAM"></a>编译vsfFOAM</h2><blockquote>
+<p><img src="https://s2.loli.net/2023/10/07/feUsTCEPRav6V8j.png" alt="image-20231007213056216"></p>
 <ul>
-<li><p>注意vsfFOAM位置</p>
-<p><img src="https://s2.loli.net/2023/09/25/LqjcFlIgV514Xfr.png" alt="image-20230925212448048"></p>
+<li>对于不同的线程，用户空间是隔离的，内核空间是共享的</li>
+<li>管道通信实际上是在内核空间划分了内存，所以才能通信，因为用户空间是隔离的</li>
+</ul>
+<h3 id="从编译器角度理解C-代码的编译和链接原理"><a href="#从编译器角度理解C-代码的编译和链接原理" class="headerlink" title="从编译器角度理解C++代码的编译和链接原理"></a>从编译器角度理解C++代码的编译和链接原理</h3><ul>
+<li>编译过程如下：</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/10/23/7QoHJPys9A1L3mG.png" alt="image-20231023223509832"></p>
+<ul>
+<li><p>编译生成的.o文件组成</p>
+<ul>
+<li>这里的每一行称为段<br><img src="https://s2.loli.net/2023/10/23/rcIURvgo6GnLS9X.png" alt="image-20231023221321923"></li>
+</ul>
 </li>
-</ul>
-</blockquote>
+<li><p>编译中的符号表<br><img src="https://s2.loli.net/2023/10/23/6AUndlEhVjrNX5f.png" alt="image-20231023220927089"></p>
+<p><img src="https://s2.loli.net/2023/10/23/BZCtUo89REv7gTw.png" alt="image-20231023221039508"></p>
+<p><img src="https://s2.loli.net/2023/10/24/74OUCkfGo18MTEt.png" alt="image-20231023220457249"></p>
 <ul>
-<li>编译</li>
+<li>其中会标出 数据和指令存放的位置（.text和data），而引用的暂时标记为UND(可以出现很多UND，但是在代码中只能定义一次，要不就是重定义了)</li>
+<li>g：global  l：local，链接的时候只能链接global的符号</li>
+<li>编译过程中不分配地址，前面的地址都是0；但是指令在编译阶段就已经产生了，</li>
 </ul>
-<p><img src="https://s2.loli.net/2023/09/25/UbuOm6LDZtjV4aR.png" alt="image-20230925212525526"></p>
-<h2 id="运行教学算例"><a href="#运行教学算例" class="headerlink" title="运行教学算例"></a>运行教学算例</h2><blockquote>
-<ul>
-<li>出现如下问题，原因是文件路径不符合，解决办法可以直接复制泰勒格林流文件夹里的文件到run文件夹下</li>
-</ul>
-<p><img src="https://s2.loli.net/2023/09/25/9A8DWP2NLqugSsj.png" alt="image-20230925213619260"></p>
-<ul>
-<li>加一个&#x2F;*即可<br><img src="https://s2.loli.net/2023/09/28/i6aDyVtUph5qsxj.png" alt="image-20230925214436191"><br><img src="https://s2.loli.net/2023/09/28/kFrYa4JtUlgXhMC.png" alt="image-20230925214542805"></li>
-</ul>
-</blockquote>
-<h3 id="构造网格"><a href="#构造网格" class="headerlink" title="构造网格"></a>构造网格</h3><p><img src="https://s2.loli.net/2023/09/25/7E5HTYBZpct4agk.png" alt="image-20230925214712144"></p>
-<h3 id="初始化流场"><a href="#初始化流场" class="headerlink" title="初始化流场"></a>初始化流场</h3><blockquote>
-<ul>
-<li><p>出现命令找不到的问题，因为vsfFOAM依赖于OpenFOAM，所以实际上是在OpenFOAM中找不到这个命令（如下二图）</p>
-<ul>
-<li>OpenFOAM中只有setFields能够设置简单的初始场，funkyxxx需要自行安装。</li>
-</ul>
-<p><img src="https://s2.loli.net/2023/09/25/jbh2nK7aX3uwits.png" alt="image-20230925220552066"></p>
-<p><img src="https://s2.loli.net/2023/09/25/3y9saYoefGlKpLR.png" alt="image-20230925220653957"></p>
 </li>
-</ul>
-</blockquote>
-<h4 id="安装funkySetFields"><a href="#安装funkySetFields" class="headerlink" title="安装funkySetFields"></a>安装funkySetFields</h4><blockquote>
+<li><p>链接 </p>
+<p><img src="https://s2.loli.net/2023/10/23/1nHxDJ9pz2LmRMS.png" alt="image-20231023223528196"></p>
 <ul>
-<li>可以根据这篇博客以及官方教程来<ul>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/zq93538196/article/details/118310086">https://blog.csdn.net/zq93538196/article/details/118310086</a></li>
-<li><a target="_blank" rel="noopener" href="https://openfoamwiki.net/index.php/Installation/swak4Foam">https://openfoamwiki.net/index.php/Installation/swak4Foam</a></li>
+<li>第一步：合并编译后的.o文件的相同段（所以可执行文件也是一段一段的），并分配虚拟地址</li>
+<li>符号重定向：符号解析成功后分配虚拟地址，把虚拟地址写回指令中叫符号重定向（因为编译后不分配地址，地址都为0）</li>
+</ul>
+</li>
+<li><p>可执行文件</p>
+<ul>
+<li><p>和.o文件一样都是由段组成的，但是多了progrma heads，用于指明把哪些内容加载到内存<br><img src="https://s2.loli.net/2023/10/23/QDbs4n5KO9tzLvM.png" alt="image-20231023235152854"></p>
+</li>
+<li><p>此时.o文件在磁盘上，并有了虚拟地址，之后就是操作系统虚拟地址到物理地址的转换了</p>
+<p><img src="https://s2.loli.net/2023/10/23/EmSwrzRiOl4tgkJ.png" alt="image-20231023235539410"></p>
+</li>
 </ul>
 </li>
 </ul>
-</blockquote>
-<p><img src="https://s2.loli.net/2023/09/25/1komGpsQ4POtUZ3.png" alt="image-20230925235839051"></p>
-<h3 id="分解计算域"><a href="#分解计算域" class="headerlink" title="分解计算域"></a>分解计算域</h3><p><img src="https://s2.loli.net/2023/09/25/krHLUtGSWz8nc1D.png" alt="image-20230925235906887"></p>
-<h3 id="执行运算-重组计算域"><a href="#执行运算-重组计算域" class="headerlink" title="执行运算&amp;重组计算域"></a>执行运算&amp;重组计算域</h3><ul>
-<li><p>并行执行运算使用如下指令<img src="https://s2.loli.net/2023/09/28/Yv4L1iqtkpI92F8.png" alt="image-20230928153233799"></p>
-<ul>
-<li>并非使用UserGuide中的vsfFoam指令。</li>
-</ul>
-</li>
-<li><p>重组计算域使用如下指令：<img src="https://s2.loli.net/2023/09/28/KOk8RscVuMtHgiW.png" alt="image-20230928153400874"></p>
-</li>
-</ul>
-<blockquote>
-<p>此过程可能会耗费数个小时，建议使用nohup 和&amp; 指令，避免中途退出。</p>
-<ul>
-<li><p>最后产生的nohup.out文件大概有9w行数据（如下）：</p>
-<p><img src="https://s2.loli.net/2023/09/28/v1fKCHA7Z5RDeTO.png" alt="image-20230928153832170"></p>
-</li>
-</ul>
-</blockquote>
-<h3 id="paraFoam-builtin后处理"><a href="#paraFoam-builtin后处理" class="headerlink" title="paraFoam -builtin后处理"></a>paraFoam -builtin后处理</h3><p><img src="https://s2.loli.net/2023/09/27/vR2LHDcAF9mib6p.png" alt="image-20230927213541886"></p>
-<p><img src="https://s2.loli.net/2023/09/27/IFOfxmJ2jiysdGY.png" alt="image-20230927213631892"></p>
-</div>
 
     </div>
 
@@ -363,7 +328,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>Post link: </strong>
-      <a href="http://idush.top/%E8%BF%9C%E7%A8%8B%E5%B7%A5%E4%BD%9C%E7%AB%99%E5%AE%89%E8%A3%85vsfFOAM/" title="远程工作站安装vsfFOAM">http://idush.top/远程工作站安装vsfFOAM/</a>
+      <a href="http://idush.top/C++%E5%9F%BA%E7%A1%80/" title="C++基础">http://idush.top/C++基础/</a>
   </li>
   <li class="post-copyright-license">
       <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -372,23 +337,18 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/Linux/" rel="tag"><i class="fa-solid fa-hashtag"></i> Linux</a>
-              <a href="/tags/OpenFOAM/" rel="tag"><i class="fa-solid fa-hashtag"></i> OpenFOAM</a>
-              <a href="/tags/vsfFOAM/" rel="tag"><i class="fa-solid fa-hashtag"></i> vsfFOAM</a>
+              <a href="/tags/C/" rel="tag"><i class="fa-solid fa-hashtag"></i> C++</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/Linux%E5%91%BD%E4%BB%A4/" rel="prev" title="Linux命令">
-                  <i class="fa fa-angle-left"></i> Linux命令
+                <a href="/ParaView%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="prev" title="ParaView使用">
+                  <i class="fa fa-angle-left"></i> ParaView使用
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/ParaView%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="next" title="ParaView使用">
-                  ParaView使用 <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
