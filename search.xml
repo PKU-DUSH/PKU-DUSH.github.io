@@ -65,43 +65,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>BLOG</category>
-      </categories>
-      <tags>
-        <tag>NexT</tag>
-        <tag>HEXO</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>HELLO</title>
-    <url>/HELLO/</url>
-    <content><![CDATA[<h1 id="THIS-IS-MY-FIRST-BOLG"><a href="#THIS-IS-MY-FIRST-BOLG" class="headerlink" title="THIS IS MY FIRST BOLG !"></a>THIS IS MY FIRST BOLG !</h1>]]></content>
-      <categories>
-        <category>vsfFOAM</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>CODE</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Linux命令</title>
     <url>/Linux%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<div class="note warning"><h1 id="Linux命令"><a href="#Linux命令" class="headerlink" title="Linux命令"></a>Linux命令</h1><h2 id="编译结果输出到文件"><a href="#编译结果输出到文件" class="headerlink" title="编译结果输出到文件"></a>编译结果输出到文件</h2><ul>
@@ -191,6 +154,351 @@
       </tags>
   </entry>
   <entry>
+    <title>LeetCode</title>
+    <url>/LeetCode/</url>
+    <content><![CDATA[<div class="note info"><h1 id="LeetCode"><a href="#LeetCode" class="headerlink" title="LeetCode"></a>LeetCode</h1><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h3 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h3><blockquote>
+<p>题目链接：<a href="https://leetcode.cn/problems/binary-search/">https://leetcode.cn/problems/binary-search/</a></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">search</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">            <span class="type">int</span> left = <span class="number">0</span>, right = nums.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">                <span class="type">int</span> mid = left + (right - left)/<span class="number">2</span>;</span><br><span class="line">                <span class="keyword">if</span>(nums[mid] &gt; target)</span><br><span class="line">                    right = mid - <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(nums[mid] &lt; target)</span><br><span class="line">                    left  = mid + <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    <span class="keyword">return</span> mid;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>二分查找<ul>
+<li><strong>有序数组</strong>，<strong>无重复元素</strong></li>
+<li>边界条件：<ul>
+<li>target在[left，right]</li>
+<li>于是 left&lt;&#x3D;right（等号的边界条件是最右面的数是target，也就是<code>right]</code> ）</li>
+<li>于是 <code>if (nums[mid] &gt; target)    right = mid-1</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>为什么<code>int mid = left + (right - left)/2</code>  <ul>
+<li><code>left &lt;= MAX_VALUE</code>和 <code>right &lt;= MAX_VALUE</code>是肯定的</li>
+<li>但是<code>left+right &lt;= MAX_INT</code> 我们无法确定，所以会造成栈溢出。</li>
+</ul>
+</li>
+</ul>
+<h3 id="移除元素"><a href="#移除元素" class="headerlink" title="移除元素"></a>移除元素</h3><blockquote>
+<p>题目链接：<a href="https://leetcode.cn/problems/remove-element/">https://leetcode.cn/problems/remove-element/</a></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//暴力解，双层for</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">removeElement</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> size = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;size; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] == val)&#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> j = i + <span class="number">1</span>; j &lt; size; j++)</span><br><span class="line">                    nums[j - <span class="number">1</span>] = nums[j];</span><br><span class="line">                size--;</span><br><span class="line">                i--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">return</span> size;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//双指针法</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">removeElement</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> slowIndex = <span class="number">0</span>; </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> fastIndex = <span class="number">0</span>; fastIndex &lt; nums.<span class="built_in">size</span>(); fastIndex++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[fastIndex] != val)</span><br><span class="line">                nums[slowIndex++] = nums[fastIndex];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> slowIndex;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>双指针法（快慢指针法）： <strong>一个快指针和慢指针可以在一个for循环下完成两个for循环的工作。</strong><ul>
+<li>快指针：<strong>用于判断逻辑，寻找应该放入新数组的元素</strong> ，新数组就是不含有目标元素的数组</li>
+<li>慢指针：指向新数组下标的位置</li>
+<li>数组中的<strong>双指针</strong>其实就是<strong>下标索引</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="有序数组的平方"><a href="#有序数组的平方" class="headerlink" title="有序数组的平方"></a>有序数组的平方</h3><blockquote>
+<p>题目链接：<a href="https://leetcode.cn/problems/squares-of-a-sorted-array/">https://leetcode.cn/problems/squares-of-a-sorted-array/</a></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//暴力解</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sortedSquares</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            nums[i]=nums[i]*nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>());<span class="comment">//注意sort的用法</span></span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//双指针法</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sortedSquares</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> k = nums.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">result</span><span class="params">(nums.size() ,<span class="number">0</span>)</span></span>; <span class="comment">//注意vector的初始化</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>, j =nums.<span class="built_in">size</span>() - <span class="number">1</span>; i &lt;= j;) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i]*nums[i] &gt;= nums[j]*nums[j]) &#123;</span><br><span class="line">                result[k--] = nums[i] * nums[i];</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                result[k--] = nums[j] * nums[j];</span><br><span class="line">                j--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>双指针法：</p>
+<ul>
+<li>由于数组有序，那么平方之后最大值肯定在两侧，所以可以两侧都设置一个指针</li>
+<li>注意<code>i&lt;=j</code>，因为如果<code>i==j</code>就停止，那么i和j同时指向的这个元素就不会被放入新数组中</li>
+<li>这个思想有点像快排？</li>
+</ul>
+</li>
+</ul>
+<h3 id="长度最小的子数组"><a href="#长度最小的子数组" class="headerlink" title="长度最小的子数组"></a>长度最小的子数组</h3><blockquote>
+<p>题目链接：<a href="https://leetcode.cn/problems/minimum-size-subarray-sum/description/">https://leetcode.cn/problems/minimum-size-subarray-sum/description/</a></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//暴力解</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minSubArrayLen</span><span class="params">(<span class="type">int</span> target, vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> length = <span class="number">100000</span>; <span class="comment">//注意length变化的情况下要设为全局变量，并且有更新的逻辑</span></span><br><span class="line">        <span class="type">int</span> subLength = <span class="number">0</span>;       </span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="type">int</span> result = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = i; j &lt; nums.<span class="built_in">size</span>(); j++ ) &#123;</span><br><span class="line">                result += nums[j];</span><br><span class="line">                <span class="keyword">if</span> (result &gt;= target)&#123;</span><br><span class="line">                    subLength = j - i + <span class="number">1</span>;</span><br><span class="line">                    length = subLength &lt; length ? subLength : length; <span class="comment">//用此方式可以更简洁</span></span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;    </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> length == <span class="number">100000</span> ? <span class="number">0</span> : length;    </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"><span class="comment">//滑动窗口</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minSubArrayLen</span><span class="params">(<span class="type">int</span> target, vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> length = INT_MAX; <span class="comment">//注意int最大值用INT_MAX表示比较好</span></span><br><span class="line">        <span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> subLength = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> result = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; nums.<span class="built_in">size</span>(); j++)&#123;</span><br><span class="line">            result += nums[j];</span><br><span class="line">            <span class="keyword">while</span> (result &gt;= target) &#123;</span><br><span class="line">                subLength = j - i + <span class="number">1</span>;</span><br><span class="line">                length = subLength &lt; length ? subLength : length;</span><br><span class="line">                result -= nums[i++]; <span class="comment">//关键代码，等同于另一个for</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> length == INT_MAX ? <span class="number">0</span> : length;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>两重for循环的本质是：<strong>第一个for循环确定起始位置，另一个for循环确定结束位置</strong></p>
+</li>
+<li><p>滑动窗口（也是双指针法的一种）：</p>
+<ul>
+<li>不像双重for一样每次for都会更新result，而是<strong>只在一个for中计算一次result【即总在结束位置累加计算】，然后通过起始位置减少result</strong>。</li>
+<li>在本题中实现滑动窗口，主要确定如下三点：<ul>
+<li>窗口内是什么？<ul>
+<li>窗口就是 <strong>满足其和 ≥ s 的长度最小的 连续 子数组</strong>。</li>
+</ul>
+</li>
+<li>如何移动窗口的起始位置？<ul>
+<li>窗口的起始位置如何移动：<strong>如果当前窗口的值大于s了，窗口就要向前移动了（也就是该缩小了）</strong>。</li>
+<li><code>result -= nums[i++]</code>  关键就是通过这句实现起始位置的移动</li>
+</ul>
+</li>
+<li>如何移动窗口的结束位置？<ul>
+<li>窗口的结束位置如何移动：<strong>窗口的结束位置就是遍历数组的指针，也就是for循环里的索引</strong>。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>思路（文字翻译成代码）：</p>
+<ul>
+<li><strong>判断条件是什么</strong>：和大于等于target  -&gt;  <strong>result</strong> &gt;&#x3D;target</li>
+<li>长度最小的数组：<ul>
+<li>判断长度最小需要循环比较然后在更新，所以要全局变量length</li>
+<li>每个循环体要有局部变量用于比较是否最小  -&gt;  subLength</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="螺旋矩阵"><a href="#螺旋矩阵" class="headerlink" title="螺旋矩阵"></a>螺旋矩阵</h3><blockquote>
+<p>题目链接：<a href="https://leetcode.cn/problems/spiral-matrix-ii/description/">https://leetcode.cn/problems/spiral-matrix-ii/description/</a></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">generateMatrix</span>(<span class="type">int</span> n) &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">result</span>(n,<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(n, <span class="number">0</span>)); <span class="comment">//注意vector二维数组的创建方式</span></span><br><span class="line">        <span class="type">int</span> loop = n/<span class="number">2</span>;</span><br><span class="line">        <span class="type">int</span> count = <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> startx = <span class="number">0</span>,starty = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> offset = <span class="number">1</span>; <span class="comment">//key:每一次循环都要比上次少一圈</span></span><br><span class="line">        <span class="type">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (loop--) &#123;</span><br><span class="line">            <span class="keyword">for</span> (j = starty; j &lt; n - offset; j++)</span><br><span class="line">                result[startx][j] = count++;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (i = startx; i &lt; n - offset;i++)</span><br><span class="line">                result[i][j] = count++;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (; j &gt; starty; j--)</span><br><span class="line">                result[i][j] = count++;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (; i &gt; startx; i--)</span><br><span class="line">                result[i][j] = count++;</span><br><span class="line">            </span><br><span class="line">            startx++;</span><br><span class="line">            starty++;</span><br><span class="line">            offset++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (n%<span class="number">2</span> != <span class="number">0</span>)</span><br><span class="line">            result[n/<span class="number">2</span>][n/<span class="number">2</span>] = count;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>思路：</p>
+<ul>
+<li>要绕几圈？n&#x2F;2圈，单纯的循环while更简洁</li>
+<li>螺旋的要分四个for循环来，每一条边都要单独的for循环</li>
+<li>每一圈的赋值的起始点和终止点都有变化<ul>
+<li>起始点通过startx&#x2F;y++ 改变</li>
+<li>终止点通过offset++改变</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>注意奇偶区别，奇数的时候中间的要特殊逻辑（loop &#x3D; n&#x2F;2 + 1不行，因为n为偶数比如4的时候就是循环两次） </p>
+</li>
+<li><p>注意offset是控制循环终止边界的，因为开始边界是由while循环的startx++决定的</p>
+</li>
+</ul>
+</div>
+
+<div class="note info"><h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><h3 id="移除链表元素"><a href="#移除链表元素" class="headerlink" title="移除链表元素"></a>移除链表元素</h3><blockquote>
+<p>题目链接：<a href="https://leetcode.cn/problems/remove-linked-list-elements/">https://leetcode.cn/problems/remove-linked-list-elements/</a></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">removeElements</span><span class="params">(ListNode* head, <span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">        ListNode* dummyHead = <span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">0</span>);</span><br><span class="line">        dummyHead -&gt; next = head;</span><br><span class="line">        ListNode* cur = dummyHead;</span><br><span class="line">        <span class="keyword">while</span>(cur -&gt; next)&#123;		<span class="comment">//注意都是cur -&gt; next</span></span><br><span class="line">            <span class="keyword">if</span> (cur-&gt; next -&gt; val == val)&#123;		</span><br><span class="line">                ListNode* tmp = cur -&gt; next;</span><br><span class="line">                cur -&gt; next = cur -&gt; next -&gt;next;</span><br><span class="line">                <span class="keyword">delete</span>  tmp;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                cur = cur -&gt; next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; </span><br><span class="line">        head = dummyHead -&gt; next;</span><br><span class="line">        <span class="keyword">delete</span> dummyHead;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>操作当前节点必须要找前一个节点才能操作，但是头结点没有前一个节点了，这就需要虚拟头节点了。</li>
+<li>节点移除要设置tmp变量</li>
+<li>是对<code>cur-&gt;next</code>判断的，否则定位不到前一个节点</li>
+</ul>
+<h3 id="设计链表"><a href="#设计链表" class="headerlink" title="设计链表"></a>设计链表</h3><blockquote>
+<p>题目链接：<a href="https://leetcode.cn/problems/design-linked-list/description/">https://leetcode.cn/problems/design-linked-list/description/</a></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyLinkedList</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">MyLinkedList</span>() &#123;</span><br><span class="line">        size = <span class="number">0</span>;</span><br><span class="line">        dummyHead = <span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">0</span>); </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">get</span><span class="params">(<span class="type">int</span> index)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(index &lt; <span class="number">0</span> || index &gt;= size)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        ListNode* cur = dummyHead;</span><br><span class="line">        <span class="keyword">while</span>(index--)</span><br><span class="line">            cur = cur -&gt; next;</span><br><span class="line">        <span class="keyword">return</span> cur -&gt; val;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">addAtHead</span><span class="params">(<span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">addAtIndex</span>(<span class="number">0</span>,val);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">addAtTail</span><span class="params">(<span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">addAtIndex</span>(size, val);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">addAtIndex</span><span class="params">(<span class="type">int</span> index, <span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (index &gt; size)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        index = <span class="built_in">max</span>(<span class="number">0</span>, index);</span><br><span class="line">        size++;</span><br><span class="line">        ListNode* pred = dummyHead;</span><br><span class="line">        ListNode* Add = <span class="keyword">new</span> <span class="built_in">ListNode</span>(val);</span><br><span class="line">        <span class="keyword">while</span>(index--)  <span class="comment">//注意，链表中有索引都是通过while(index--)来遍历的</span></span><br><span class="line">            pred = pred -&gt; next;</span><br><span class="line">        Add -&gt; next = pred -&gt; next;</span><br><span class="line">        pred -&gt; next = Add;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">deleteAtIndex</span><span class="params">(<span class="type">int</span> index)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(index &lt; <span class="number">0</span> || index &gt;= size)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        size--;</span><br><span class="line">        ListNode* del = dummyHead;</span><br><span class="line">        <span class="keyword">while</span>(index--)</span><br><span class="line">            del = del -&gt; next;</span><br><span class="line">        ListNode* tmp = del -&gt; next;</span><br><span class="line">        del -&gt; next = del -&gt; next -&gt; next;</span><br><span class="line">        <span class="keyword">delete</span> tmp;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">int</span> size;</span><br><span class="line">    ListNode* dummyHead;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your MyLinkedList object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * MyLinkedList* obj = new MyLinkedList();</span></span><br><span class="line"><span class="comment"> * int param_1 = obj-&gt;get(index);</span></span><br><span class="line"><span class="comment"> * obj-&gt;addAtHead(val);</span></span><br><span class="line"><span class="comment"> * obj-&gt;addAtTail(val);</span></span><br><span class="line"><span class="comment"> * obj-&gt;addAtIndex(index,val);</span></span><br><span class="line"><span class="comment"> * obj-&gt;deleteAtIndex(index);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="翻转链表"><a href="#翻转链表" class="headerlink" title="翻转链表"></a>翻转链表</h3><blockquote>
+<p>题目链接：<a href="https://leetcode.cn/problems/reverse-linked-list/">https://leetcode.cn/problems/reverse-linked-list/</a></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">reverseList</span><span class="params">(ListNode* head)</span> </span>&#123; <span class="comment">//核心是两个指针</span></span><br><span class="line">        ListNode* cur = head;</span><br><span class="line">        ListNode* pre = <span class="literal">NULL</span>;</span><br><span class="line">        <span class="keyword">while</span>(cur)&#123;</span><br><span class="line">            ListNode* tmp = cur -&gt; next; <span class="comment">//注意tmp指针，若无tmp，一旦cur-&gt;next改变，将无法找到下个节点</span></span><br><span class="line">            cur -&gt; next = pre;</span><br><span class="line">            pre = cur;</span><br><span class="line">            cur = tmp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pre;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="两两交换链表中的节点"><a href="#两两交换链表中的节点" class="headerlink" title="两两交换链表中的节点*"></a>两两交换链表中的节点*</h3><blockquote>
+<p>题目链接：<a href="https://leetcode.cn/problems/swap-nodes-in-pairs/description/">https://leetcode.cn/problems/swap-nodes-in-pairs/description/</a></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">swapPairs</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        ListNode* dummyHead = <span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">0</span>);</span><br><span class="line">        dummyHead -&gt; next = head;</span><br><span class="line">        ListNode* cur = dummyHead;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(cur -&gt; next &amp;&amp; cur -&gt; next -&gt; next)&#123;  <span class="comment">//注意交换两个节点不仅要判断next，还要判断next-&gt;next</span></span><br><span class="line">            ListNode* tmp =  cur -&gt; next;   </span><br><span class="line">            ListNode* tmp1 = cur -&gt; next -&gt; next -&gt; next; <span class="comment">//保存断开指针后的值</span></span><br><span class="line"></span><br><span class="line">            cur -&gt; next = cur -&gt; next -&gt; next; <span class="comment">//步骤一</span></span><br><span class="line">            cur -&gt; next -&gt; next = tmp; <span class="comment">//步骤二</span></span><br><span class="line">            cur -&gt; next -&gt; next -&gt; next = tmp1; <span class="comment">//步骤三</span></span><br><span class="line"></span><br><span class="line">            cur = cur -&gt; next -&gt; next;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dummyHead -&gt; next;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>交换结点类的题都至少要设置三个指针<ul>
+<li>两个指针用于交换</li>
+<li>一个指针tmp用于存储临时节点</li>
+</ul>
+</li>
+<li>设置一个虚拟头结点更方便<ul>
+<li>注意dummyHead是个结点，不是指针！！！<ul>
+<li>一般返回操作后的链表就用dummyHead-&gt;next返回</li>
+</ul>
+</li>
+<li>而cur是个指针，指向这个dummyHead</li>
+<li>所以cur可以改变dummyHead-&gt;next</li>
+</ul>
+</li>
+</ul>
+<h3 id="删除链表的倒数第N个结点"><a href="#删除链表的倒数第N个结点" class="headerlink" title="删除链表的倒数第N个结点"></a>删除链表的倒数第N个结点</h3><blockquote>
+<p>题目链接：<a href="https://leetcode.cn/problems/remove-nth-node-from-end-of-list/">https://leetcode.cn/problems/remove-nth-node-from-end-of-list/</a></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">removeNthFromEnd</span><span class="params">(ListNode* head, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        ListNode* fast = <span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">0</span>);</span><br><span class="line">        ListNode* slow = <span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">0</span>);</span><br><span class="line">        ListNode* dummyHead = <span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        dummyHead -&gt; next = head;</span><br><span class="line">        fast = dummyHead;</span><br><span class="line">        slow = dummyHead;</span><br><span class="line">        n++;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (n--)</span><br><span class="line">            fast = fast -&gt; next;</span><br><span class="line">        <span class="keyword">while</span> (fast)&#123;</span><br><span class="line">            fast = fast -&gt; next;</span><br><span class="line">            slow = slow -&gt; next;</span><br><span class="line">        &#125;</span><br><span class="line">        slow -&gt; next = slow -&gt; next -&gt; next;</span><br><span class="line"></span><br><span class="line">         <span class="keyword">return</span> dummyHead -&gt; next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>典型的快慢指针问题</p>
+<p><img src="https://s2.loli.net/2023/10/09/Oj3dnykKAEf41xa.png" alt="image-20231009124214423"></p>
+</li>
+</ul>
+<h3 id="链表相交"><a href="#链表相交" class="headerlink" title="链表相交*"></a>链表相交*</h3><blockquote>
+<p>题目链接：<a href="https://leetcode.cn/problems/intersection-of-two-linked-lists-lcci/description/">https://leetcode.cn/problems/intersection-of-two-linked-lists-lcci/description/</a></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> <span class="comment">//传统双指针方法</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode *<span class="title">getIntersectionNode</span><span class="params">(ListNode *headA, ListNode *headB)</span> </span>&#123;</span><br><span class="line">        ListNode* curA = headA;</span><br><span class="line">        ListNode* curB = headB;</span><br><span class="line">        <span class="type">int</span> lengthA = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> lengthB = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (curA)&#123;</span><br><span class="line">            lengthA++;</span><br><span class="line">            curA = curA -&gt; next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (curB)&#123;</span><br><span class="line">            lengthB++;</span><br><span class="line">            curB = curB -&gt; next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        curA = headA;</span><br><span class="line">        curB = headB; <span class="comment">//注意要将cur返回</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (lengthB &gt; lengthA)&#123;</span><br><span class="line">            <span class="built_in">swap</span>(lengthA, lengthB);</span><br><span class="line">            <span class="built_in">swap</span>(curA, curB);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> distance = lengthA - lengthB;</span><br><span class="line">        <span class="keyword">while</span> (distance--)</span><br><span class="line">            curA = curA -&gt; next;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (curA &amp;&amp; curB)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(curA == curB)</span><br><span class="line">                <span class="keyword">return</span> curA;</span><br><span class="line">            curA = curA -&gt; next;</span><br><span class="line">            curB = curB -&gt; next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//数学公式方法*</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode *<span class="title">getIntersectionNode</span><span class="params">(ListNode *headA, ListNode *headB)</span> </span>&#123;</span><br><span class="line">            ListNode* curA = headA;</span><br><span class="line">            ListNode* curB = headB;</span><br><span class="line">            <span class="keyword">if</span> (!curA || !curB)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">while</span> (curA != curB)&#123;</span><br><span class="line">                <span class="keyword">if</span> (!curA)</span><br><span class="line">                    curA = headB;</span><br><span class="line">                curA = curA -&gt; next;  <span class="comment">//注意if和本行的顺序，如果换过来就是见到nullptr就跳过，这样在无交点时就会死循环</span></span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (!curB)</span><br><span class="line">                    curB = headA;</span><br><span class="line">                curB = curB -&gt; next;</span><br><span class="line">                </span><br><span class="line">                <span class="comment">// curA =    curA == nullptr ? headB : curA -&gt; next;</span></span><br><span class="line">                <span class="comment">// curB =    curB == nullptr ? headA : curB -&gt; next;</span></span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> curA;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>传统双指针：双指针先对齐，然后同时向后搜索</p>
+<p><img src="https://s2.loli.net/2023/10/09/frjqdV6YMApWOBT.png" alt="image-20231009163406450"></p>
+</li>
+<li><p>数学公式双指针：两个指针都搜索a+b+c的距离，此时一定是节点的位置</p>
+<ul>
+<li>注意注释掉的部分解决了无交点无限循环的问题，因为如果没有交点，那么最后都要到达nullptr而跳出循环（两指针都遍历了A+B的长度）；也就是nullptr不能跳过而直接变成另一链表的头节点，这样在无交点的时候就没有终止条件了。</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/10/09/UgPH4OQjkBvRroC.png" alt="image-20231009163005284"></p>
+</li>
+</ul>
+<h3 id="环形链表"><a href="#环形链表" class="headerlink" title="环形链表*"></a>环形链表*</h3><blockquote>
+<p>题目链接：<a href="https://leetcode.cn/problems/linked-list-cycle-ii/description/">https://leetcode.cn/problems/linked-list-cycle-ii/description/</a></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode *<span class="title">detectCycle</span><span class="params">(ListNode *head)</span> </span>&#123;</span><br><span class="line">        ListNode* fast = head;</span><br><span class="line">        ListNode* slow = head;</span><br><span class="line">        ListNode* cur = head;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (fast &amp;&amp; fast-&gt;next)&#123;</span><br><span class="line">            fast = fast-&gt;next -&gt;next;</span><br><span class="line">            slow = slow -&gt; next;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (fast == slow)&#123;</span><br><span class="line">                <span class="keyword">while</span> (cur != fast)&#123;</span><br><span class="line">                    cur = cur -&gt; next;</span><br><span class="line">                    fast = fast-&gt;next;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> cur;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>先快慢指针判断是否有环</p>
+</li>
+<li><p>有环情况下找到入口</p>
+<ul>
+<li>也就是<strong>从头结点出发一个指针，从相遇节点也出发一个指针，这两个指针每次只走一个节点， 那么当这两个指针相遇的时候就是 环形入口的节点</strong>（虽然可能从相遇节点出发的指针已经绕了好几圈）<br><img src="https://s2.loli.net/2023/10/09/gV763BlhrF1pPsR.png" alt="image-20231009171140021"></li>
+</ul>
+</li>
+<li><p>注意一旦有<code>fast -&gt;next -&gt;next</code>,那么不仅要判断<code>fast != NULL</code>， 也要判断 <code>fast -&gt;next != NULL</code>，因为空指针是不能-&gt;next的。</p>
+</li>
+</ul>
+</div>
+
+<div class="note info"><h2 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h2><blockquote>
+<p><strong>当需要查询一个元素是否出现过</strong>，或者<strong>一个元素是否在集合里的时候</strong>，要第一时间想到哈希法</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/10/12/6hCWI3deNvVcfzO.png" alt="image-20231012191805536"></p>
+<ul>
+<li>哈希表要考虑：元素是否可以重复 &amp; 元素是否有序<ul>
+<li>若不需要有序：<ul>
+<li>用unorder，因为此时查询和增删效率都最高</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>vector</code><ul>
+<li>.begin()  .end()<ul>
+<li>返回指针</li>
+<li><code>vector&lt;int&gt;::iterator iter=a.begin(); cout&lt;&lt;*iter</code></li>
+</ul>
+</li>
+<li>.front() .back()<ul>
+<li>返回引用</li>
+<li><code>vector&lt;int&gt;a={1,0}; cout&lt;&lt;a.back();</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>set是集合，map是键值对映射</li>
+</ul>
+<h3 id="有效的字母异位词"><a href="#有效的字母异位词" class="headerlink" title="有效的字母异位词"></a>有效的字母异位词</h3><blockquote>
+<p> 题目链接：<a href="https://leetcode.cn/problems/valid-anagram/">https://leetcode.cn/problems/valid-anagram/</a></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isAnagram</span><span class="params">(string s, string t)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> record[<span class="number">26</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i++ )</span><br><span class="line">            record[s[i] - <span class="string">&#x27;a&#x27;</span>] ++;  <span class="comment">//注意s[i] - &#x27;a&#x27;就把字符转换成下标了</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; t.<span class="built_in">size</span>(); i++ )</span><br><span class="line">            record[t[i] - <span class="string">&#x27;a&#x27;</span>] --;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span> ; i++ )</span><br><span class="line">            <span class="keyword">if</span> (record[i] != <span class="number">0</span>) </span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;       </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>注意<code>record[s[i] - &#39;a&#39;]</code>，这样把字符转换成下标了</li>
+</ul>
+<h3 id="两个数组的交集"><a href="#两个数组的交集" class="headerlink" title="两个数组的交集"></a>两个数组的交集</h3><blockquote>
+<p>题目链接：<a href="https://leetcode.cn/problems/intersection-of-two-arrays/description/">https://leetcode.cn/problems/intersection-of-two-arrays/description/</a></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">intersection</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, vector&lt;<span class="type">int</span>&gt;&amp; nums2)</span> </span>&#123;</span><br><span class="line">        unordered_set&lt;<span class="type">int</span>&gt; result_set;</span><br><span class="line">        <span class="function">unordered_set&lt;<span class="type">int</span>&gt; <span class="title">nums</span><span class="params">(nums1.begin(), nums1.end())</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> num : nums2)</span><br><span class="line">            <span class="keyword">if</span> (nums.<span class="built_in">find</span>(num) != nums.<span class="built_in">end</span>())  <span class="comment">//find()返回的是一个指针，如果没找到就指向最后一个元素，也就是end()</span></span><br><span class="line">                result_set.<span class="built_in">insert</span>(num);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(result_set.<span class="built_in">begin</span>(), result_set.<span class="built_in">end</span>());  <span class="comment">//因为要求返回值是vector</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>注意find()的用法</li>
+</ul>
+<h3 id="快乐数"><a href="#快乐数" class="headerlink" title="快乐数"></a>快乐数</h3><blockquote>
+<p>题目链接：<a href="https://leetcode.cn/problems/happy-number/description/">https://leetcode.cn/problems/happy-number/description/</a></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">sum</span> <span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (n) &#123;</span><br><span class="line">            sum += (n % <span class="number">10</span>) * (n % <span class="number">10</span>);</span><br><span class="line">            n = n / <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">            <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isHappy</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        unordered_set&lt;<span class="type">int</span>&gt; resSet;</span><br><span class="line">        <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">            <span class="type">int</span> res = <span class="built_in">sum</span> (n);</span><br><span class="line">            n = res; </span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (res == <span class="number">1</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (resSet.<span class="built_in">find</span>(res) != resSet.<span class="built_in">end</span>())</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                resSet.<span class="built_in">insert</span>(res);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>自己定义的函数要放在solution函数外面</li>
+<li>注意取每一位的方法</li>
+<li><strong>无限循环怎么判断?</strong> <code>unordered_set</code>，看是否会出现重复数字</li>
+</ul>
+<h3 id="两数之和"><a href="#两数之和" class="headerlink" title="两数之和"></a>两数之和</h3><blockquote>
+<p>题目链接：<a href="https://leetcode.cn/problems/two-sum/">https://leetcode.cn/problems/two-sum/</a></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">twoSum</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; map;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++ )&#123;</span><br><span class="line">            <span class="keyword">auto</span> iter = map.<span class="built_in">find</span>(target - nums[i]);</span><br><span class="line">            <span class="keyword">if</span>(iter != map.<span class="built_in">end</span>())</span><br><span class="line">                <span class="keyword">return</span> &#123;i, iter -&gt; second&#125;;</span><br><span class="line">            map.<span class="built_in">insert</span>(<span class="built_in">pair</span>&lt;<span class="type">int</span>, <span class="type">int</span>&gt;(nums[i], i));  </span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>unordered_map查询效率O(1)，指的是由哈希表实现，等于直接查询下标<ul>
+<li>所以想查询值的下标，不能用数组的思维用下标对应值，这样还是O(n)</li>
+<li>而是把值作为下标（key），下标作为值（value）</li>
+</ul>
+</li>
+<li>注意函数的返回值<ul>
+<li>vector的返回值是一个数组，如果为空不能是return 0；而是<code>return{};</code></li>
+<li>如果是数不能是 return 1，而是 <code>return {1};</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="四数相加"><a href="#四数相加" class="headerlink" title="四数相加"></a>四数相加</h3><blockquote>
+<p>题目链接：<a href="https://leetcode.cn/problems/4sum-ii/description/">https://leetcode.cn/problems/4sum-ii/description/</a></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+</div>
+]]></content>
+  </entry>
+  <entry>
+    <title>HELLO</title>
+    <url>/HELLO/</url>
+    <content><![CDATA[<h1 id="THIS-IS-MY-FIRST-BOLG"><a href="#THIS-IS-MY-FIRST-BOLG" class="headerlink" title="THIS IS MY FIRST BOLG !"></a>THIS IS MY FIRST BOLG !</h1>]]></content>
+      <categories>
+        <category>vsfFOAM</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>CODE</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>远程工作站安装OpenFOAM</title>
+    <url>/OpenFOAM%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<div class="note default"><h1 id="远程工作站安装OpenFOAM教程"><a href="#远程工作站安装OpenFOAM教程" class="headerlink" title="远程工作站安装OpenFOAM教程"></a>远程工作站安装OpenFOAM教程</h1><blockquote>
+<p>一般来说，Linux下安装OpenFOAM有两种方法：</p>
+<p>一种是直接用apt下载，但是此种方法仅限于个人电脑（因为需要sudo权限）；</p>
+<p>另外一种更为推荐的常用办法是用<strong>源代码编译安装</strong>，由于需要远程连接实验室的电脑，在实验室的Linux环境下安装，所以也只能用这个办法。</p>
+</blockquote>
+<blockquote>
+<p>推荐直接根据官方教程来，注意是Source Pack：<a href="https://openfoam.org/download/11-source/">https://openfoam.org/download/11-source/</a></p>
+</blockquote>
+<h2 id="下载并解压源文件"><a href="#下载并解压源文件" class="headerlink" title="下载并解压源文件"></a>下载并解压源文件</h2><h3 id="step1-：-建立OpenFOAM文件夹"><a href="#step1-：-建立OpenFOAM文件夹" class="headerlink" title="step1 ： 建立OpenFOAM文件夹"></a>step1 ： 建立OpenFOAM文件夹</h3><p><img src="https://s2.loli.net/2023/09/24/xBYPZWgMnkvzK4r.png" alt="image-20230924144932715"></p>
+<h3 id="step2-：执行下载解压命令"><a href="#step2-：执行下载解压命令" class="headerlink" title="step2 ：执行下载解压命令"></a>step2 ：执行下载解压命令</h3><p><img src="https://s2.loli.net/2023/09/24/7oLWQOd95IB1bME.png" alt="image-20230924150351555"></p>
+<p><img src="https://s2.loli.net/2023/09/24/fXPTIvrAEUWm7nG.png" alt="image-20230924150504744"></p>
+<h3 id="step3-：改文件名，便于以后使用"><a href="#step3-：改文件名，便于以后使用" class="headerlink" title="step3 ：改文件名，便于以后使用"></a>step3 ：改文件名，便于以后使用</h3><p><img src="https://s2.loli.net/2023/09/24/amTJlYC87QdWSAP.png" alt="image-20230924150737127"></p>
+<h2 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h2><blockquote>
+<p>注意是在~&#x2F;.bashrc中设置</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/09/24/LKj5nD4fk3z1eXV.png" alt="image-20230924152124605"></p>
+<p><img src="https://s2.loli.net/2023/09/24/5jQ1pDItLcUZVdS.png" alt="image-20230924152114681"></p>
+<blockquote>
+<p>最后运行一下bashrc脚本</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/09/24/1iLYepaK732XVBw.png" alt="image-20230924152235522"></p>
+<h2 id="下载编译第三方库（包括paraview）"><a href="#下载编译第三方库（包括paraview）" class="headerlink" title="下载编译第三方库（包括paraview）"></a>下载编译第三方库（包括paraview）</h2><h3 id="Installing-Scotch-PT-Scotch"><a href="#Installing-Scotch-PT-Scotch" class="headerlink" title="Installing Scotch&#x2F;PT-Scotch"></a>Installing Scotch&#x2F;PT-Scotch</h3><p><img src="https://s2.loli.net/2023/09/24/6TENoFiHRfj97Y2.png" alt="image-20230924154149151"></p>
+<h3 id="Installing-ParaView"><a href="#Installing-ParaView" class="headerlink" title="Installing ParaView"></a>Installing ParaView</h3><p><img src="https://s2.loli.net/2023/09/24/ldoEZeqDvt6PAHu.png" alt="image-20230924154308317"></p>
+<blockquote>
+<ul>
+<li>这里出问题了，但是不用管，可以用<strong>paraFoam -builtin</strong>代替</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/09/24/cEt6iRV1BNHpf9m.png" alt="image-20230924155942595"></p>
+</blockquote>
+<h2 id="编译OpenFOAM"><a href="#编译OpenFOAM" class="headerlink" title="编译OpenFOAM"></a>编译OpenFOAM</h2><p><img src="https://s2.loli.net/2023/09/24/vuVrpsQejiHLNtI.png" alt="image-20230924160049450"></p>
+<h2 id="运行简单算例并可视化"><a href="#运行简单算例并可视化" class="headerlink" title="运行简单算例并可视化"></a>运行简单算例并可视化</h2><h3 id="创建运行文件夹"><a href="#创建运行文件夹" class="headerlink" title="创建运行文件夹"></a>创建运行文件夹</h3><p><img src="https://s2.loli.net/2023/09/24/WD2LAREJhTSl5aO.png" alt="image-20230924160932211"></p>
+<h3 id="运行简单算例"><a href="#运行简单算例" class="headerlink" title="运行简单算例"></a>运行简单算例</h3><p><img src="https://s2.loli.net/2023/09/25/ugl7SPyibWa9vI3.png" alt="image-20230925212038629"></p>
+<ul>
+<li>成功运行</li>
+</ul>
+<p>​	<img src="https://s2.loli.net/2023/09/25/MPivyQYuLrEoksH.png" alt="image-20230925212121916"></p>
+</div>
+]]></content>
+      <categories>
+        <category>vsfFOAM</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>OpenFOAM</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ParaView使用</title>
     <url>/ParaView%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<div class="note warning"><h1 id="ParaView使用"><a href="#ParaView使用" class="headerlink" title="ParaView使用"></a>ParaView使用</h1><h2 id="本地ParaView查看远程工作站文件"><a href="#本地ParaView查看远程工作站文件" class="headerlink" title="本地ParaView查看远程工作站文件"></a>本地ParaView查看远程工作站文件</h2><ol>
@@ -257,52 +565,28 @@
       </tags>
   </entry>
   <entry>
-    <title>远程工作站安装OpenFOAM</title>
-    <url>/OpenFOAM%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[<div class="note default"><h1 id="远程工作站安装OpenFOAM教程"><a href="#远程工作站安装OpenFOAM教程" class="headerlink" title="远程工作站安装OpenFOAM教程"></a>远程工作站安装OpenFOAM教程</h1><blockquote>
-<p>一般来说，Linux下安装OpenFOAM有两种方法：</p>
-<p>一种是直接用apt下载，但是此种方法仅限于个人电脑（因为需要sudo权限）；</p>
-<p>另外一种更为推荐的常用办法是用<strong>源代码编译安装</strong>，由于需要远程连接实验室的电脑，在实验室的Linux环境下安装，所以也只能用这个办法。</p>
-</blockquote>
-<blockquote>
-<p>推荐直接根据官方教程来，注意是Source Pack：<a href="https://openfoam.org/download/11-source/">https://openfoam.org/download/11-source/</a></p>
-</blockquote>
-<h2 id="下载并解压源文件"><a href="#下载并解压源文件" class="headerlink" title="下载并解压源文件"></a>下载并解压源文件</h2><h3 id="step1-：-建立OpenFOAM文件夹"><a href="#step1-：-建立OpenFOAM文件夹" class="headerlink" title="step1 ： 建立OpenFOAM文件夹"></a>step1 ： 建立OpenFOAM文件夹</h3><p><img src="https://s2.loli.net/2023/09/24/xBYPZWgMnkvzK4r.png" alt="image-20230924144932715"></p>
-<h3 id="step2-：执行下载解压命令"><a href="#step2-：执行下载解压命令" class="headerlink" title="step2 ：执行下载解压命令"></a>step2 ：执行下载解压命令</h3><p><img src="https://s2.loli.net/2023/09/24/7oLWQOd95IB1bME.png" alt="image-20230924150351555"></p>
-<p><img src="https://s2.loli.net/2023/09/24/fXPTIvrAEUWm7nG.png" alt="image-20230924150504744"></p>
-<h3 id="step3-：改文件名，便于以后使用"><a href="#step3-：改文件名，便于以后使用" class="headerlink" title="step3 ：改文件名，便于以后使用"></a>step3 ：改文件名，便于以后使用</h3><p><img src="https://s2.loli.net/2023/09/24/amTJlYC87QdWSAP.png" alt="image-20230924150737127"></p>
-<h2 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h2><blockquote>
-<p>注意是在~&#x2F;.bashrc中设置</p>
-</blockquote>
-<p><img src="https://s2.loli.net/2023/09/24/LKj5nD4fk3z1eXV.png" alt="image-20230924152124605"></p>
-<p><img src="https://s2.loli.net/2023/09/24/5jQ1pDItLcUZVdS.png" alt="image-20230924152114681"></p>
-<blockquote>
-<p>最后运行一下bashrc脚本</p>
-</blockquote>
-<p><img src="https://s2.loli.net/2023/09/24/1iLYepaK732XVBw.png" alt="image-20230924152235522"></p>
-<h2 id="下载编译第三方库（包括paraview）"><a href="#下载编译第三方库（包括paraview）" class="headerlink" title="下载编译第三方库（包括paraview）"></a>下载编译第三方库（包括paraview）</h2><h3 id="Installing-Scotch-PT-Scotch"><a href="#Installing-Scotch-PT-Scotch" class="headerlink" title="Installing Scotch&#x2F;PT-Scotch"></a>Installing Scotch&#x2F;PT-Scotch</h3><p><img src="https://s2.loli.net/2023/09/24/6TENoFiHRfj97Y2.png" alt="image-20230924154149151"></p>
-<h3 id="Installing-ParaView"><a href="#Installing-ParaView" class="headerlink" title="Installing ParaView"></a>Installing ParaView</h3><p><img src="https://s2.loli.net/2023/09/24/ldoEZeqDvt6PAHu.png" alt="image-20230924154308317"></p>
-<blockquote>
-<ul>
-<li>这里出问题了，但是不用管，可以用<strong>paraFoam -builtin</strong>代替</li>
-</ul>
-<p><img src="https://s2.loli.net/2023/09/24/cEt6iRV1BNHpf9m.png" alt="image-20230924155942595"></p>
-</blockquote>
-<h2 id="编译OpenFOAM"><a href="#编译OpenFOAM" class="headerlink" title="编译OpenFOAM"></a>编译OpenFOAM</h2><p><img src="https://s2.loli.net/2023/09/24/vuVrpsQejiHLNtI.png" alt="image-20230924160049450"></p>
-<h2 id="运行简单算例并可视化"><a href="#运行简单算例并可视化" class="headerlink" title="运行简单算例并可视化"></a>运行简单算例并可视化</h2><h3 id="创建运行文件夹"><a href="#创建运行文件夹" class="headerlink" title="创建运行文件夹"></a>创建运行文件夹</h3><p><img src="https://s2.loli.net/2023/09/24/WD2LAREJhTSl5aO.png" alt="image-20230924160932211"></p>
-<h3 id="运行简单算例"><a href="#运行简单算例" class="headerlink" title="运行简单算例"></a>运行简单算例</h3><p><img src="https://s2.loli.net/2023/09/25/ugl7SPyibWa9vI3.png" alt="image-20230925212038629"></p>
-<ul>
-<li>成功运行</li>
-</ul>
-<p>​	<img src="https://s2.loli.net/2023/09/25/MPivyQYuLrEoksH.png" alt="image-20230925212121916"></p>
-</div>
+    <title>Hello World</title>
+    <url>/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
       <categories>
-        <category>vsfFOAM</category>
+        <category>BLOG</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
-        <tag>OpenFOAM</tag>
+        <tag>NexT</tag>
+        <tag>HEXO</tag>
       </tags>
   </entry>
   <entry>
