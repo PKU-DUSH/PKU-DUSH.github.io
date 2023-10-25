@@ -1,66 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>C++基础</title>
-    <url>/C++%E5%9F%BA%E7%A1%80/</url>
-    <content><![CDATA[<div class="note warning"><h1 id="C-知识"><a href="#C-知识" class="headerlink" title="C++知识"></a>C++知识</h1><h2 id="C-内存基础"><a href="#C-内存基础" class="headerlink" title="C++内存基础"></a>C++内存基础</h2><h3 id="进程虚拟空间地址划分"><a href="#进程虚拟空间地址划分" class="headerlink" title="进程虚拟空间地址划分"></a>进程虚拟空间地址划分</h3><p><img src="https://s2.loli.net/2023/10/07/oV6nFMAJB5rpih2.png" alt="image-20231007213657680"></p>
-<p><img src="https://s2.loli.net/2023/10/07/GtWVpPKcloYHOT6.png" alt="image-20231007212931110"></p>
-<ul>
-<li>指令在运行的时候存放在在.text段；数据放在.data和.bbs段<ul>
-<li>.data：存放已经初始化的数据且数据不为0</li>
-<li>.bbs：存放未初始化的数据（系统会赋值为0，所以打印未初始化的数据会输出为0）</li>
-</ul>
-</li>
-<li>程序内局部变量都是指令；全局变量和静态变量都是数据</li>
-<li>指令存放在.text段，而指令执行的时候会在栈上开辟空间</li>
-</ul>
-<p><img src="https://s2.loli.net/2023/10/07/feUsTCEPRav6V8j.png" alt="image-20231007213056216"></p>
-<ul>
-<li>对于不同的线程，用户空间是隔离的，内核空间是共享的</li>
-<li>管道通信实际上是在内核空间划分了内存，所以才能通信，因为用户空间是隔离的</li>
-</ul>
-<h3 id="从编译器角度理解C-代码的编译和链接原理"><a href="#从编译器角度理解C-代码的编译和链接原理" class="headerlink" title="从编译器角度理解C++代码的编译和链接原理"></a>从编译器角度理解C++代码的编译和链接原理</h3><ul>
-<li>编译过程如下：</li>
-</ul>
-<p><img src="https://s2.loli.net/2023/10/23/7QoHJPys9A1L3mG.png" alt="image-20231023223509832"></p>
-<ul>
-<li><p>编译生成的.o文件组成</p>
-<ul>
-<li>这里的每一行称为段<br><img src="https://s2.loli.net/2023/10/23/rcIURvgo6GnLS9X.png" alt="image-20231023221321923"></li>
-</ul>
-</li>
-<li><p>编译中的符号表<br><img src="https://s2.loli.net/2023/10/23/6AUndlEhVjrNX5f.png" alt="image-20231023220927089"></p>
-<p><img src="https://s2.loli.net/2023/10/23/BZCtUo89REv7gTw.png" alt="image-20231023221039508"></p>
-<p><img src="https://s2.loli.net/2023/10/24/74OUCkfGo18MTEt.png" alt="image-20231023220457249"></p>
-<ul>
-<li>其中会标出 数据和指令存放的位置（.text和data），而引用的暂时标记为UND(可以出现很多UND，但是在代码中只能定义一次，要不就是重定义了)</li>
-<li>g：global  l：local，链接的时候只能链接global的符号</li>
-<li>编译过程中不分配地址，前面的地址都是0；但是指令在编译阶段就已经产生了，</li>
-</ul>
-</li>
-<li><p>链接 </p>
-<p><img src="https://s2.loli.net/2023/10/23/1nHxDJ9pz2LmRMS.png" alt="image-20231023223528196"></p>
-<ul>
-<li>第一步：合并编译后的.o文件的相同段（所以可执行文件也是一段一段的），并分配虚拟地址</li>
-<li>符号重定向：符号解析成功后分配虚拟地址，把虚拟地址写回指令中叫符号重定向（因为编译后不分配地址，地址都为0）</li>
-</ul>
-</li>
-<li><p>可执行文件</p>
-<ul>
-<li><p>和.o文件一样都是由段组成的，但是多了progrma heads，用于指明把哪些内容加载到内存<br><img src="https://s2.loli.net/2023/10/23/QDbs4n5KO9tzLvM.png" alt="image-20231023235152854"></p>
-</li>
-<li><p>此时.o文件在磁盘上，并有了虚拟地址，之后就是操作系统虚拟地址到物理地址的转换了</p>
-<p><img src="https://s2.loli.net/2023/10/23/EmSwrzRiOl4tgkJ.png" alt="image-20231023235539410"></p>
-</li>
-</ul>
-</li>
-</ul>
-</div>
-]]></content>
+    <title>HELLO</title>
+    <url>/HELLO/</url>
+    <content><![CDATA[<h1 id="THIS-IS-MY-FIRST-BOLG"><a href="#THIS-IS-MY-FIRST-BOLG" class="headerlink" title="THIS IS MY FIRST BOLG !"></a>THIS IS MY FIRST BOLG !</h1>]]></content>
       <categories>
-        <category>C++笔记</category>
+        <category>vsfFOAM</category>
       </categories>
       <tags>
+        <tag>CODE</tag>
         <tag>C++</tag>
       </tags>
   </entry>
@@ -151,6 +99,70 @@
       <tags>
         <tag>Linux</tag>
         <tag>BASH</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++基础</title>
+    <url>/C++%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<div class="note warning"><h1 id="C-知识"><a href="#C-知识" class="headerlink" title="C++知识"></a>C++知识</h1><h2 id="C-内存基础"><a href="#C-内存基础" class="headerlink" title="C++内存基础"></a>C++内存基础</h2><h3 id="进程虚拟空间地址划分"><a href="#进程虚拟空间地址划分" class="headerlink" title="进程虚拟空间地址划分"></a>进程虚拟空间地址划分</h3><p><img src="https://s2.loli.net/2023/10/07/oV6nFMAJB5rpih2.png" alt="image-20231007213657680"></p>
+<p><img src="https://s2.loli.net/2023/10/07/GtWVpPKcloYHOT6.png" alt="image-20231007212931110"></p>
+<ul>
+<li>指令在运行的时候存放在在.text段；数据放在.data和.bbs段<ul>
+<li>.data：存放已经初始化的数据且数据不为0</li>
+<li>.bbs：存放未初始化的数据（系统会赋值为0，所以打印未初始化的数据会输出为0）</li>
+</ul>
+</li>
+<li>程序内局部变量都是指令；全局变量和静态变量都是数据</li>
+<li>指令存放在.text段，而指令执行的时候会在栈上开辟空间</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/10/07/feUsTCEPRav6V8j.png" alt="image-20231007213056216"></p>
+<ul>
+<li>对于不同的线程，用户空间是隔离的，内核空间是共享的</li>
+<li>管道通信实际上是在内核空间划分了内存，所以才能通信，因为用户空间是隔离的</li>
+</ul>
+<h3 id="从编译器角度理解C-代码的编译和链接原理"><a href="#从编译器角度理解C-代码的编译和链接原理" class="headerlink" title="从编译器角度理解C++代码的编译和链接原理"></a>从编译器角度理解C++代码的编译和链接原理</h3><ul>
+<li>编译过程如下：</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/10/23/7QoHJPys9A1L3mG.png" alt="image-20231023223509832"></p>
+<ul>
+<li><p>编译生成的.o文件组成</p>
+<ul>
+<li>这里的每一行称为段<br><img src="https://s2.loli.net/2023/10/23/rcIURvgo6GnLS9X.png" alt="image-20231023221321923"></li>
+</ul>
+</li>
+<li><p>编译中的符号表<br><img src="https://s2.loli.net/2023/10/23/6AUndlEhVjrNX5f.png" alt="image-20231023220927089"></p>
+<p><img src="https://s2.loli.net/2023/10/23/BZCtUo89REv7gTw.png" alt="image-20231023221039508"></p>
+<p><img src="https://s2.loli.net/2023/10/24/74OUCkfGo18MTEt.png" alt="image-20231023220457249"></p>
+<ul>
+<li>其中会标出 数据和指令存放的位置（.text和data），而引用的暂时标记为UND(可以出现很多UND，但是在代码中只能定义一次，要不就是重定义了)</li>
+<li>g：global  l：local，链接的时候只能链接global的符号</li>
+<li>编译过程中不分配地址，前面的地址都是0；但是指令在编译阶段就已经产生了，</li>
+</ul>
+</li>
+<li><p>链接 </p>
+<p><img src="https://s2.loli.net/2023/10/23/1nHxDJ9pz2LmRMS.png" alt="image-20231023223528196"></p>
+<ul>
+<li>第一步：合并编译后的.o文件的相同段（所以可执行文件也是一段一段的），并分配虚拟地址</li>
+<li>符号重定向：符号解析成功后分配虚拟地址，把虚拟地址写回指令中叫符号重定向（因为编译后不分配地址，地址都为0）</li>
+</ul>
+</li>
+<li><p>可执行文件</p>
+<ul>
+<li><p>和.o文件一样都是由段组成的，但是多了progrma heads，用于指明把哪些内容加载到内存<br><img src="https://s2.loli.net/2023/10/23/QDbs4n5KO9tzLvM.png" alt="image-20231023235152854"></p>
+</li>
+<li><p>此时.o文件在磁盘上，并有了虚拟地址，之后就是操作系统虚拟地址到物理地址的转换了</p>
+<p><img src="https://s2.loli.net/2023/10/23/EmSwrzRiOl4tgkJ.png" alt="image-20231023235539410"></p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+]]></content>
+      <categories>
+        <category>C++笔记</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -436,66 +448,13 @@
 
 </div>
 ]]></content>
-  </entry>
-  <entry>
-    <title>HELLO</title>
-    <url>/HELLO/</url>
-    <content><![CDATA[<h1 id="THIS-IS-MY-FIRST-BOLG"><a href="#THIS-IS-MY-FIRST-BOLG" class="headerlink" title="THIS IS MY FIRST BOLG !"></a>THIS IS MY FIRST BOLG !</h1>]]></content>
       <categories>
-        <category>vsfFOAM</category>
+        <category>Leetcode</category>
       </categories>
       <tags>
-        <tag>C++</tag>
-        <tag>CODE</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>远程工作站安装OpenFOAM</title>
-    <url>/OpenFOAM%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[<div class="note default"><h1 id="远程工作站安装OpenFOAM教程"><a href="#远程工作站安装OpenFOAM教程" class="headerlink" title="远程工作站安装OpenFOAM教程"></a>远程工作站安装OpenFOAM教程</h1><blockquote>
-<p>一般来说，Linux下安装OpenFOAM有两种方法：</p>
-<p>一种是直接用apt下载，但是此种方法仅限于个人电脑（因为需要sudo权限）；</p>
-<p>另外一种更为推荐的常用办法是用<strong>源代码编译安装</strong>，由于需要远程连接实验室的电脑，在实验室的Linux环境下安装，所以也只能用这个办法。</p>
-</blockquote>
-<blockquote>
-<p>推荐直接根据官方教程来，注意是Source Pack：<a href="https://openfoam.org/download/11-source/">https://openfoam.org/download/11-source/</a></p>
-</blockquote>
-<h2 id="下载并解压源文件"><a href="#下载并解压源文件" class="headerlink" title="下载并解压源文件"></a>下载并解压源文件</h2><h3 id="step1-：-建立OpenFOAM文件夹"><a href="#step1-：-建立OpenFOAM文件夹" class="headerlink" title="step1 ： 建立OpenFOAM文件夹"></a>step1 ： 建立OpenFOAM文件夹</h3><p><img src="https://s2.loli.net/2023/09/24/xBYPZWgMnkvzK4r.png" alt="image-20230924144932715"></p>
-<h3 id="step2-：执行下载解压命令"><a href="#step2-：执行下载解压命令" class="headerlink" title="step2 ：执行下载解压命令"></a>step2 ：执行下载解压命令</h3><p><img src="https://s2.loli.net/2023/09/24/7oLWQOd95IB1bME.png" alt="image-20230924150351555"></p>
-<p><img src="https://s2.loli.net/2023/09/24/fXPTIvrAEUWm7nG.png" alt="image-20230924150504744"></p>
-<h3 id="step3-：改文件名，便于以后使用"><a href="#step3-：改文件名，便于以后使用" class="headerlink" title="step3 ：改文件名，便于以后使用"></a>step3 ：改文件名，便于以后使用</h3><p><img src="https://s2.loli.net/2023/09/24/amTJlYC87QdWSAP.png" alt="image-20230924150737127"></p>
-<h2 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h2><blockquote>
-<p>注意是在~&#x2F;.bashrc中设置</p>
-</blockquote>
-<p><img src="https://s2.loli.net/2023/09/24/LKj5nD4fk3z1eXV.png" alt="image-20230924152124605"></p>
-<p><img src="https://s2.loli.net/2023/09/24/5jQ1pDItLcUZVdS.png" alt="image-20230924152114681"></p>
-<blockquote>
-<p>最后运行一下bashrc脚本</p>
-</blockquote>
-<p><img src="https://s2.loli.net/2023/09/24/1iLYepaK732XVBw.png" alt="image-20230924152235522"></p>
-<h2 id="下载编译第三方库（包括paraview）"><a href="#下载编译第三方库（包括paraview）" class="headerlink" title="下载编译第三方库（包括paraview）"></a>下载编译第三方库（包括paraview）</h2><h3 id="Installing-Scotch-PT-Scotch"><a href="#Installing-Scotch-PT-Scotch" class="headerlink" title="Installing Scotch&#x2F;PT-Scotch"></a>Installing Scotch&#x2F;PT-Scotch</h3><p><img src="https://s2.loli.net/2023/09/24/6TENoFiHRfj97Y2.png" alt="image-20230924154149151"></p>
-<h3 id="Installing-ParaView"><a href="#Installing-ParaView" class="headerlink" title="Installing ParaView"></a>Installing ParaView</h3><p><img src="https://s2.loli.net/2023/09/24/ldoEZeqDvt6PAHu.png" alt="image-20230924154308317"></p>
-<blockquote>
-<ul>
-<li>这里出问题了，但是不用管，可以用<strong>paraFoam -builtin</strong>代替</li>
-</ul>
-<p><img src="https://s2.loli.net/2023/09/24/cEt6iRV1BNHpf9m.png" alt="image-20230924155942595"></p>
-</blockquote>
-<h2 id="编译OpenFOAM"><a href="#编译OpenFOAM" class="headerlink" title="编译OpenFOAM"></a>编译OpenFOAM</h2><p><img src="https://s2.loli.net/2023/09/24/vuVrpsQejiHLNtI.png" alt="image-20230924160049450"></p>
-<h2 id="运行简单算例并可视化"><a href="#运行简单算例并可视化" class="headerlink" title="运行简单算例并可视化"></a>运行简单算例并可视化</h2><h3 id="创建运行文件夹"><a href="#创建运行文件夹" class="headerlink" title="创建运行文件夹"></a>创建运行文件夹</h3><p><img src="https://s2.loli.net/2023/09/24/WD2LAREJhTSl5aO.png" alt="image-20230924160932211"></p>
-<h3 id="运行简单算例"><a href="#运行简单算例" class="headerlink" title="运行简单算例"></a>运行简单算例</h3><p><img src="https://s2.loli.net/2023/09/25/ugl7SPyibWa9vI3.png" alt="image-20230925212038629"></p>
-<ul>
-<li>成功运行</li>
-</ul>
-<p>​	<img src="https://s2.loli.net/2023/09/25/MPivyQYuLrEoksH.png" alt="image-20230925212121916"></p>
-</div>
-]]></content>
-      <categories>
-        <category>vsfFOAM</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>OpenFOAM</tag>
+        <tag>Array</tag>
+        <tag>LinkedList</tag>
+        <tag>HashTable</tag>
       </tags>
   </entry>
   <entry>
@@ -562,6 +521,55 @@
         <tag>Linux</tag>
         <tag>OpenFOAM</tag>
         <tag>vsfFOAM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>远程工作站安装OpenFOAM</title>
+    <url>/OpenFOAM%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<div class="note default"><h1 id="远程工作站安装OpenFOAM教程"><a href="#远程工作站安装OpenFOAM教程" class="headerlink" title="远程工作站安装OpenFOAM教程"></a>远程工作站安装OpenFOAM教程</h1><blockquote>
+<p>一般来说，Linux下安装OpenFOAM有两种方法：</p>
+<p>一种是直接用apt下载，但是此种方法仅限于个人电脑（因为需要sudo权限）；</p>
+<p>另外一种更为推荐的常用办法是用<strong>源代码编译安装</strong>，由于需要远程连接实验室的电脑，在实验室的Linux环境下安装，所以也只能用这个办法。</p>
+</blockquote>
+<blockquote>
+<p>推荐直接根据官方教程来，注意是Source Pack：<a href="https://openfoam.org/download/11-source/">https://openfoam.org/download/11-source/</a></p>
+</blockquote>
+<h2 id="下载并解压源文件"><a href="#下载并解压源文件" class="headerlink" title="下载并解压源文件"></a>下载并解压源文件</h2><h3 id="step1-：-建立OpenFOAM文件夹"><a href="#step1-：-建立OpenFOAM文件夹" class="headerlink" title="step1 ： 建立OpenFOAM文件夹"></a>step1 ： 建立OpenFOAM文件夹</h3><p><img src="https://s2.loli.net/2023/09/24/xBYPZWgMnkvzK4r.png" alt="image-20230924144932715"></p>
+<h3 id="step2-：执行下载解压命令"><a href="#step2-：执行下载解压命令" class="headerlink" title="step2 ：执行下载解压命令"></a>step2 ：执行下载解压命令</h3><p><img src="https://s2.loli.net/2023/09/24/7oLWQOd95IB1bME.png" alt="image-20230924150351555"></p>
+<p><img src="https://s2.loli.net/2023/09/24/fXPTIvrAEUWm7nG.png" alt="image-20230924150504744"></p>
+<h3 id="step3-：改文件名，便于以后使用"><a href="#step3-：改文件名，便于以后使用" class="headerlink" title="step3 ：改文件名，便于以后使用"></a>step3 ：改文件名，便于以后使用</h3><p><img src="https://s2.loli.net/2023/09/24/amTJlYC87QdWSAP.png" alt="image-20230924150737127"></p>
+<h2 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h2><blockquote>
+<p>注意是在~&#x2F;.bashrc中设置</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/09/24/LKj5nD4fk3z1eXV.png" alt="image-20230924152124605"></p>
+<p><img src="https://s2.loli.net/2023/09/24/5jQ1pDItLcUZVdS.png" alt="image-20230924152114681"></p>
+<blockquote>
+<p>最后运行一下bashrc脚本</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/09/24/1iLYepaK732XVBw.png" alt="image-20230924152235522"></p>
+<h2 id="下载编译第三方库（包括paraview）"><a href="#下载编译第三方库（包括paraview）" class="headerlink" title="下载编译第三方库（包括paraview）"></a>下载编译第三方库（包括paraview）</h2><h3 id="Installing-Scotch-PT-Scotch"><a href="#Installing-Scotch-PT-Scotch" class="headerlink" title="Installing Scotch&#x2F;PT-Scotch"></a>Installing Scotch&#x2F;PT-Scotch</h3><p><img src="https://s2.loli.net/2023/09/24/6TENoFiHRfj97Y2.png" alt="image-20230924154149151"></p>
+<h3 id="Installing-ParaView"><a href="#Installing-ParaView" class="headerlink" title="Installing ParaView"></a>Installing ParaView</h3><p><img src="https://s2.loli.net/2023/09/24/ldoEZeqDvt6PAHu.png" alt="image-20230924154308317"></p>
+<blockquote>
+<ul>
+<li>这里出问题了，但是不用管，可以用<strong>paraFoam -builtin</strong>代替</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/09/24/cEt6iRV1BNHpf9m.png" alt="image-20230924155942595"></p>
+</blockquote>
+<h2 id="编译OpenFOAM"><a href="#编译OpenFOAM" class="headerlink" title="编译OpenFOAM"></a>编译OpenFOAM</h2><p><img src="https://s2.loli.net/2023/09/24/vuVrpsQejiHLNtI.png" alt="image-20230924160049450"></p>
+<h2 id="运行简单算例并可视化"><a href="#运行简单算例并可视化" class="headerlink" title="运行简单算例并可视化"></a>运行简单算例并可视化</h2><h3 id="创建运行文件夹"><a href="#创建运行文件夹" class="headerlink" title="创建运行文件夹"></a>创建运行文件夹</h3><p><img src="https://s2.loli.net/2023/09/24/WD2LAREJhTSl5aO.png" alt="image-20230924160932211"></p>
+<h3 id="运行简单算例"><a href="#运行简单算例" class="headerlink" title="运行简单算例"></a>运行简单算例</h3><p><img src="https://s2.loli.net/2023/09/25/ugl7SPyibWa9vI3.png" alt="image-20230925212038629"></p>
+<ul>
+<li>成功运行</li>
+</ul>
+<p>​	<img src="https://s2.loli.net/2023/09/25/MPivyQYuLrEoksH.png" alt="image-20230925212121916"></p>
+</div>
+]]></content>
+      <categories>
+        <category>vsfFOAM</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>OpenFOAM</tag>
       </tags>
   </entry>
   <entry>
