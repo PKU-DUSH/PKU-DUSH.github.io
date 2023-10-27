@@ -96,95 +96,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux命令</title>
-    <url>/Linux%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<div class="note warning"><h1 id="Linux命令"><a href="#Linux命令" class="headerlink" title="Linux命令"></a>Linux命令</h1><h2 id="编译结果输出到文件"><a href="#编译结果输出到文件" class="headerlink" title="编译结果输出到文件"></a>编译结果输出到文件</h2><ul>
-<li><p>针对中断产生的编译结果，可以输出到指定文件中以供分析</p>
-<blockquote>
-<p>tee : 输出结果的同时也保留终端输出</p>
-<p>1：正确运行输出</p>
-<p>2：错误运行输出</p>
-</blockquote>
-<ul>
-<li><p><strong>输出正确运行和错误运行结果（即输出全部编译结果）</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make 2&gt;&amp;1 | <span class="built_in">tee</span> out.txt</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>输出正确运行结果</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make &gt; out.txt    OR   make 1&gt; out.txt   </span><br></pre></td></tr></table></figure>
-</li>
-<li><p>输出错误运行结果</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make 2&gt; out.txt</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-<h2 id="后台不挂断地执行命令"><a href="#后台不挂断地执行命令" class="headerlink" title="后台不挂断地执行命令"></a>后台不挂断地执行命令</h2><blockquote>
-<p>nohup : 不挂断地运行命令（没有后台运行的功能）<br>&amp; : 在后台运行，当用户退出（挂起）的时候，命令自动跟着结束</p>
-<p>输出结果自动存放在nohup.out中</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">nohup</span> ./Allwmake &amp;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="一些系统命令"><a href="#一些系统命令" class="headerlink" title="一些系统命令"></a>一些系统命令</h2><ul>
-<li>查找进程并kill</li>
-</ul>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ps -aux  //显示所有程序</span><br><span class="line">ps -ef | grep 进程关键字  //查找指定进程</span><br><span class="line"><span class="built_in">kill</span> -9 进程号PID    //kill进程</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>参考链接：<a href="https://www.cnblogs.com/yunwangjun-python-520/p/10713564.html#_label0_0">https://www.cnblogs.com/yunwangjun-python-520/p/10713564.html#_label0_0</a></p>
-</blockquote>
-<ul>
-<li>查看CPU占用等信息</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">top    //查看CPU占用，<span class="built_in">shift</span>+m 按内存占用排序</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>解压命令</li>
-</ul>
-<blockquote>
-<ol>
-<li>*.tar 用 tar –xvf 解压</li>
-<li><em>.tar.gz和</em>.tgz 用 tar –xzf 解压</li>
-<li>*.zip 用 unzip 解压</li>
-</ol>
-</blockquote>
-<h2 id="Permission-denied的解决办法"><a href="#Permission-denied的解决办法" class="headerlink" title="Permission denied的解决办法"></a>Permission denied的解决办法</h2><blockquote>
-<p>赋予全部权限777（rwx）</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 777 xxx.sh</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><ul>
-<li>移动文件</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//如果需要复制，把<span class="built_in">mv</span>改为<span class="built_in">cp</span></span><br><span class="line">//改文件名aaa-&gt;bbb</span><br><span class="line"><span class="built_in">mv</span> aaa bbb</span><br><span class="line"></span><br><span class="line">//移动文件或文件夹</span><br><span class="line"><span class="built_in">mv</span> 文件（夹）名 目的路径</span><br><span class="line"></span><br><span class="line">//移动 info 目录到 logs 目录中。注意，如果 logs 目录不存在，则该命令将 info 改名为 logs</span><br><span class="line"><span class="built_in">mv</span> info/ logs </span><br><span class="line"></span><br><span class="line">//移动 info 目录下所有目录和文件到 logs 目录中</span><br><span class="line"><span class="built_in">mv</span> info/* logs </span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>查看文件</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//在终端显示文件所有内容</span><br><span class="line"><span class="built_in">cat</span> file.txt</span><br><span class="line"></span><br><span class="line">//按页查看文件内容，适合查看大文件</span><br><span class="line">//按空格翻页，按q退出</span><br><span class="line">less file.txt</span><br><span class="line">less -N file.txt  //添加行号	</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>删除文件</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span>[选项] 文件或目录</span><br><span class="line">选项：</span><br><span class="line">-f：强制删除（force），和 -i 选项相反，使用 -f，系统将不再询问，而是直接删除目标文件或目录。</span><br><span class="line">-i：和 -f 正好相反，在删除文件或目录之前，系统会给出提示信息，使用 -i 可以有效防止不小心删除有用的文件或目录。</span><br><span class="line">-r：递归删除，主要用于删除目录，可删除指定目录及包含的所有内容，包括所有的子目录和文件。</span><br><span class="line">//删除目录是 <span class="built_in">rm</span> -r， 但是会一直提示，所以<span class="built_in">rm</span> -rf</span><br><span class="line">//虽然 <span class="string">&quot;-rf&quot;</span> 选项是用来删除目录的，但是删除文件也不会报错。所以，为了使用方便，一般不论是删除文件还是删除目录，都会直接使用 <span class="string">&quot;rm -rf&quot;</span> 选项</span><br></pre></td></tr></table></figure>
-
-
-
-
-</div>
-
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>BASH</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>LeetCode</title>
     <url>/LeetCode/</url>
     <content><![CDATA[<div class="note info"><h1 id="LeetCode"><a href="#LeetCode" class="headerlink" title="LeetCode"></a>LeetCode</h1><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h3 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h3><blockquote>
@@ -487,6 +398,8 @@
 </li>
 <li><p>注意去重操作</p>
 </li>
+<li><p>再看看思路：<a href="https://www.programmercarl.com/0015.%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C.html#%E6%80%9D%E8%B7%AF">https://www.programmercarl.com/0015.%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C.html#%E6%80%9D%E8%B7%AF</a></p>
+</li>
 </ul>
 <h3 id="四树之和"><a href="#四树之和" class="headerlink" title="四树之和"></a>四树之和</h3><blockquote>
 <p>题目链接：<a href="https://leetcode.cn/problems/4sum/description/">https://leetcode.cn/problems/4sum/description/</a></p>
@@ -505,6 +418,95 @@
         <tag>Array</tag>
         <tag>LinkedList</tag>
         <tag>HashTable</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux命令</title>
+    <url>/Linux%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<div class="note warning"><h1 id="Linux命令"><a href="#Linux命令" class="headerlink" title="Linux命令"></a>Linux命令</h1><h2 id="编译结果输出到文件"><a href="#编译结果输出到文件" class="headerlink" title="编译结果输出到文件"></a>编译结果输出到文件</h2><ul>
+<li><p>针对中断产生的编译结果，可以输出到指定文件中以供分析</p>
+<blockquote>
+<p>tee : 输出结果的同时也保留终端输出</p>
+<p>1：正确运行输出</p>
+<p>2：错误运行输出</p>
+</blockquote>
+<ul>
+<li><p><strong>输出正确运行和错误运行结果（即输出全部编译结果）</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make 2&gt;&amp;1 | <span class="built_in">tee</span> out.txt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>输出正确运行结果</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make &gt; out.txt    OR   make 1&gt; out.txt   </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>输出错误运行结果</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make 2&gt; out.txt</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h2 id="后台不挂断地执行命令"><a href="#后台不挂断地执行命令" class="headerlink" title="后台不挂断地执行命令"></a>后台不挂断地执行命令</h2><blockquote>
+<p>nohup : 不挂断地运行命令（没有后台运行的功能）<br>&amp; : 在后台运行，当用户退出（挂起）的时候，命令自动跟着结束</p>
+<p>输出结果自动存放在nohup.out中</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">nohup</span> ./Allwmake &amp;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="一些系统命令"><a href="#一些系统命令" class="headerlink" title="一些系统命令"></a>一些系统命令</h2><ul>
+<li>查找进程并kill</li>
+</ul>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ps -aux  //显示所有程序</span><br><span class="line">ps -ef | grep 进程关键字  //查找指定进程</span><br><span class="line"><span class="built_in">kill</span> -9 进程号PID    //kill进程</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>参考链接：<a href="https://www.cnblogs.com/yunwangjun-python-520/p/10713564.html#_label0_0">https://www.cnblogs.com/yunwangjun-python-520/p/10713564.html#_label0_0</a></p>
+</blockquote>
+<ul>
+<li>查看CPU占用等信息</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">top    //查看CPU占用，<span class="built_in">shift</span>+m 按内存占用排序</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>解压命令</li>
+</ul>
+<blockquote>
+<ol>
+<li>*.tar 用 tar –xvf 解压</li>
+<li><em>.tar.gz和</em>.tgz 用 tar –xzf 解压</li>
+<li>*.zip 用 unzip 解压</li>
+</ol>
+</blockquote>
+<h2 id="Permission-denied的解决办法"><a href="#Permission-denied的解决办法" class="headerlink" title="Permission denied的解决办法"></a>Permission denied的解决办法</h2><blockquote>
+<p>赋予全部权限777（rwx）</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 777 xxx.sh</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><ul>
+<li>移动文件</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//如果需要复制，把<span class="built_in">mv</span>改为<span class="built_in">cp</span></span><br><span class="line">//改文件名aaa-&gt;bbb</span><br><span class="line"><span class="built_in">mv</span> aaa bbb</span><br><span class="line"></span><br><span class="line">//移动文件或文件夹</span><br><span class="line"><span class="built_in">mv</span> 文件（夹）名 目的路径</span><br><span class="line"></span><br><span class="line">//移动 info 目录到 logs 目录中。注意，如果 logs 目录不存在，则该命令将 info 改名为 logs</span><br><span class="line"><span class="built_in">mv</span> info/ logs </span><br><span class="line"></span><br><span class="line">//移动 info 目录下所有目录和文件到 logs 目录中</span><br><span class="line"><span class="built_in">mv</span> info/* logs </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查看文件</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//在终端显示文件所有内容</span><br><span class="line"><span class="built_in">cat</span> file.txt</span><br><span class="line"></span><br><span class="line">//按页查看文件内容，适合查看大文件</span><br><span class="line">//按空格翻页，按q退出</span><br><span class="line">less file.txt</span><br><span class="line">less -N file.txt  //添加行号	</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>删除文件</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span>[选项] 文件或目录</span><br><span class="line">选项：</span><br><span class="line">-f：强制删除（force），和 -i 选项相反，使用 -f，系统将不再询问，而是直接删除目标文件或目录。</span><br><span class="line">-i：和 -f 正好相反，在删除文件或目录之前，系统会给出提示信息，使用 -i 可以有效防止不小心删除有用的文件或目录。</span><br><span class="line">-r：递归删除，主要用于删除目录，可删除指定目录及包含的所有内容，包括所有的子目录和文件。</span><br><span class="line">//删除目录是 <span class="built_in">rm</span> -r， 但是会一直提示，所以<span class="built_in">rm</span> -rf</span><br><span class="line">//虽然 <span class="string">&quot;-rf&quot;</span> 选项是用来删除目录的，但是删除文件也不会报错。所以，为了使用方便，一般不论是删除文件还是删除目录，都会直接使用 <span class="string">&quot;rm -rf&quot;</span> 选项</span><br></pre></td></tr></table></figure>
+
+
+
+
+</div>
+
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>BASH</tag>
       </tags>
   </entry>
   <entry>
@@ -554,6 +556,31 @@
       <tags>
         <tag>Linux</tag>
         <tag>OpenFOAM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>BLOG</category>
+      </categories>
+      <tags>
+        <tag>NexT</tag>
+        <tag>HEXO</tag>
       </tags>
   </entry>
   <entry>
@@ -624,31 +651,6 @@
         <tag>Linux</tag>
         <tag>OpenFOAM</tag>
         <tag>vsfFOAM</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>BLOG</category>
-      </categories>
-      <tags>
-        <tag>NexT</tag>
-        <tag>HEXO</tag>
       </tags>
   </entry>
   <entry>
