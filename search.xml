@@ -84,6 +84,18 @@
       </tags>
   </entry>
   <entry>
+    <title>HELLO</title>
+    <url>/HELLO/</url>
+    <content><![CDATA[<h1 id="THIS-IS-MY-FIRST-BOLG"><a href="#THIS-IS-MY-FIRST-BOLG" class="headerlink" title="THIS IS MY FIRST BOLG !"></a>THIS IS MY FIRST BOLG !</h1>]]></content>
+      <categories>
+        <category>vsfFOAM</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>CODE</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode</title>
     <url>/LeetCode/</url>
     <content><![CDATA[<div class="note info"><h1 id="LeetCode"><a href="#LeetCode" class="headerlink" title="LeetCode"></a>LeetCode</h1><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h3 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h3><blockquote>
@@ -341,7 +353,7 @@
 <li>注意取每一位的方法</li>
 <li><strong>无限循环怎么判断?</strong> <code>unordered_set</code>，看是否会出现重复数字</li>
 </ul>
-<h3 id="两数之和"><a href="#两数之和" class="headerlink" title="两数之和"></a>两数之和</h3><blockquote>
+<h3 id="两数之和"><a href="#两数之和" class="headerlink" title="两数之和*"></a>两数之和*</h3><blockquote>
 <p>题目链接：<a href="https://leetcode.cn/problems/two-sum/">https://leetcode.cn/problems/two-sum/</a></p>
 </blockquote>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">twoSum</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; map;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++ )&#123;</span><br><span class="line">            <span class="keyword">auto</span> iter = map.<span class="built_in">find</span>(target - nums[i]);</span><br><span class="line">            <span class="keyword">if</span>(iter != map.<span class="built_in">end</span>())</span><br><span class="line">                <span class="keyword">return</span> &#123;i, iter -&gt; second&#125;;</span><br><span class="line">            map.<span class="built_in">insert</span>(<span class="built_in">pair</span>&lt;<span class="type">int</span>, <span class="type">int</span>&gt;(nums[i], i));  </span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
@@ -358,8 +370,26 @@
 </ul>
 </li>
 </ul>
-<h3 id="四数相加"><a href="#四数相加" class="headerlink" title="四数相加"></a>四数相加</h3><blockquote>
+<h3 id="四数相加"><a href="#四数相加" class="headerlink" title="四数相加*"></a>四数相加*</h3><blockquote>
 <p>题目链接：<a href="https://leetcode.cn/problems/4sum-ii/description/">https://leetcode.cn/problems/4sum-ii/description/</a></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">fourSumCount</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, vector&lt;<span class="type">int</span>&gt;&amp; nums2, vector&lt;<span class="type">int</span>&gt;&amp; nums3, vector&lt;<span class="type">int</span>&gt;&amp; nums4)</span> </span>&#123;</span><br><span class="line">        unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; map12;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> a : nums1)</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> b : nums2)</span><br><span class="line">                map12[a + b]++;</span><br><span class="line">        </span><br><span class="line">        <span class="type">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> c : nums3)&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> d : nums4)&#123;</span><br><span class="line">                <span class="keyword">if</span> (map12.<span class="built_in">find</span>(<span class="number">0</span> - (c + d)) != map12.<span class="built_in">end</span>() )</span><br><span class="line">                    count+=map12[<span class="number">0</span> - (c + d)];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>和上一道题的想法一模一样</li>
+<li>注意不要超过两层循环，你想知道a+b就要用两层循环</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/10/26/wZtygAxW3XI7oCE.png" alt="image-20231026125715364"></p>
+<h3 id="赎金信"><a href="#赎金信" class="headerlink" title="赎金信"></a>赎金信</h3><blockquote>
+<p>题目链接：<a href="https://leetcode.cn/problems/ransom-note/description/">https://leetcode.cn/problems/ransom-note/description/</a></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">canConstruct</span><span class="params">(string ransomNote, string magazine)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> record[<span class="number">26</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> a : magazine)</span><br><span class="line">            record[a - <span class="string">&#x27;a&#x27;</span>]++;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> b : ransomNote)&#123; </span><br><span class="line">            record[b - <span class="string">&#x27;a&#x27;</span>]--;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (record[b - <span class="string">&#x27;a&#x27;</span>] &lt; <span class="number">0</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果数组可以做就别用map了，因为map的空间消耗比较大</li>
+</ul>
+<h3 id="三数之和"><a href="#三数之和" class="headerlink" title="三数之和"></a>三数之和</h3><blockquote>
+<p>题目链接：<a href="https://leetcode.cn/problems/3sum/description/">https://leetcode.cn/problems/3sum/description/</a></p>
 </blockquote>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
 
@@ -373,85 +403,6 @@
         <tag>Array</tag>
         <tag>LinkedList</tag>
         <tag>HashTable</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>HELLO</title>
-    <url>/HELLO/</url>
-    <content><![CDATA[<h1 id="THIS-IS-MY-FIRST-BOLG"><a href="#THIS-IS-MY-FIRST-BOLG" class="headerlink" title="THIS IS MY FIRST BOLG !"></a>THIS IS MY FIRST BOLG !</h1>]]></content>
-      <categories>
-        <category>vsfFOAM</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>CODE</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ParaView使用</title>
-    <url>/ParaView%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<div class="note warning"><h1 id="ParaView使用"><a href="#ParaView使用" class="headerlink" title="ParaView使用"></a>ParaView使用</h1><h2 id="本地ParaView查看远程工作站文件"><a href="#本地ParaView查看远程工作站文件" class="headerlink" title="本地ParaView查看远程工作站文件"></a>本地ParaView查看远程工作站文件</h2><ol>
-<li><p>首先在远程终端输入<code>pvserver</code><br> <img src="https://s2.loli.net/2023/10/08/qIGsmbXt6exFWQ5.png" alt="image-20231007191801789"></p>
-</li>
-<li><p>在本地ParaView中 File-&gt;connect  进行配置</p>
-<ul>
-<li>Server Type 选择Client&#x2F;Server</li>
-<li>Host输入工作站IP</li>
-<li>port默认即可</li>
-</ul>
-</li>
-<li><p>双击刚创建好的Server即可连接到远程机器，直接打开远程文件</p>
-</li>
-</ol>
-<blockquote>
-<ul>
-<li>注意如果没有foam文件，手动创建一个run.foam的空文件，然后用ParaView打开此空文件即可</li>
-<li>此后连接过程中，有可能出现提示框等待60s，且一直不消失导致卡住，个人解决办法是删掉并重新配置step 2</li>
-</ul>
-</blockquote>
-<h2 id="ParaView的基本使用"><a href="#ParaView的基本使用" class="headerlink" title="ParaView的基本使用"></a>ParaView的基本使用</h2><blockquote>
-<p>官方教程：<a href="https://docs.paraview.org/en/latest/UsersGuide/index.html">https://docs.paraview.org/en/latest/UsersGuide/index.html</a></p>
-</blockquote>
-<ol>
-<li><p>切片、切块</p>
-<ul>
-<li>Slice&#x2F;Clip，Properties中的Nomal调整方向（法向量）</li>
-</ul>
-<p><img src="https://s2.loli.net/2023/10/08/6FD8X1lZduhaMcQ.png" alt="image-20231008154400595"></p>
-</li>
-<li><p>显示外部、框架、内部</p>
-<p><img src="https://s2.loli.net/2023/10/08/8WhQRTYdKNI4qt3.png" alt="image-20231008155015532"></p>
-<ul>
-<li><p>外部：Surface&#x2F;Surface with edges&#x2F;Wireframe&#x2F;Feature Edges</p>
-</li>
-<li><p>内部：Volume（需要渲染，有点慢）</p>
-</li>
-</ul>
-</li>
-<li><p>画等值面</p>
-<ul>
-<li><p>contour -&gt;  properties -&gt; Value Range中设置参数（代表的就是值为该参数的等值面）</p>
-<p><img src="https://s2.loli.net/2023/10/08/3NyAhnGTLHjrzfx.png" alt="image-20231008160013396"></p>
-<p><img src="https://s2.loli.net/2023/10/08/7iuy14xfdB8Q65C.png" alt="image-20231008165533308"></p>
-</li>
-</ul>
-</li>
-<li><p>设置阈值（高于某值的一律设为最大值，低于某值则设为最小值）</p>
-<ul>
-<li><p>Lower&#x2F;Higher Threshold</p>
-<p><img src="https://s2.loli.net/2023/10/08/V7lciHktSv6nJj3.png" alt="image-20231008160619201"></p>
-</li>
-</ul>
-</li>
-</ol>
-</div>]]></content>
-      <categories>
-        <category>vsfFOAM</category>
-      </categories>
-      <tags>
-        <tag>OpenFOAM</tag>
-        <tag>vsfFOAM</tag>
-        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -588,8 +539,78 @@
         <category>vsfFOAM</category>
       </categories>
       <tags>
-        <tag>OpenFOAM</tag>
         <tag>Linux</tag>
+        <tag>OpenFOAM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ParaView使用</title>
+    <url>/ParaView%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<div class="note warning"><h1 id="ParaView使用"><a href="#ParaView使用" class="headerlink" title="ParaView使用"></a>ParaView使用</h1><h2 id="本地ParaView查看远程工作站文件"><a href="#本地ParaView查看远程工作站文件" class="headerlink" title="本地ParaView查看远程工作站文件"></a>本地ParaView查看远程工作站文件</h2><ol>
+<li><p>首先在远程终端输入<code>pvserver</code><br> <img src="https://s2.loli.net/2023/10/08/qIGsmbXt6exFWQ5.png" alt="image-20231007191801789"></p>
+</li>
+<li><p>在本地ParaView中 File-&gt;connect  进行配置</p>
+<ul>
+<li>Server Type 选择Client&#x2F;Server</li>
+<li>Host输入工作站IP</li>
+<li>port默认即可</li>
+</ul>
+</li>
+<li><p>双击刚创建好的Server即可连接到远程机器，直接打开远程文件</p>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>注意如果没有foam文件，手动创建一个run.foam的空文件，然后用ParaView打开此空文件即可</li>
+<li>此后连接过程中，有可能出现提示框等待60s，且一直不消失导致卡住，个人解决办法是删掉并重新配置step 2<ul>
+<li>update：梯子关了就好了</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="ParaView的基本使用"><a href="#ParaView的基本使用" class="headerlink" title="ParaView的基本使用"></a>ParaView的基本使用</h2><blockquote>
+<p>官方教程：<a href="https://docs.paraview.org/en/latest/UsersGuide/index.html">https://docs.paraview.org/en/latest/UsersGuide/index.html</a></p>
+</blockquote>
+<ol>
+<li><p>切片、切块</p>
+<ul>
+<li>Slice&#x2F;Clip，Properties中的Nomal调整方向（法向量）</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/10/08/6FD8X1lZduhaMcQ.png" alt="image-20231008154400595"></p>
+</li>
+<li><p>显示外部、框架、内部</p>
+<p><img src="https://s2.loli.net/2023/10/08/8WhQRTYdKNI4qt3.png" alt="image-20231008155015532"></p>
+<ul>
+<li><p>外部：Surface&#x2F;Surface with edges&#x2F;Wireframe&#x2F;Feature Edges</p>
+</li>
+<li><p>内部：Volume（需要渲染，有点慢）</p>
+</li>
+</ul>
+</li>
+<li><p>画等值面</p>
+<ul>
+<li><p>contour -&gt;  properties -&gt; Value Range中设置参数（代表的就是值为该参数的等值面）</p>
+<p><img src="https://s2.loli.net/2023/10/08/3NyAhnGTLHjrzfx.png" alt="image-20231008160013396"></p>
+<p><img src="https://s2.loli.net/2023/10/08/7iuy14xfdB8Q65C.png" alt="image-20231008165533308"></p>
+</li>
+</ul>
+</li>
+<li><p>设置阈值（高于某值的一律设为最大值，低于某值则设为最小值）</p>
+<ul>
+<li><p>Lower&#x2F;Higher Threshold</p>
+<p><img src="https://s2.loli.net/2023/10/08/V7lciHktSv6nJj3.png" alt="image-20231008160619201"></p>
+</li>
+</ul>
+</li>
+</ol>
+</div>]]></content>
+      <categories>
+        <category>vsfFOAM</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>OpenFOAM</tag>
+        <tag>vsfFOAM</tag>
       </tags>
   </entry>
   <entry>
@@ -702,9 +723,9 @@
         <category>vsfFOAM</category>
       </categories>
       <tags>
+        <tag>Linux</tag>
         <tag>OpenFOAM</tag>
         <tag>vsfFOAM</tag>
-        <tag>Linux</tag>
       </tags>
   </entry>
 </search>
