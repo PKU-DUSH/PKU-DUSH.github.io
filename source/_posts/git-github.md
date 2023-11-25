@@ -10,9 +10,6 @@ description: 关于git或者github相关的命令和操作
 ---
 
 {% note warning  %}
----
-
-{% note warning  %}
 
 ## git merge/pull request
 
@@ -20,15 +17,15 @@ description: 关于git或者github相关的命令和操作
 
 <img src="https://s2.loli.net/2023/11/22/Rfg36EaTvnxbLIs.png" alt="image-20231122201538592" style="zoom:50%;" />
 
+{% note info  %}
 
 
+ * `git status` # 查看当前状态
+ * `git log` # 查看操作记录
+ * `git branch`  # 显示所有本地分支
+ * `git branch -d dev` # 删除分支
 
-> * `git status` # 查看当前状态
-> * `git log` # 查看操作记录
-> * `git branch`  # 显示所有本地分支
-> * `git branch -d dev` # 删除分支
-
-
+{% endnote %}
 
 > 1. `git clone`
 > 2. `git checkout -b dev` # 创建并切换至“dev”分支
@@ -45,7 +42,7 @@ description: 关于git或者github相关的命令和操作
 >   cd
 >   git checkout -b dev
 >   git add . && git commit -m "test-dev"
->   
+>       
 >   #如果推送到远程的dev就直接git push origin dev
 >   git checkout master
 >   git merge dev
