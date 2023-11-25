@@ -54,6 +54,12 @@ description: 记录一下最近使用但容易遗忘的Linux命令
 nohup ./Allwmake &
 ~~~
 
+## 查看当前后台运行的进程
+
+~~~BASH
+jobs -l
+~~~
+
 
 
 ## 一些系统命令
