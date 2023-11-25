@@ -38,14 +38,14 @@ description: 关于git或者github相关的命令和操作
 > 6. `git merge dev` # 把dev分支合并到当前master分支
 > 7. `git push -u origin master`  # **将本地仓库的分支提交至相应的远程仓库分支**
 >    * 第一次使用 `git push -u origin master` 之后，下次可以直接使用 `git pull` 拉取代码，就不需要输入完整的命令 `git pull origin master `来拉取代码了。第二次也可以用` git push`推送代码而不用`git push origin master`。
->    * 一般情况下(多人合作)，本地修改代码后，每次从本地仓库merge到远程仓库之前都要先进行git pull（会自动和本地提交合并，与本地有冲突时需要手动合并，所以要commit之后再pull否则会覆盖修改的代码）操作，保证push到远程仓库时没有版本冲突。
+>    * 一般情况下(多人合作)，本地修改代码后，每次从dev分支merge到master分支之前都要先进行git pull（会自动和本地提交合并，与本地有冲突时需要手动合并，所以要commit之后再pull否则会覆盖修改的代码）操作，保证push到远程仓库时没有版本冲突。
 >
 > * ~~~bash
 >   git clone
 >   cd
 >   git checkout -b dev
 >   git add . && git commit -m "test-dev"
->   
+>     
 >   #如果推送到远程的dev就直接git push origin dev
 >   git checkout master
 >   git merge dev
