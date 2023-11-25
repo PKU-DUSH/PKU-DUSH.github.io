@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/d-solid.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/d-solid.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/d-solid.svg">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/orange/pace-theme-bounce.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"idush.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="此笔记关于C++的一些基础知识">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++基础">
+<meta property="og:url" content="http://idush.top/C++%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="DUSH&#39;s Blog">
+<meta property="og:description" content="此笔记关于C++的一些基础知识">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s2.loli.net/2023/10/07/oV6nFMAJB5rpih2.png">
+<meta property="og:image" content="https://s2.loli.net/2023/10/07/GtWVpPKcloYHOT6.png">
+<meta property="og:image" content="https://s2.loli.net/2023/10/07/feUsTCEPRav6V8j.png">
+<meta property="og:image" content="https://s2.loli.net/2023/10/23/7QoHJPys9A1L3mG.png">
+<meta property="og:image" content="https://s2.loli.net/2023/10/23/rcIURvgo6GnLS9X.png">
+<meta property="og:image" content="https://s2.loli.net/2023/10/23/6AUndlEhVjrNX5f.png">
+<meta property="og:image" content="https://s2.loli.net/2023/10/23/BZCtUo89REv7gTw.png">
+<meta property="og:image" content="https://s2.loli.net/2023/10/24/74OUCkfGo18MTEt.png">
+<meta property="og:image" content="https://s2.loli.net/2023/10/23/1nHxDJ9pz2LmRMS.png">
+<meta property="og:image" content="https://s2.loli.net/2023/10/23/QDbs4n5KO9tzLvM.png">
+<meta property="og:image" content="https://s2.loli.net/2023/10/23/EmSwrzRiOl4tgkJ.png">
+<meta property="og:image" content="https://s2.loli.net/2023/10/25/TfyCK9qI6RAm8Xh.png">
+<meta property="og:image" content="https://s2.loli.net/2023/10/25/enyimbTpE4hkaqt.png">
+<meta property="og:image" content="https://s2.loli.net/2023/10/25/GNBWLMVSnjqYtCU.png">
+<meta property="og:image" content="https://s2.loli.net/2023/10/25/eUh5FfR89mpi4rs.png">
+<meta property="article:published_time" content="2023-10-23T16:01:26.000Z">
+<meta property="article:modified_time" content="2023-10-25T15:14:29.808Z">
+<meta property="article:author" content="DUSH">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2023/10/07/oV6nFMAJB5rpih2.png">
+
+
+<link rel="canonical" href="http://idush.top/C++%E5%9F%BA%E7%A1%80/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://idush.top/C++%E5%9F%BA%E7%A1%80/","path":"C++基础/","title":"C++基础"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>C++基础 | DUSH's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+<a target="_blank" rel="noopener" href="https://github.com/PKU-DUSH" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">DUSH's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">风物长宜放眼量</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#C-%E7%9F%A5%E8%AF%86"><span class="nav-number">1.</span> <span class="nav-text">C++知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#C-%E5%86%85%E5%AD%98%E5%9F%BA%E7%A1%80"><span class="nav-number">1.1.</span> <span class="nav-text">C++内存基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E8%99%9A%E6%8B%9F%E7%A9%BA%E9%97%B4%E5%9C%B0%E5%9D%80%E5%88%92%E5%88%86"><span class="nav-number">1.1.1.</span> <span class="nav-text">进程虚拟空间地址划分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E7%BC%96%E8%AF%91%E5%99%A8%E8%A7%92%E5%BA%A6%E7%90%86%E8%A7%A3C-%E4%BB%A3%E7%A0%81%E7%9A%84%E7%BC%96%E8%AF%91%E5%92%8C%E9%93%BE%E6%8E%A5%E5%8E%9F%E7%90%86"><span class="nav-number">1.1.2.</span> <span class="nav-text">从编译器角度理解C++代码的编译和链接原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="nav-number">1.2.</span> <span class="nav-text">C++基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#C-%E7%9A%84new%E5%92%8Cdelete"><span class="nav-number">1.2.1.</span> <span class="nav-text">C++的new和delete</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-%E7%9A%84const"><span class="nav-number">1.2.2.</span> <span class="nav-text">C++的const</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="DUSH"
+      src="/images/headPortrait.jpg">
+  <p class="site-author-name" itemprop="name">DUSH</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/PKU-DUSH" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;PKU-DUSH" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:dush624@163.com" title="E-Mail → mailto:dush624@163.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://github.com/YYgroup/vsfFOAM" title="https:&#x2F;&#x2F;github.com&#x2F;YYgroup&#x2F;vsfFOAM" rel="noopener" target="_blank">vsfFOAM</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://idush.top/C++%E5%9F%BA%E7%A1%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headPortrait.jpg">
+      <meta itemprop="name" content="DUSH">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DUSH's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="C++基础 | DUSH's Blog">
+      <meta itemprop="description" content="此笔记关于C++的一些基础知识">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          C++基础<a href="https://github.com/user-name/repo-name/tree/branch-name/subdirectory-name/_posts/C++%E5%9F%BA%E7%A1%80.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-10-24 00:01:26" itemprop="dateCreated datePublished" datetime="2023-10-24T00:01:26+08:00">2023-10-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-10-25 23:14:29" itemprop="dateModified" datetime="2023-10-25T23:14:29+08:00">2023-10-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/C-%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">C++笔记</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">此笔记关于C++的一些基础知识</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><div class="note warning"><h1 id="C-知识"><a href="#C-知识" class="headerlink" title="C++知识"></a>C++知识</h1><h2 id="C-内存基础"><a href="#C-内存基础" class="headerlink" title="C++内存基础"></a>C++内存基础</h2><h3 id="进程虚拟空间地址划分"><a href="#进程虚拟空间地址划分" class="headerlink" title="进程虚拟空间地址划分"></a>进程虚拟空间地址划分</h3><p><img src="https://s2.loli.net/2023/10/07/oV6nFMAJB5rpih2.png" alt="image-20231007213657680"></p>
+<p><img src="https://s2.loli.net/2023/10/07/GtWVpPKcloYHOT6.png" alt="image-20231007212931110"></p>
+<ul>
+<li>指令在运行的时候存放在在.text段；数据放在.data和.bbs段<ul>
+<li>.data：存放已经初始化的数据且数据不为0</li>
+<li>.bbs：存放未初始化的数据（系统会赋值为0，所以打印未初始化的数据会输出为0）</li>
+</ul>
+</li>
+<li>程序内局部变量都是指令；全局变量和静态变量都是数据</li>
+<li>指令存放在.text段，而指令执行的时候会在栈上开辟空间</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/10/07/feUsTCEPRav6V8j.png" alt="image-20231007213056216"></p>
+<ul>
+<li>对于不同的线程，用户空间是隔离的，内核空间是共享的</li>
+<li>管道通信实际上是在内核空间划分了内存，所以才能通信，因为用户空间是隔离的</li>
+</ul>
+<h3 id="从编译器角度理解C-代码的编译和链接原理"><a href="#从编译器角度理解C-代码的编译和链接原理" class="headerlink" title="从编译器角度理解C++代码的编译和链接原理"></a>从编译器角度理解C++代码的编译和链接原理</h3><ul>
+<li>编译过程如下：</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/10/23/7QoHJPys9A1L3mG.png" alt="image-20231023223509832"></p>
+<ul>
+<li><p>编译生成的.o文件组成</p>
+<ul>
+<li>这里的每一行称为段<br><img src="https://s2.loli.net/2023/10/23/rcIURvgo6GnLS9X.png" alt="image-20231023221321923"></li>
+</ul>
+</li>
+<li><p>编译中的符号表<br><img src="https://s2.loli.net/2023/10/23/6AUndlEhVjrNX5f.png" alt="image-20231023220927089"></p>
+<p><img src="https://s2.loli.net/2023/10/23/BZCtUo89REv7gTw.png" alt="image-20231023221039508"></p>
+<p><img src="https://s2.loli.net/2023/10/24/74OUCkfGo18MTEt.png" alt="image-20231023220457249"></p>
+<ul>
+<li>其中会标出 数据和指令存放的位置（.text和data），而引用的暂时标记为UND(可以出现很多UND，但是在代码中只能定义一次，要不就是重定义了)</li>
+<li>g：global  l：local，链接的时候只能链接global的符号</li>
+<li>编译过程中不分配地址，前面的地址都是0；但是指令在编译阶段就已经产生了，</li>
+</ul>
+</li>
+<li><p>链接 </p>
+<p><img src="https://s2.loli.net/2023/10/23/1nHxDJ9pz2LmRMS.png" alt="image-20231023223528196"></p>
+<ul>
+<li>第一步：合并编译后的.o文件的相同段（所以可执行文件也是一段一段的），并分配虚拟地址</li>
+<li>符号重定向：符号解析成功后分配虚拟地址，把虚拟地址写回指令中叫符号重定向（因为编译后不分配地址，地址都为0）</li>
+</ul>
+</li>
+<li><p>可执行文件</p>
+<ul>
+<li><p>和.o文件一样都是由段组成的，但是多了progrma heads，用于指明把哪些内容加载到内存<br><img src="https://s2.loli.net/2023/10/23/QDbs4n5KO9tzLvM.png" alt="image-20231023235152854"></p>
+</li>
+<li><p>此时.o文件在磁盘上，并有了虚拟地址，之后就是操作系统虚拟地址到物理地址的转换了</p>
+<p><img src="https://s2.loli.net/2023/10/23/EmSwrzRiOl4tgkJ.png" alt="image-20231023235539410"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="C-基础知识"><a href="#C-基础知识" class="headerlink" title="C++基础知识"></a>C++基础知识</h2><h3 id="C-的new和delete"><a href="#C-的new和delete" class="headerlink" title="C++的new和delete"></a>C++的new和delete</h3><p><img src="https://s2.loli.net/2023/10/25/TfyCK9qI6RAm8Xh.png" alt="image-20231025230340531"></p>
+<ul>
+<li><p>new和malloc的两个区别</p>
+<p><img src="https://s2.loli.net/2023/10/25/enyimbTpE4hkaqt.png" alt="image-20231025230147364"></p>
+<p><img src="https://s2.loli.net/2023/10/25/GNBWLMVSnjqYtCU.png" alt="image-20231025225738550"></p>
+</li>
+<li><p>delete和free的区别</p>
+<ul>
+<li>无论是开辟数组还是单个元素 都是free(p)</li>
+<li>而单个元素 delete p；数组 delete[] p；</li>
+</ul>
+</li>
+<li><p>new有多少种？</p>
+<ul>
+<li>定位new 是把data赋值为50，也就是在指定的内存上填充值</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/10/25/eUh5FfR89mpi4rs.png" alt="image-20231025230745636"></p>
+<h3 id="C-的const"><a href="#C-的const" class="headerlink" title="C++的const"></a>C++的const</h3></div>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>DUSH
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="http://idush.top/C++%E5%9F%BA%E7%A1%80/" title="C++基础">http://idush.top/C++基础/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/C/" rel="tag"><i class="fa-solid fa-hashtag"></i> C++</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/ParaView%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="prev" title="ParaView使用">
+                  <i class="fa fa-angle-left"></i> ParaView使用
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/LeetCode/" rel="next" title="LeetCode">
+                  LeetCode <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">DUSH</span>
+  </div>
+
+<!--
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>-->
+
+    </div>
+  </footer>
+
+  
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+
+
+
+
+
+</body>
+</html>
