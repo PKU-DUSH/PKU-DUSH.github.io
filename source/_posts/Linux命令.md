@@ -138,18 +138,7 @@ rm[选项] 文件或目录
 //虽然 "-rf" 选项是用来删除目录的，但是删除文件也不会报错。所以，为了使用方便，一般不论是删除文件还是删除目录，都会直接使用 "rm -rf" 选项
 ~~~
 
-## 在没有root权限的情况下编译软件显示Permission denied问题
 
-> 没有root权限是无法写入/usr/local/bin/文件中的
-
-解决办法：
-
-1. 自定义编译的输出目录，比如`./configure --prefix=/home/dush/re2c `
-2. 把命令添加到环境变量中
-   * 打开～/.bashrc or ~/.zshrc
-   * 在末尾加入`export PATH=$PATH:/home/dush/re2c/bin` 即可
-
-* 或者直接把可执行文件加入到环境变量，例如：`export PATH=$PATH:/home/dush/tree-2.1.1`
 
 
 
