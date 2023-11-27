@@ -98,4 +98,28 @@ description: 此笔记关于C++的一些基础知识
 
 ### C++的const
 
-    {% endnote %}
+![image-20231127140228238](https://s2.loli.net/2023/11/27/M6KNyRHigUoYZJz.png)
+
+#### C++和C中的const区别
+
+> C中的const并不是完全意义上的常量，只是在语法上规定了a不能作为左值再次赋值，实际上还是变量，因为可以用指针修改,所以也不能初始化中定义数组的长度
+>
+> ![image-20231127141206339](C:\Users\19667\AppData\Roaming\Typora\typora-user-images\image-20231127141206339.png)
+
+> C++中必须初始化，但是是所有出现const的地方直接用20代替。所以*p=30确实改变了a内存的值，但是\*（&a）是直接变成了\*（&20）,所以输出还是20
+>
+> ![image-20231127141913977](https://s2.loli.net/2023/11/27/RGJ1EtpNlXWFI8Z.png)
+>
+> * 假如用一个变量初始化（变量的值只有运行的时候才知道），可以运行，但是就退化成常变量了，和C中一模一样了
+>
+> ![image-20231127142209072](https://s2.loli.net/2023/11/27/on8CBeTxfqAiKjD.png)
+
+   
+
+### C++的左值引用和右值引用
+
+
+
+
+
+{% endnote %}
