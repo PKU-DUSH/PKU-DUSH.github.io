@@ -47,18 +47,24 @@ description: 记录一下最近使用但容易遗忘的Linux命令
 > & : 在后台运行，当用户退出（挂起）的时候，命令自动跟着结束
 >
 > 输出结果自动存放在nohup.out中
-
-
+>
+> * 注意使用该指令后要用exit退出终端，直接关闭可能会导致进程终止
 
 ~~~bash
 nohup ./Allwmake &
 ~~~
 
-## 查看当前后台运行的进程
+
+
+> 查看当前后台运行的进程
 
 ~~~BASH
 jobs -l
 ~~~
+
+
+
+> 参考链接：https://blog.csdn.net/qq_37555071/article/details/113781938
 
 
 
@@ -82,6 +88,17 @@ jobs -l
 	top    //查看CPU占用，shift+m 按内存占用排序
 ~~~
 
+* 查看进程运行时间
+  * ps -eo lstart 启动时间
+  * ps -eo etime 运行多长时间.
+
+~~~BASH
+ps -eo pid,lstart,etime | grep 2459398
+//2459398 Fri Dec  8 01:26:12 2023  5-15:30:10
+~~~
+
+
+
 * 解压命令
 
 > 1. *.tar 用 tar –xvf 解压
@@ -92,7 +109,7 @@ jobs -l
 
 
 
-## Permission denied的解决办法
+## .sh文件Permission denied的解决办法
 
 > 赋予全部权限777（rwx）
 
@@ -156,6 +173,26 @@ rm[选项] 文件或目录
    * 在末尾加入`export PATH=$PATH:/home/dush/re2c/bin` 即可
 
 * 或者直接把可执行文件加入到环境变量，例如：`export PATH=$PATH:/home/dush/tree-2.1.1`
+
+
+
+## 终端SCP上传/下载文件
+
+> 若下载目录则 scp -r
+
+* 从工作站上下载文件到本地
+
+~~~BASH
+scp username@servername:/path/filename /Users/mac/path
+~~~
+
+* 从本地上传文件到工作站
+
+~~~BASH
+scp /path/filename username@servername:/path
+~~~
+
+
 
 
 
