@@ -184,7 +184,7 @@ rm[选项] 文件或目录
 
 * 或者直接把可执行文件加入到环境变量，例如：`export PATH=$PATH:/home/dush/tree-2.1.1`
 
-
+> 可以看考这个链接：https://blog.csdn.net/qq_41705840/article/details/124900211
 
 ## 终端SCP上传/下载文件
 
