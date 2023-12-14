@@ -78,8 +78,6 @@ jobs -l
     kill -9 进程号PID    //kill进程
  ~~~
 
-> 参考链接：https://www.cnblogs.com/yunwangjun-python-520/p/10713564.html#_label0_0
-
 
 
 * 查看CPU占用等信息
@@ -97,13 +95,25 @@ ps -eo pid,lstart,etime | grep 2459398
 //2459398 Fri Dec  8 01:26:12 2023  5-15:30:10
 ~~~
 
-
-
 * 解压命令
 
 > 1. *.tar 用 tar –xvf 解压
 > 2. *.tar.gz和*.tgz 用 tar –xzf 解压
 > 3. *.zip 用 unzip 解压
+
+* 查看cpu核数
+
+~~~BASH
+cat /proc/cpuinfo
+lscpu
+~~~
+
+* 查看最大可用线程数(CPU逻辑核心)
+
+~~~BASH
+nproc
+//make -j $(nproc)
+~~~
 
 
 
