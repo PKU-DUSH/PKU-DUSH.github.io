@@ -494,9 +494,8 @@
 </ul>
  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ps -aux  //显示所有程序</span><br><span class="line">ps -ef | grep 进程关键字  //查找指定进程</span><br><span class="line"><span class="built_in">kill</span> -9 进程号PID    //kill进程</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>参考链接：<a href="https://www.cnblogs.com/yunwangjun-python-520/p/10713564.html#_label0_0">https://www.cnblogs.com/yunwangjun-python-520/p/10713564.html#_label0_0</a></p>
-</blockquote>
+
+
 <ul>
 <li>查看CPU占用等信息</li>
 </ul>
@@ -511,8 +510,6 @@
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ps -eo pid,lstart,etime | grep 2459398</span><br><span class="line">//2459398 Fri Dec  8 01:26:12 2023  5-15:30:10</span><br></pre></td></tr></table></figure>
 
-
-
 <ul>
 <li>解压命令</li>
 </ul>
@@ -523,6 +520,20 @@
 <li>*.zip 用 unzip 解压</li>
 </ol>
 </blockquote>
+<ul>
+<li>查看cpu核数</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> /proc/cpuinfo</span><br><span class="line">lscpu</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查看最大可用线程数(CPU逻辑核心)</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">nproc</span></span><br><span class="line">//make -j $(<span class="built_in">nproc</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
 <h2 id="sh文件Permission-denied的解决办法"><a href="#sh文件Permission-denied的解决办法" class="headerlink" title=".sh文件Permission denied的解决办法"></a>.sh文件Permission denied的解决办法</h2><blockquote>
 <p>赋予全部权限777（rwx）</p>
 </blockquote>
