@@ -101,6 +101,8 @@ ps -eo pid,lstart,etime | grep 2459398
 > 2. *.tar.gz和*.tgz 用 tar –xzf 解压
 > 3. *.zip 用 unzip 解压
 
+> 压缩命令：`tar -zcvf /home/dush/OpenFOAM/dush-10/swak4Foam.tar.gz swak4Foam `
+
 * 查看cpu核数
 
 ~~~BASH
