@@ -1,31 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>HELLO</title>
-    <url>/HELLO/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>BLOG</category>
-      </categories>
-      <tags>
-        <tag>NexT</tag>
-        <tag>HEXO</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C++基础</title>
     <url>/C++%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<div class="note warning"><h1 id="C-知识"><a href="#C-知识" class="headerlink" title="C++知识"></a>C++知识</h1><h2 id="C-内存基础"><a href="#C-内存基础" class="headerlink" title="C++内存基础"></a>C++内存基础</h2><h3 id="进程虚拟空间地址划分"><a href="#进程虚拟空间地址划分" class="headerlink" title="进程虚拟空间地址划分"></a>进程虚拟空间地址划分</h3><p><img src="https://s2.loli.net/2023/10/07/oV6nFMAJB5rpih2.png" alt="image-20231007213657680"></p>
@@ -99,10 +74,10 @@
 </li>
 </ul>
 <p><img src="https://s2.loli.net/2023/10/25/eUh5FfR89mpi4rs.png" alt="image-20231025230745636"></p>
-<h3 id="C-的const"><a href="#C-的const" class="headerlink" title="C++的const"></a>C++的const</h3><p><img src="https://s2.loli.net/2023/11/27/M6KNyRHigUoYZJz.png" alt="image-20231127140228238"></p>
+<h3 id="C-的const、指针和引用"><a href="#C-的const、指针和引用" class="headerlink" title="C++的const、指针和引用"></a>C++的const、指针和引用</h3><p><img src="https://s2.loli.net/2023/11/27/M6KNyRHigUoYZJz.png" alt="image-20231127140228238"></p>
 <h4 id="C-和C中的const区别"><a href="#C-和C中的const区别" class="headerlink" title="C++和C中的const区别"></a>C++和C中的const区别</h4><blockquote>
-<p>C中的const并不是完全意义上的常量，只是在语法上规定了a不能作为左值再次赋值，实际上还是变量，因为可以用指针修改,所以也不能初始化中定义数组的长度</p>
-<p><img src="C:\Users\19667\AppData\Roaming\Typora\typora-user-images\image-20231127141206339.png" alt="image-20231127141206339"></p>
+<p>C中的const并不是完全意义上的常量，只是在语法上规定了a不能作为左值再次赋值，实际上还是变量，因为可以用指针修改,所以也不能初始化中定义数组的长度(打印出来的值全是30)</p>
+<p><img src="https://s2.loli.net/2024/02/20/3T2AHCZYBFWSmr7.png" alt="image-20240220224830692"></p>
 </blockquote>
 <blockquote>
 <p>C++中必须初始化，但是是所有出现const的地方直接用20代替。所以*p&#x3D;30确实改变了a内存的值，但是*（&amp;a）是直接变成了*（&amp;20）,所以输出还是20</p>
@@ -112,13 +87,71 @@
 </ul>
 <p><img src="https://s2.loli.net/2023/11/27/on8CBeTxfqAiKjD.png" alt="image-20231127142209072"></p>
 </blockquote>
-<h3 id="C-的左值引用和右值引用"><a href="#C-的左值引用和右值引用" class="headerlink" title="C++的左值引用和右值引用"></a>C++的左值引用和右值引用</h3></div>
+<h4 id="const和一二级指针的结合应用"><a href="#const和一二级指针的结合应用" class="headerlink" title="const和一二级指针的结合应用"></a>const和一二级指针的结合应用</h4><blockquote>
+<p>const修饰的量常出现的错误是：</p>
+<ol>
+<li>常量不能再作为左値＜&#x3D;这样会直接修改常量的値</li>
+<li>不能把常量的地址泄露给一个普通的指针或者普通的引用变量&lt; &#x3D; 这样会间接修改常量的值，所以必须<code>const int *p = &amp;a</code></li>
+</ol>
+</blockquote>
+<blockquote>
+<p>const 和一级指针结合：</p>
+<ul>
+<li>const 修饰离它最近的类型，可以把const和离它最近的类型去掉，剩下的部分不能改变了；<ul>
+<li>或者可以认为const修饰最大范围内能修改的变量：</li>
+<li>比如<code>const int*p</code> ，*p被完全包含，所以不能变；<code>int *const p</code>,只有p被包含，所以p不能变。</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li><code>const int *p  = &amp;a</code>：可以改变p的值，不能改变*p的值，也就是可以改变地址，不能改变地址对应的值</li>
+<li><code>int const* p </code>:和上面的一样！因为*和int不一样，不能单独定义变量，所以const修饰的还是int</li>
+<li><code>int *const p</code>: 修饰的是·<code>int*</code>，所以不可以改变p的值，可以改变*p的值，也就是不可以改变地址，可以改变地址对应的值</li>
+<li><code>const int *const p = &amp;a</code>：最严格的指针，地址和值都不能改变，第一个const修饰int不能改变*p，第二个const修饰<code>int*</code>不能改变p。<img src="https://s2.loli.net/2024/02/21/wo9nrC7pAzOEQmc.png" alt="image-20240221015833692"></li>
+</ol>
+<ul>
+<li>类型转换总结：</li>
+</ul>
+<p><img src="https://s2.loli.net/2024/02/21/RzS2gkBxcJQMXK6.png" alt="image-20240221020924985"></p>
+</blockquote>
+<blockquote>
+<ul>
+<li>注意这两个输出都是 <code>int *</code>类型的</li>
+</ul>
+<p><img src="https://s2.loli.net/2024/02/21/et2cmL7kogDra9y.png" alt="image-20240221020656659"></p>
+</blockquote>
+<h4 id="C-的左值引用和右值引用"><a href="#C-的左值引用和右值引用" class="headerlink" title="C++的左值引用和右值引用"></a>C++的左值引用和右值引用</h4><h4 id="const、指针和引用的结合使用"><a href="#const、指针和引用的结合使用" class="headerlink" title="const、指针和引用的结合使用"></a>const、指针和引用的结合使用</h4><h3 id="函数重载"><a href="#函数重载" class="headerlink" title="函数重载"></a>函数重载</h3><h3 id="inline内联函数和形参带默认值的函数"><a href="#inline内联函数和形参带默认值的函数" class="headerlink" title="inline内联函数和形参带默认值的函数"></a>inline内联函数和形参带默认值的函数</h3><h4 id="inline内联函数"><a href="#inline内联函数" class="headerlink" title="inline内联函数"></a>inline内联函数</h4><h4 id="形参带默认值的函数"><a href="#形参带默认值的函数" class="headerlink" title="形参带默认值的函数"></a>形参带默认值的函数</h4><h3 id=""><a href="#" class="headerlink" title=""></a></h3></div>
 ]]></content>
       <categories>
         <category>C++笔记</category>
       </categories>
       <tags>
         <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HELLO</title>
+    <url>/HELLO/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>BLOG</category>
+      </categories>
+      <tags>
+        <tag>NexT</tag>
+        <tag>HEXO</tag>
       </tags>
   </entry>
   <entry>
@@ -724,6 +757,69 @@
       </tags>
   </entry>
   <entry>
+    <title>git&amp;github</title>
+    <url>/git-github/</url>
+    <content><![CDATA[<div class="note warning"><h2 id="git-merge-pull-request"><a href="#git-merge-pull-request" class="headerlink" title="git merge&#x2F;pull request"></a>git merge&#x2F;pull request</h2><img src="https://s2.loli.net/2023/11/22/Qfo34dlcw5W1NBH.png" alt="image-20231122205333317" style="zoom:50%;" />
+
+<img src="https://s2.loli.net/2023/11/22/Rfg36EaTvnxbLIs.png" alt="image-20231122201538592" style="zoom:50%;" />
+
+<div class="note info"><ul>
+<li><code>git status</code> # 查看当前状态</li>
+<li><code>git log</code> # 查看操作记录</li>
+<li><code>git branch</code>  # 显示所有本地分支</li>
+<li><code>git branch -d dev</code> # 删除分支</li>
+</ul>
+</div>
+
+<blockquote>
+<ol>
+<li><code>git clone</code></li>
+<li><code>git checkout -b dev</code> # 创建并切换至“dev”分支</li>
+<li><code>git add . </code> <strong># 将目录中所有文件添加到暂存区中</strong></li>
+<li><code>git commit -m &quot;xxx&quot;</code>  <strong># 把暂存区中的文件提交到本地仓库中并添加描述信息</strong></li>
+<li><code>git checkout master</code> # 切换到master分支</li>
+<li><code>git merge dev</code> # 把dev分支合并到当前master分支</li>
+<li><code>git push -u origin master</code>  # <strong>将本地仓库的分支提交至相应的远程仓库分支</strong><ul>
+<li>第一次使用 <code>git push -u origin master</code> 之后，下次可以直接使用 <code>git pull</code> 拉取代码，就不需要输入完整的命令 <code>git pull origin master </code>来拉取代码了。第二次也可以用<code> git push</code>推送代码而不用<code>git push origin master</code>。</li>
+<li>一般情况下(多人合作)，本地修改代码后，每次从本地仓库merge到远程仓库之前都要先进行git pull（会自动和本地提交合并，与本地有冲突时需要手动合并，所以要commit之后再pull否则会覆盖修改的代码）操作，保证push到远程仓库时没有版本冲突。</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><pre><code class="bash">git clone
+cd
+git checkout -b dev
+git add . &amp;&amp; git commit -m &quot;test-dev&quot;
+    
+<p>#如果推送到远程的dev就直接git push origin dev<br>git checkout master<br>git merge dev<br>git push origin master<br></code></pre></p>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>tips:</p>
+<ul>
+<li><code>git clone</code>包括了<code>git init</code>（本地创建文件git remote origin关联远程仓库才之前需要git init）</li>
+<li>以上是合作者的操作方式，如果不是，那么需要先fork成为自己的github仓库 -&gt; git clone到本地修改 -&gt; 推送到自己的github上之后再PR</li>
+<li>git merge 冲突问题解决方案：<a href="https://blog.csdn.net/qq_42780289/article/details/97945300">https://blog.csdn.net/qq_42780289/article/details/97945300</a></li>
+</ul>
+</blockquote>
+<h2 id="终端git超时问题"><a href="#终端git超时问题" class="headerlink" title="终端git超时问题"></a>终端git超时问题</h2><blockquote>
+<p>fatal: unable to connect to github.com:<br>github.com[0: 20.205.243.166]: errno&#x3D;Connection timed out</p>
+</blockquote>
+<ul>
+<li>把<code>git clone git://github.com/ninja-build/ninja.git</code>中的<code>git</code>改成<code>https</code>就好了</li>
+</ul></div>
+
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+        <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>远程工作站安装vsfFOAM</title>
     <url>/%E8%BF%9C%E7%A8%8B%E5%B7%A5%E4%BD%9C%E7%AB%99%E5%AE%89%E8%A3%85vsfFOAM/</url>
     <content><![CDATA[<div class="note warning"><h1 id="vsfFOAM安装"><a href="#vsfFOAM安装" class="headerlink" title="vsfFOAM安装"></a>vsfFOAM安装</h1><blockquote>
@@ -811,69 +907,6 @@
         <tag>Linux</tag>
         <tag>OpenFOAM</tag>
         <tag>vsfFOAM</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git&amp;github</title>
-    <url>/git-github/</url>
-    <content><![CDATA[<div class="note warning"><h2 id="git-merge-pull-request"><a href="#git-merge-pull-request" class="headerlink" title="git merge&#x2F;pull request"></a>git merge&#x2F;pull request</h2><img src="https://s2.loli.net/2023/11/22/Qfo34dlcw5W1NBH.png" alt="image-20231122205333317" style="zoom:50%;" />
-
-<img src="https://s2.loli.net/2023/11/22/Rfg36EaTvnxbLIs.png" alt="image-20231122201538592" style="zoom:50%;" />
-
-<div class="note info"><ul>
-<li><code>git status</code> # 查看当前状态</li>
-<li><code>git log</code> # 查看操作记录</li>
-<li><code>git branch</code>  # 显示所有本地分支</li>
-<li><code>git branch -d dev</code> # 删除分支</li>
-</ul>
-</div>
-
-<blockquote>
-<ol>
-<li><code>git clone</code></li>
-<li><code>git checkout -b dev</code> # 创建并切换至“dev”分支</li>
-<li><code>git add . </code> <strong># 将目录中所有文件添加到暂存区中</strong></li>
-<li><code>git commit -m &quot;xxx&quot;</code>  <strong># 把暂存区中的文件提交到本地仓库中并添加描述信息</strong></li>
-<li><code>git checkout master</code> # 切换到master分支</li>
-<li><code>git merge dev</code> # 把dev分支合并到当前master分支</li>
-<li><code>git push -u origin master</code>  # <strong>将本地仓库的分支提交至相应的远程仓库分支</strong><ul>
-<li>第一次使用 <code>git push -u origin master</code> 之后，下次可以直接使用 <code>git pull</code> 拉取代码，就不需要输入完整的命令 <code>git pull origin master </code>来拉取代码了。第二次也可以用<code> git push</code>推送代码而不用<code>git push origin master</code>。</li>
-<li>一般情况下(多人合作)，本地修改代码后，每次从本地仓库merge到远程仓库之前都要先进行git pull（会自动和本地提交合并，与本地有冲突时需要手动合并，所以要commit之后再pull否则会覆盖修改的代码）操作，保证push到远程仓库时没有版本冲突。</li>
-</ul>
-</li>
-</ol>
-<ul>
-<li><pre><code class="bash">git clone
-cd
-git checkout -b dev
-git add . &amp;&amp; git commit -m &quot;test-dev&quot;
-    
-<p>#如果推送到远程的dev就直接git push origin dev<br>git checkout master<br>git merge dev<br>git push origin master<br></code></pre></p>
-</li>
-</ul>
-</blockquote>
-<blockquote>
-<p>tips:</p>
-<ul>
-<li><code>git clone</code>包括了<code>git init</code>（本地创建文件git remote origin关联远程仓库才之前需要git init）</li>
-<li>以上是合作者的操作方式，如果不是，那么需要先fork成为自己的github仓库 -&gt; git clone到本地修改 -&gt; 推送到自己的github上之后再PR</li>
-<li>git merge 冲突问题解决方案：<a href="https://blog.csdn.net/qq_42780289/article/details/97945300">https://blog.csdn.net/qq_42780289/article/details/97945300</a></li>
-</ul>
-</blockquote>
-<h2 id="终端git超时问题"><a href="#终端git超时问题" class="headerlink" title="终端git超时问题"></a>终端git超时问题</h2><blockquote>
-<p>fatal: unable to connect to github.com:<br>github.com[0: 20.205.243.166]: errno&#x3D;Connection timed out</p>
-</blockquote>
-<ul>
-<li>把<code>git clone git://github.com/ninja-build/ninja.git</code>中的<code>git</code>改成<code>https</code>就好了</li>
-</ul></div>
-
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-        <tag>Github</tag>
       </tags>
   </entry>
 </search>
