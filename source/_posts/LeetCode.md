@@ -42,7 +42,7 @@ public:
 * 二分查找
   * **有序数组**，**无重复元素**
   * 边界条件：
-    * target在[left，right]
+    * target在[left，right]，也就是`right = num.size() - 1`
     * 于是 left<=right（等号的边界条件是最右面的数是target，也就是`right]` ）
     * 于是 `if (nums[mid] > target)    right = mid-1`
 * 为什么`int mid = left + (right - left)/2`  
@@ -133,6 +133,13 @@ public:
   * 由于数组有序，那么平方之后最大值肯定在两侧，所以可以两侧都设置一个指针
   * 注意`i<=j`，因为如果`i==j`就停止，那么i和j同时指向的这个元素就不会被放入新数组中
   * 这个思想有点像快排？
+  
+* ~~~C++
+  if (nums[i]*nums[i] > nums[j]*nums[j])
+                  result[k--] = nums[i++]*nums[i++];//注意不能这样，这样在第一个nums[i++]后i就会增加了		
+              else																	//可以nums[i]*nums[i++]
+                  result[k--] = nums[j--]*nums[j--];	
+  ~~~
 
 ### 长度最小的子数组
 
@@ -169,7 +176,7 @@ public:
         int result = 0;
         for (int j = 0; j < nums.size(); j++){
             result += nums[j];
-            while (result >= target) {
+            while (result >= target) {	//！！注意这里是while而不是if，可以考虑j到头了，if的话后面几个就没法再减小了
                 subLength = j - i + 1;
                 length = subLength < length ? subLength : length;
                 result -= nums[i++]; //关键代码，等同于另一个for
@@ -289,6 +296,10 @@ public:
     }
 };
 ~~~
+
+* `ListNode *virtualNode  = new ListNode()` //这样创建对象是创建一个指针指向开辟的内存，所以可以和NULL比较。
+  * 但是记住用完要delete
+  * 在堆开辟，占用空间大，适合大程序；`ListNode virtualNode`栈开辟，占用空间小，适合小程序
 
 * 操作当前节点必须要找前一个节点才能操作，但是头结点没有前一个节点了，这就需要虚拟头节点了。
 * 节点移除要设置tmp变量
