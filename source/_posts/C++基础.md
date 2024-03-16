@@ -161,8 +161,8 @@ description: 此笔记关于C++的一些基础知识
 >   > * 因为`const int **q`表示a是一个常量无法被修改，而右面的`int *p`没有const说明可以通过p来修改a，这样就冲突了（**这个想法是错误的**）
 >   > * **正确想法**：**\*q的类型是const int ***，说明可以进行`const int b = 20 ; \*q = &b`,两边都是const int *类型。**但是**\*q和p都等于a的地址，p不是一个const，那么这就说明把一个const类型的地址放到了一个不是const类型的地址中，错误
 >   > * 也就是*q这块地址有两个名字，一个是`*q`,一个是`p`，第一个名字是const类型，第二个不是const类型的，所以不能把const类型的地址放到这块内存，必须两个名字都为const类型才可以。 
->   >   >  <img src="https://s2.loli.net/2024/02/29/Ant8mf6EgI7RyHY.png" alt="image-20240229140713506" style="zoom:25%;" />
->   > * 所以没有什么多级指针，只有一级指针，`const int **q 代表 const int*  *q `,前面的都是类型，代表这个指针（**q）类型是个地址，而int *q，代表指针（\*q）是个int的数。
+>   >   >  <img src="https://s2.loli.net/2024/02/29/Ant8mf6EgI7RyHY.png" alt="image-20240229140713506" style="zoom: 50%;" />
+>   > * 所以没有什么多级指针，只有一级指针，`const int **q 代表 const int*  *q `,前面的都是类型，代表这个指针（*q）类型是个地址，而int *q，代表指针（\*q）是个int的数。
 >   > * 也就是二级指针的重点是有两个名字代表了同一个地址，对这块地址的操作就要小心
 >
 > * 第三部分注意const修饰的是*，那么两面同时不看前面的int\*,发现和第一部分是一样的
@@ -201,7 +201,7 @@ description: 此笔记关于C++的一些基础知识
 >
 > * 注意const的位置，不能放在*前面；和`int *&&p`是一样的
 >
-> * `const int *&q = p`可以还原成`const int **q = p`就和前面的例子一样了
+> * `const int *&q = p`可以还原成`const int **q = &p`就和前面的例子一样了
 >
 > * 所以有引用的时候让你判断对错，换成指针比较好看一点
 >
@@ -350,9 +350,123 @@ description: 此笔记关于C++的一些基础知识
 
 ### 类和对象实践
 
+> * 构造函数遇见指针的时候，要考虑
+>   * 自身成员变量要先new开辟内存
+>   * 外部传来的指针是否为空？
+>   * 如果为空不要设为nullptr，因为这样后面所有的成员函数都要判断是否为空，设为一个0字符，那么后面的就不需要判断自己的成员变量是否为0了。
+>
+> <img src="https://s2.loli.net/2024/03/16/k36Sfb4rzO8lMjX.png" alt="image-20240316184553432" style="zoom: 33%;" />
+>
+> * 注意第二部分第一个不是赋值重载，因为赋值重载是对象已经被定义完成之后的操作。这个是对象在构造过程中的操作，所以是调用拷贝构造函数。
+> * 这三部分中的语句都是等价的
+>
+> <img src="https://s2.loli.net/2024/03/16/i98s3jSDZR7HUXr.png" alt="image-20240316191103098" style="zoom: 50%;" />
 
+> * 循环队列类的实现
+>
+> <img src="/Users/dush/Library/Application Support/typora-user-images/image-20240316192433846.png" alt="image-20240316192433846" style="zoom:50%;" />
+>
+> <img src="https://s2.loli.net/2024/03/16/HNQKDd3l48qstbu.png" alt="image-20240316192529220" style="zoom:50%;" />
+>
+> <img src="https://s2.loli.net/2024/03/16/6JxvmkRzwyUBXE7.png" alt="image-20240316192632300" style="zoom:50%;" />
+>
+> <img src="/Users/dush/Library/Application Support/typora-user-images/image-20240316192738101.png" alt="image-20240316192738101" style="zoom:50%;" />
+>
+> * 拷贝构造和赋值构造
+>
+> <img src="/Users/dush/Library/Application Support/typora-user-images/image-20240316192814563.png" alt="image-20240316192814563" style="zoom:50%;" />
+>
+> <img src="https://s2.loli.net/2024/03/16/EQ7d9Akix6gzKfs.png" alt="image-20240316192905064" style="zoom:50%;" />
+>
+> <img src="https://s2.loli.net/2024/03/16/AGmeikwOWzVZNpn.png" alt="image-20240316192934949" style="zoom: 67%;" />
+>
+>   
 
 ### 构造函数的初始化列表
+
+> <img src="https://s2.loli.net/2024/03/16/pRNzbJoPLQUGZh6.png" alt="image-20240316193453153" style="zoom:50%;" />
+>
+> * 成员对象
+>
+> <img src="https://s2.loli.net/2024/03/16/lsMJEawLejz4nRK.png" alt="image-20240316193521223" style="zoom:50%;" />
+>
+> <img src="https://s2.loli.net/2024/03/16/EIwckTyj1KulfxV.png" alt="image-20240316193548022" style="zoom:50%;" />
+>
+> * 当成员变量中有别的类的对象的时候，那么在构造函数中也要初始化构造成员对象
+>
+> <img src="https://s2.loli.net/2024/03/16/ZUG6tnxNcTyYzBa.png" alt="image-20240316194031556" style="zoom:50%;" />
+>
+> * 不要在构造函数体里这样做，因为这个时候用的是赋值构造函数，而对象_data还没构造出来呢，所以会出错
+>
+> <img src="https://s2.loli.net/2024/03/16/iwrdDj9ubCxHh57.png" alt="image-20240316195441730"  />
+>
+> * 注意这里ma是无效值，**初始化列表的顺序 和成员变量定义的顺序相同**
+>
+> ![**image-20240316201815267**](https://s2.loli.net/2024/03/16/7PmAV1N4JbBIGpi.png)
+
+### 类的各种成员方法和区别
+
+![image-20240316232051127](https://s2.loli.net/2024/03/16/Zb2lcp8CiUVNwAJ.png)
+
+> * 比如统计类所有对象的数量，可以定义一个静态变量。也可以定义全局变量，但是就不是面向对象了
+> * 属于类级别，所以不占用内存
+>
+> <img src="/Users/dush/Library/Application Support/typora-user-images/image-20240316230047107.png" alt="image-20240316230047107" style="zoom:50%;" />
+>
+> * 可以同时创建一个静态成员方法，这样就不用通过对象来调用函数，而是直接用类调用函数；访问所有对象共享的信息
+>
+> <img src="https://s2.loli.net/2024/03/16/mGZDRAs46UQ9SfI.png" alt="image-20240316230812395" style="zoom: 67%;" />
+>
+> * 本质区别在于普通方法产生this指针，而静态成员方法没有this指针
+> * 静态方法只能访问静态成员变量，不能访问普通成员变量；因为没有this指针，不知道调用哪一个对象
+>
+> <img src="/Users/dush/Library/Application Support/typora-user-images/image-20240316230455050.png" alt="image-20240316230455050" style="zoom:50%;" />
+>
+> 
+
+> * 创建一个常对象，那么调用普通成员方法会有问题。因为调用函数实际上是传递一个this对象指针，但是常对象的指针是const*；不能吧一个const指针传递给普通的指针（一级指针的基础知识）；不能把const *实参传递给\*的形参
+>
+> <img src="https://s2.loli.net/2024/03/16/dcx9Ke5pY4WrJIR.png" alt="image-20240316230956692" style="zoom:67%;" />
+>
+> * 解决办法很简单，把想要调用的成员也变成const类型；注意const位置，在函数（）最后
+> * 只读的都实现成常成员方法，这样无论传过来的实参是否是const都能用
+> * 常成员方法不能修改变量，因为是 const *this指针，所以\*this就不能改变了(也就是this指向的值不能变)；而实际上函数体里每一个变量的读写都省略了` this->price`
+>
+> <img src="https://s2.loli.net/2024/03/16/UkHoD6qab1ug7AS.png" alt="image-20240316231637874" style="zoom:67%;" />
+
+### 指向类成员（成员变量/方法）的指针
+
+> 1. 定义指针要加上类的作用域
+> 2. 调用指针，要通过具体的对象调用
+>
+> * 静态成员变量/方法除外，可以看做全局变量/方法，只不过落在了类的作用域中
+
+> * 指向成员变量的指针
+> * 定义一个指针用于指向成员变量一定要加作用域，否则不知道是哪里的成员变量，也就是要`Test::`限定
+> * 同时调用一定要通过具体的对象来调用
+>
+> <img src="/Users/dush/Library/Application Support/typora-user-images/image-20240316232839444.png" alt="image-20240316232839444" style="zoom:50%;" />
+>
+> * 而静态成员变量不需要类作用域限定，因为静态成员变量是不依赖类的
+>
+> <img src="https://s2.loli.net/2024/03/16/ZkiyqIDfQcoLP87.png" alt="image-20240316233030083" style="zoom:50%;" />
+
+
+
+> * 指向成员方法的指针
+>
+> * 和上面一样，指向普通成员方法一定要依赖作用域
+>
+> * 注意函数指针的定义方法
+>   * 定义是`void (*p)() = &fun()`
+>   * 调用是`(*p)()`
+>
+>
+> <img src="https://s2.loli.net/2024/03/16/D1M5yXchm7GHoep.png" alt="image-20240316233456216" style="zoom:50%;" />
+
+### 理解函数模板
+
+### 理解类模板
 
 
 
