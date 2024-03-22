@@ -466,6 +466,34 @@ description: 此笔记关于C++的一些基础知识
 
 ### 理解函数模板
 
+* 模板目的：只关心代码的逻辑，而不关心具体的类型
+
+![image-20240322231932580](https://s2.loli.net/2024/03/22/BdToeFLR6EyKUGk.png)
+
+![image-20240322232133322](https://s2.loli.net/2024/03/22/mvDf8sQrpIeClPJ.png)
+
+> * 模板函数
+>
+> <img src="https://s2.loli.net/2024/03/22/iU41GYxtqVCg3dj.png" alt="image-20240322140855701" style="zoom: 33%;" />
+>
+> <img src="https://s2.loli.net/2024/03/22/HbQF2XceD4xES8K.png" alt="image-20240322140946780" style="zoom:33%;" />
+>
+> * 不写<>也可以通过传入参数的类型来推断出T的类型，但是参数的类型必须一致；最下面的就不行了
+>
+> <img src="/Users/dush/Library/Application Support/typora-user-images/image-20240322141218827.png" alt="image-20240322141218827" style="zoom:33%;" />
+>
+> * 特例化模板
+>
+> <img src="/Users/dush/Library/Application Support/typora-user-images/image-20240322222457966.png" alt="image-20240322222457966" style="zoom:33%;" />
+>
+> * 模板不能放到其他CPP中调用，编译的时候会出错，因为只有被调用的时候才会被编译，声明的时候是不被编译的。所以要放在.h头文件中。
+>
+>   * 除非在声明的时候就实例化（尽量别用，否则就失去了模板的目的了）
+>
+>   ![image-20240322232226943](https://s2.loli.net/2024/03/22/XGDc6Uvoij1K2Z4.png)
+>
+> 
+
 ### 理解类模板
 
 
