@@ -492,10 +492,15 @@ description: 此笔记关于C++的一些基础知识
 >
 >   ![image-20240322232226943](https://s2.loli.net/2024/03/22/XGDc6Uvoij1K2Z4.png)
 >
-> 
+
+
+
+> * 非类型参数（T叫类型参数）
+>
+> <img src="https://s2.loli.net/2024/04/18/pfUOSQB2hwkDzco.png" alt="image-20240418233935307" style="zoom:50%;" />
 
 ### 理解类模板
 
-
+> <img src="https://s2.loli.net/2024/04/18/qE1pjzcCM3erZSQ.png" alt="image-20240418235325942" style="zoom:50%;" />
 
 {% endnote %}
