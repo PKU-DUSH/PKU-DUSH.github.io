@@ -103,4 +103,11 @@ categories:
 
 ![image-20230927213631892](https://s2.loli.net/2023/09/27/IFOfxmJ2jiysdGY.png)
 
+# vsfFOAM编程相关
+
+* 引入OpenFOAM中的.H文件的时候要在Make-options中一并设置
+  - 有时会出现在OpenFOAM中，该.H文件引用的某一.H文件无法找到，但是OpenFOAM中确实存在，那么先find -name “xxx”找到该文件的位置，也在Make-options中链接
+
+
+
 {% endnote %}
