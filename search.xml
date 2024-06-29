@@ -560,164 +560,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux命令</title>
-    <url>/Linux%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<div class="note warning"><h1 id="Linux命令"><a href="#Linux命令" class="headerlink" title="Linux命令"></a>Linux命令</h1><h2 id="编译结果输出到文件"><a href="#编译结果输出到文件" class="headerlink" title="编译结果输出到文件"></a>编译结果输出到文件</h2><ul>
-<li><p>针对中断产生的编译结果，可以输出到指定文件中以供分析</p>
-<blockquote>
-<p>tee : 输出结果的同时也保留终端输出</p>
-<p>1：正确运行输出</p>
-<p>2：错误运行输出</p>
-</blockquote>
-<ul>
-<li><p><strong>输出正确运行和错误运行结果（即输出全部编译结果）</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make 2&gt;&amp;1 | <span class="built_in">tee</span> out.txt</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>输出正确运行结果</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make &gt; out.txt    OR   make 1&gt; out.txt   </span><br></pre></td></tr></table></figure>
-</li>
-<li><p>输出错误运行结果</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make 2&gt; out.txt</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-<h2 id="后台不挂断地执行命令"><a href="#后台不挂断地执行命令" class="headerlink" title="后台不挂断地执行命令"></a>后台不挂断地执行命令</h2><blockquote>
-<p>nohup : 不挂断地运行命令（没有后台运行的功能）<br>&amp; : 在后台运行，当用户退出（挂起）的时候，命令自动跟着结束</p>
-<p>输出结果自动存放在nohup.out中</p>
-<ul>
-<li>注意使用该指令后要用exit退出终端，直接关闭可能会导致进程终止</li>
-</ul>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">nohup</span> ./Allwmake &amp;</span><br></pre></td></tr></table></figure>
-
-
-
-<blockquote>
-<p>查看当前后台运行的进程</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">jobs</span> -l</span><br></pre></td></tr></table></figure>
-
-
-
-<blockquote>
-<p>参考链接：<a href="https://blog.csdn.net/qq_37555071/article/details/113781938">https://blog.csdn.net/qq_37555071/article/details/113781938</a></p>
-</blockquote>
-<h2 id="一些系统命令"><a href="#一些系统命令" class="headerlink" title="一些系统命令"></a>一些系统命令</h2><ul>
-<li>查找进程并kill</li>
-</ul>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ps -aux  //显示所有程序</span><br><span class="line">ps -ef | grep 进程关键字  //查找指定进程</span><br><span class="line"><span class="built_in">kill</span> -9 进程号PID    //kill进程</span><br></pre></td></tr></table></figure>
-
-
-
-<ul>
-<li>查看CPU占用等信息</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">top    //查看CPU占用，<span class="built_in">shift</span>+m 按内存占用排序</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>查看进程运行时间<ul>
-<li>ps -eo lstart 启动时间</li>
-<li>ps -eo etime 运行多长时间.</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ps -eo pid,lstart,etime | grep 2459398</span><br><span class="line">//2459398 Fri Dec  8 01:26:12 2023  5-15:30:10</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>解压命令</li>
-</ul>
-<blockquote>
-<ol>
-<li>*.tar 用 tar –xvf 解压</li>
-<li><em>.tar.gz和</em>.tgz 用 tar –xzf 解压</li>
-<li>*.zip 用 unzip 解压</li>
-</ol>
-</blockquote>
-<blockquote>
-<p>压缩命令：<code>tar -zcvf /home/dush/OpenFOAM/dush-10/swak4Foam.tar.gz swak4Foam </code></p>
-</blockquote>
-<ul>
-<li>查看cpu核数</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> /proc/cpuinfo</span><br><span class="line">lscpu</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>查看最大可用线程数(CPU逻辑核心)</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">nproc</span></span><br><span class="line">//make -j $(<span class="built_in">nproc</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h2 id="sh文件Permission-denied的解决办法"><a href="#sh文件Permission-denied的解决办法" class="headerlink" title=".sh文件Permission denied的解决办法"></a>.sh文件Permission denied的解决办法</h2><blockquote>
-<p>赋予全部权限777（rwx）</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 777 xxx.sh</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><ul>
-<li>移动文件</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//如果需要复制，把<span class="built_in">mv</span>改为<span class="built_in">cp</span></span><br><span class="line">//改文件名aaa-&gt;bbb</span><br><span class="line"><span class="built_in">mv</span> aaa bbb</span><br><span class="line"></span><br><span class="line">//移动文件或文件夹</span><br><span class="line"><span class="built_in">mv</span> 文件（夹）名 目的路径</span><br><span class="line"></span><br><span class="line">//移动 info 目录到 logs 目录中。注意，如果 logs 目录不存在，则该命令将 info 改名为 logs</span><br><span class="line"><span class="built_in">mv</span> info/ logs </span><br><span class="line"></span><br><span class="line">//移动 info 目录下所有目录和文件到 logs 目录中</span><br><span class="line"><span class="built_in">mv</span> info/* logs </span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>查看文件</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//在终端显示文件所有内容</span><br><span class="line"><span class="built_in">cat</span> file.txt</span><br><span class="line"></span><br><span class="line">//按页查看文件内容，适合查看大文件</span><br><span class="line">//按空格翻页，按q退出</span><br><span class="line">less file.txt</span><br><span class="line">less -N file.txt  //添加行号	</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>删除文件</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span>[选项] 文件或目录</span><br><span class="line">选项：</span><br><span class="line">-f：强制删除（force），和 -i 选项相反，使用 -f，系统将不再询问，而是直接删除目标文件或目录。</span><br><span class="line">-i：和 -f 正好相反，在删除文件或目录之前，系统会给出提示信息，使用 -i 可以有效防止不小心删除有用的文件或目录。</span><br><span class="line">-r：递归删除，主要用于删除目录，可删除指定目录及包含的所有内容，包括所有的子目录和文件。</span><br><span class="line">//删除目录是 <span class="built_in">rm</span> -r， 但是会一直提示，所以<span class="built_in">rm</span> -rf</span><br><span class="line">//虽然 <span class="string">&quot;-rf&quot;</span> 选项是用来删除目录的，但是删除文件也不会报错。所以，为了使用方便，一般不论是删除文件还是删除目录，都会直接使用 <span class="string">&quot;rm -rf&quot;</span> 选项</span><br></pre></td></tr></table></figure>
-
-<h2 id="在没有root权限的情况下编译软件显示Permission-denied问题"><a href="#在没有root权限的情况下编译软件显示Permission-denied问题" class="headerlink" title="在没有root权限的情况下编译软件显示Permission denied问题"></a>在没有root权限的情况下编译软件显示Permission denied问题</h2><blockquote>
-<p>没有root权限是无法写入&#x2F;usr&#x2F;local&#x2F;bin&#x2F;文件中的</p>
-</blockquote>
-<p>解决办法：</p>
-<ol>
-<li>自定义编译的输出目录，比如<code>./configure --prefix=/home/dush/re2c </code></li>
-<li>把命令添加到环境变量中<ul>
-<li>打开～&#x2F;.bashrc or ~&#x2F;.zshrc</li>
-<li>在末尾加入<code>export PATH=$PATH:/home/dush/re2c/bin</code> 即可</li>
-</ul>
-</li>
-</ol>
-<ul>
-<li>或者直接把可执行文件加入到环境变量，例如：<code>export PATH=$PATH:/home/dush/tree-2.1.1</code></li>
-</ul>
-<blockquote>
-<p>可以看考这个链接：<a href="https://blog.csdn.net/qq_41705840/article/details/124900211">https://blog.csdn.net/qq_41705840/article/details/124900211</a></p>
-</blockquote>
-<h2 id="终端SCP上传-下载文件"><a href="#终端SCP上传-下载文件" class="headerlink" title="终端SCP上传&#x2F;下载文件"></a>终端SCP上传&#x2F;下载文件</h2><blockquote>
-<p>若下载目录则 scp -r</p>
-</blockquote>
-<ul>
-<li>从工作站上下载文件到本地</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">scp username@servername:/path/filename /Users/mac/path</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>从本地上传文件到工作站</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">scp /path/filename username@servername:/path</span><br></pre></td></tr></table></figure>
-
-
-
-
-</div>
-
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>BASH</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>HELLO</title>
     <url>/HELLO/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -740,125 +582,6 @@
       <tags>
         <tag>NexT</tag>
         <tag>HEXO</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>远程工作站安装OpenFOAM</title>
-    <url>/OpenFOAM%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[<div class="note default"><h1 id="远程工作站安装OpenFOAM教程"><a href="#远程工作站安装OpenFOAM教程" class="headerlink" title="远程工作站安装OpenFOAM教程"></a>远程工作站安装OpenFOAM教程</h1><blockquote>
-<p>一般来说，Linux下安装OpenFOAM有两种方法：</p>
-<p>一种是直接用apt下载，但是此种方法仅限于个人电脑（因为需要sudo权限）；</p>
-<p>另外一种更为推荐的常用办法是用<strong>源代码编译安装</strong>，由于需要远程连接实验室的电脑，在实验室的Linux环境下安装，所以也只能用这个办法。</p>
-</blockquote>
-<blockquote>
-<p>推荐直接根据官方教程来，注意是Source Pack：<a href="https://openfoam.org/download/11-source/">https://openfoam.org/download/11-source/</a></p>
-</blockquote>
-<h2 id="下载并解压源文件"><a href="#下载并解压源文件" class="headerlink" title="下载并解压源文件"></a>下载并解压源文件</h2><h3 id="step1-：-建立OpenFOAM文件夹"><a href="#step1-：-建立OpenFOAM文件夹" class="headerlink" title="step1 ： 建立OpenFOAM文件夹"></a>step1 ： 建立OpenFOAM文件夹</h3><p><img src="https://s2.loli.net/2023/09/24/xBYPZWgMnkvzK4r.png" alt="image-20230924144932715"></p>
-<h3 id="step2-：执行下载解压命令"><a href="#step2-：执行下载解压命令" class="headerlink" title="step2 ：执行下载解压命令"></a>step2 ：执行下载解压命令</h3><p><img src="https://s2.loli.net/2023/09/24/7oLWQOd95IB1bME.png" alt="image-20230924150351555"></p>
-<p><img src="https://s2.loli.net/2023/09/24/fXPTIvrAEUWm7nG.png" alt="image-20230924150504744"></p>
-<h3 id="step3-：改文件名，便于以后使用"><a href="#step3-：改文件名，便于以后使用" class="headerlink" title="step3 ：改文件名，便于以后使用"></a>step3 ：改文件名，便于以后使用</h3><p><img src="https://s2.loli.net/2023/09/24/amTJlYC87QdWSAP.png" alt="image-20230924150737127"></p>
-<h2 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h2><blockquote>
-<p>注意是在~&#x2F;.bashrc中设置</p>
-</blockquote>
-<p><img src="https://s2.loli.net/2023/09/24/LKj5nD4fk3z1eXV.png" alt="image-20230924152124605"></p>
-<p><img src="https://s2.loli.net/2023/09/24/5jQ1pDItLcUZVdS.png" alt="image-20230924152114681"></p>
-<blockquote>
-<p>最后运行一下bashrc脚本</p>
-</blockquote>
-<p><img src="https://s2.loli.net/2023/09/24/1iLYepaK732XVBw.png" alt="image-20230924152235522"></p>
-<h2 id="下载编译第三方库（包括paraview）"><a href="#下载编译第三方库（包括paraview）" class="headerlink" title="下载编译第三方库（包括paraview）"></a>下载编译第三方库（包括paraview）</h2><h3 id="Installing-Scotch-PT-Scotch"><a href="#Installing-Scotch-PT-Scotch" class="headerlink" title="Installing Scotch&#x2F;PT-Scotch"></a>Installing Scotch&#x2F;PT-Scotch</h3><p><img src="https://s2.loli.net/2023/09/24/6TENoFiHRfj97Y2.png" alt="image-20230924154149151"></p>
-<h3 id="Installing-ParaView"><a href="#Installing-ParaView" class="headerlink" title="Installing ParaView"></a>Installing ParaView</h3><p><img src="https://s2.loli.net/2023/09/24/ldoEZeqDvt6PAHu.png" alt="image-20230924154308317"></p>
-<blockquote>
-<ul>
-<li>这里出问题了，但是不用管，可以用<strong>paraFoam -builtin</strong>代替</li>
-</ul>
-<p><img src="https://s2.loli.net/2023/09/24/cEt6iRV1BNHpf9m.png" alt="image-20230924155942595"></p>
-</blockquote>
-<h2 id="编译OpenFOAM"><a href="#编译OpenFOAM" class="headerlink" title="编译OpenFOAM"></a>编译OpenFOAM</h2><p><img src="https://s2.loli.net/2023/09/24/vuVrpsQejiHLNtI.png" alt="image-20230924160049450"></p>
-<h2 id="运行简单算例并可视化"><a href="#运行简单算例并可视化" class="headerlink" title="运行简单算例并可视化"></a>运行简单算例并可视化</h2><h3 id="创建运行文件夹"><a href="#创建运行文件夹" class="headerlink" title="创建运行文件夹"></a>创建运行文件夹</h3><p><img src="https://s2.loli.net/2023/09/24/WD2LAREJhTSl5aO.png" alt="image-20230924160932211"></p>
-<h3 id="运行简单算例"><a href="#运行简单算例" class="headerlink" title="运行简单算例"></a>运行简单算例</h3><p><img src="https://s2.loli.net/2023/09/25/ugl7SPyibWa9vI3.png" alt="image-20230925212038629"></p>
-<ul>
-<li>成功运行</li>
-</ul>
-<p>​	<img src="https://s2.loli.net/2023/09/25/MPivyQYuLrEoksH.png" alt="image-20230925212121916"></p>
-</div>
-]]></content>
-      <categories>
-        <category>vsfFOAM</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>OpenFOAM</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ParaView使用</title>
-    <url>/ParaView%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<div class="note warning"><h1 id="ParaView使用"><a href="#ParaView使用" class="headerlink" title="ParaView使用"></a>ParaView使用</h1><h2 id="本地ParaView查看远程工作站文件"><a href="#本地ParaView查看远程工作站文件" class="headerlink" title="本地ParaView查看远程工作站文件"></a>本地ParaView查看远程工作站文件</h2><ol>
-<li><p>首先在远程终端输入<code>pvserver</code><br> <img src="https://s2.loli.net/2023/10/08/qIGsmbXt6exFWQ5.png" alt="image-20231007191801789"></p>
-</li>
-<li><p>在本地ParaView中 File-&gt;connect  进行配置</p>
-<ul>
-<li>Server Type 选择Client&#x2F;Server</li>
-<li>Host输入工作站IP</li>
-<li>port默认即可</li>
-</ul>
-</li>
-<li><p>双击刚创建好的Server即可连接到远程机器，直接打开远程文件</p>
-</li>
-</ol>
-<blockquote>
-<ul>
-<li>注意如果没有foam文件，手动创建一个run.foam的空文件，然后用ParaView打开此空文件即可</li>
-<li>此后连接过程中，有可能出现提示框等待60s，且一直不消失导致卡住，个人解决办法是删掉并重新配置step 2<ul>
-<li>update：梯子关了就好了</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<h2 id="ParaView的基本使用"><a href="#ParaView的基本使用" class="headerlink" title="ParaView的基本使用"></a>ParaView的基本使用</h2><blockquote>
-<p>官方教程：<a href="https://docs.paraview.org/en/latest/UsersGuide/index.html">https://docs.paraview.org/en/latest/UsersGuide/index.html</a></p>
-</blockquote>
-<ol>
-<li><p>切片、切块</p>
-<ul>
-<li>Slice&#x2F;Clip，Properties中的Nomal调整方向（法向量）</li>
-</ul>
-<p><img src="https://s2.loli.net/2023/10/08/6FD8X1lZduhaMcQ.png" alt="image-20231008154400595"></p>
-</li>
-<li><p>显示外部、框架、内部</p>
-<p><img src="https://s2.loli.net/2023/10/08/8WhQRTYdKNI4qt3.png" alt="image-20231008155015532"></p>
-<ul>
-<li><p>外部：Surface&#x2F;Surface with edges&#x2F;Wireframe&#x2F;Feature Edges</p>
-</li>
-<li><p>内部：Volume（需要渲染，有点慢）</p>
-</li>
-</ul>
-</li>
-<li><p>画等值面</p>
-<ul>
-<li><p>contour -&gt;  properties -&gt; Value Range中设置参数（代表的就是值为该参数的等值面）</p>
-<p><img src="https://s2.loli.net/2023/10/08/3NyAhnGTLHjrzfx.png" alt="image-20231008160013396"></p>
-<p><img src="https://s2.loli.net/2023/10/08/7iuy14xfdB8Q65C.png" alt="image-20231008165533308"></p>
-</li>
-</ul>
-</li>
-<li><p>设置阈值（高于某值的一律设为最大值，低于某值则设为最小值）</p>
-<ul>
-<li><p>Lower&#x2F;Higher Threshold</p>
-<p><img src="https://s2.loli.net/2023/10/08/V7lciHktSv6nJj3.png" alt="image-20231008160619201"></p>
-</li>
-</ul>
-</li>
-</ol>
-</div>]]></content>
-      <categories>
-        <category>vsfFOAM</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>OpenFOAM</tag>
-        <tag>vsfFOAM</tag>
       </tags>
   </entry>
   <entry>
@@ -1196,6 +919,286 @@
       </tags>
   </entry>
   <entry>
+    <title>Linux命令</title>
+    <url>/Linux%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<div class="note warning"><h1 id="Linux命令"><a href="#Linux命令" class="headerlink" title="Linux命令"></a>Linux命令</h1><h2 id="编译结果输出到文件"><a href="#编译结果输出到文件" class="headerlink" title="编译结果输出到文件"></a>编译结果输出到文件</h2><ul>
+<li><p>针对中断产生的编译结果，可以输出到指定文件中以供分析</p>
+<blockquote>
+<p>tee : 输出结果的同时也保留终端输出</p>
+<p>1：正确运行输出</p>
+<p>2：错误运行输出</p>
+</blockquote>
+<ul>
+<li><p><strong>输出正确运行和错误运行结果（即输出全部编译结果）</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make 2&gt;&amp;1 | <span class="built_in">tee</span> out.txt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>输出正确运行结果</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make &gt; out.txt    OR   make 1&gt; out.txt   </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>输出错误运行结果</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make 2&gt; out.txt</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h2 id="后台不挂断地执行命令"><a href="#后台不挂断地执行命令" class="headerlink" title="后台不挂断地执行命令"></a>后台不挂断地执行命令</h2><blockquote>
+<p>nohup : 不挂断地运行命令（没有后台运行的功能）<br>&amp; : 在后台运行，当用户退出（挂起）的时候，命令自动跟着结束</p>
+<p>输出结果自动存放在nohup.out中</p>
+<ul>
+<li>注意使用该指令后要用exit退出终端，直接关闭可能会导致进程终止</li>
+</ul>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">nohup</span> ./Allwmake &amp;</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>查看当前后台运行的进程</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">jobs</span> -l</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>参考链接：<a href="https://blog.csdn.net/qq_37555071/article/details/113781938">https://blog.csdn.net/qq_37555071/article/details/113781938</a></p>
+</blockquote>
+<h2 id="一些系统命令"><a href="#一些系统命令" class="headerlink" title="一些系统命令"></a>一些系统命令</h2><ul>
+<li>查找进程并kill</li>
+</ul>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ps -aux  //显示所有程序</span><br><span class="line">ps -ef | grep 进程关键字  //查找指定进程</span><br><span class="line"><span class="built_in">kill</span> -9 进程号PID    //kill进程</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>查看CPU占用等信息</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">top    //查看CPU占用，<span class="built_in">shift</span>+m 按内存占用排序</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查看进程运行时间<ul>
+<li>ps -eo lstart 启动时间</li>
+<li>ps -eo etime 运行多长时间.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ps -eo pid,lstart,etime | grep 2459398</span><br><span class="line">//2459398 Fri Dec  8 01:26:12 2023  5-15:30:10</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>解压命令</li>
+</ul>
+<blockquote>
+<ol>
+<li>*.tar 用 tar –xvf 解压</li>
+<li><em>.tar.gz和</em>.tgz 用 tar –xzf 解压</li>
+<li>*.zip 用 unzip 解压</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>压缩命令：<code>tar -zcvf /home/dush/OpenFOAM/dush-10/swak4Foam.tar.gz swak4Foam </code></p>
+</blockquote>
+<ul>
+<li>查看cpu核数</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> /proc/cpuinfo</span><br><span class="line">lscpu</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查看最大可用线程数(CPU逻辑核心)</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">nproc</span></span><br><span class="line">//make -j $(<span class="built_in">nproc</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="sh文件Permission-denied的解决办法"><a href="#sh文件Permission-denied的解决办法" class="headerlink" title=".sh文件Permission denied的解决办法"></a>.sh文件Permission denied的解决办法</h2><blockquote>
+<p>赋予全部权限777（rwx）</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 777 xxx.sh</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><ul>
+<li>移动文件</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//如果需要复制，把<span class="built_in">mv</span>改为<span class="built_in">cp</span></span><br><span class="line">//改文件名aaa-&gt;bbb</span><br><span class="line"><span class="built_in">mv</span> aaa bbb</span><br><span class="line"></span><br><span class="line">//移动文件或文件夹</span><br><span class="line"><span class="built_in">mv</span> 文件（夹）名 目的路径</span><br><span class="line"></span><br><span class="line">//移动 info 目录到 logs 目录中。注意，如果 logs 目录不存在，则该命令将 info 改名为 logs</span><br><span class="line"><span class="built_in">mv</span> info/ logs </span><br><span class="line"></span><br><span class="line">//移动 info 目录下所有目录和文件到 logs 目录中</span><br><span class="line"><span class="built_in">mv</span> info/* logs </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查看文件</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//在终端显示文件所有内容</span><br><span class="line"><span class="built_in">cat</span> file.txt</span><br><span class="line"></span><br><span class="line">//按页查看文件内容，适合查看大文件</span><br><span class="line">//按空格翻页，按q退出</span><br><span class="line">less file.txt</span><br><span class="line">less -N file.txt  //添加行号	</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>删除文件</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span>[选项] 文件或目录</span><br><span class="line">选项：</span><br><span class="line">-f：强制删除（force），和 -i 选项相反，使用 -f，系统将不再询问，而是直接删除目标文件或目录。</span><br><span class="line">-i：和 -f 正好相反，在删除文件或目录之前，系统会给出提示信息，使用 -i 可以有效防止不小心删除有用的文件或目录。</span><br><span class="line">-r：递归删除，主要用于删除目录，可删除指定目录及包含的所有内容，包括所有的子目录和文件。</span><br><span class="line">//删除目录是 <span class="built_in">rm</span> -r， 但是会一直提示，所以<span class="built_in">rm</span> -rf</span><br><span class="line">//虽然 <span class="string">&quot;-rf&quot;</span> 选项是用来删除目录的，但是删除文件也不会报错。所以，为了使用方便，一般不论是删除文件还是删除目录，都会直接使用 <span class="string">&quot;rm -rf&quot;</span> 选项</span><br></pre></td></tr></table></figure>
+
+<h2 id="在没有root权限的情况下编译软件显示Permission-denied问题"><a href="#在没有root权限的情况下编译软件显示Permission-denied问题" class="headerlink" title="在没有root权限的情况下编译软件显示Permission denied问题"></a>在没有root权限的情况下编译软件显示Permission denied问题</h2><blockquote>
+<p>没有root权限是无法写入&#x2F;usr&#x2F;local&#x2F;bin&#x2F;文件中的</p>
+</blockquote>
+<p>解决办法：</p>
+<ol>
+<li>自定义编译的输出目录，比如<code>./configure --prefix=/home/dush/re2c </code></li>
+<li>把命令添加到环境变量中<ul>
+<li>打开～&#x2F;.bashrc or ~&#x2F;.zshrc</li>
+<li>在末尾加入<code>export PATH=$PATH:/home/dush/re2c/bin</code> 即可</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>或者直接把可执行文件加入到环境变量，例如：<code>export PATH=$PATH:/home/dush/tree-2.1.1</code></li>
+</ul>
+<blockquote>
+<p>可以看考这个链接：<a href="https://blog.csdn.net/qq_41705840/article/details/124900211">https://blog.csdn.net/qq_41705840/article/details/124900211</a></p>
+</blockquote>
+<h2 id="终端SCP上传-下载文件"><a href="#终端SCP上传-下载文件" class="headerlink" title="终端SCP上传&#x2F;下载文件"></a>终端SCP上传&#x2F;下载文件</h2><blockquote>
+<p>若下载目录则 scp -r</p>
+</blockquote>
+<ul>
+<li>从工作站上下载文件到本地</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">scp username@servername:/path/filename /Users/mac/path</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>从本地上传文件到工作站</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">scp /path/filename username@servername:/path</span><br></pre></td></tr></table></figure>
+
+
+
+
+</div>
+
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>BASH</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>远程工作站安装OpenFOAM</title>
+    <url>/OpenFOAM%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<div class="note default"><h1 id="远程工作站安装OpenFOAM教程"><a href="#远程工作站安装OpenFOAM教程" class="headerlink" title="远程工作站安装OpenFOAM教程"></a>远程工作站安装OpenFOAM教程</h1><blockquote>
+<p>一般来说，Linux下安装OpenFOAM有两种方法：</p>
+<p>一种是直接用apt下载，但是此种方法仅限于个人电脑（因为需要sudo权限）；</p>
+<p>另外一种更为推荐的常用办法是用<strong>源代码编译安装</strong>，由于需要远程连接实验室的电脑，在实验室的Linux环境下安装，所以也只能用这个办法。</p>
+</blockquote>
+<blockquote>
+<p>推荐直接根据官方教程来，注意是Source Pack：<a href="https://openfoam.org/download/11-source/">https://openfoam.org/download/11-source/</a></p>
+</blockquote>
+<h2 id="下载并解压源文件"><a href="#下载并解压源文件" class="headerlink" title="下载并解压源文件"></a>下载并解压源文件</h2><h3 id="step1-：-建立OpenFOAM文件夹"><a href="#step1-：-建立OpenFOAM文件夹" class="headerlink" title="step1 ： 建立OpenFOAM文件夹"></a>step1 ： 建立OpenFOAM文件夹</h3><p><img src="https://s2.loli.net/2023/09/24/xBYPZWgMnkvzK4r.png" alt="image-20230924144932715"></p>
+<h3 id="step2-：执行下载解压命令"><a href="#step2-：执行下载解压命令" class="headerlink" title="step2 ：执行下载解压命令"></a>step2 ：执行下载解压命令</h3><p><img src="https://s2.loli.net/2023/09/24/7oLWQOd95IB1bME.png" alt="image-20230924150351555"></p>
+<p><img src="https://s2.loli.net/2023/09/24/fXPTIvrAEUWm7nG.png" alt="image-20230924150504744"></p>
+<h3 id="step3-：改文件名，便于以后使用"><a href="#step3-：改文件名，便于以后使用" class="headerlink" title="step3 ：改文件名，便于以后使用"></a>step3 ：改文件名，便于以后使用</h3><p><img src="https://s2.loli.net/2023/09/24/amTJlYC87QdWSAP.png" alt="image-20230924150737127"></p>
+<h2 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h2><blockquote>
+<p>注意是在~&#x2F;.bashrc中设置</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/09/24/LKj5nD4fk3z1eXV.png" alt="image-20230924152124605"></p>
+<p><img src="https://s2.loli.net/2023/09/24/5jQ1pDItLcUZVdS.png" alt="image-20230924152114681"></p>
+<blockquote>
+<p>最后运行一下bashrc脚本</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/09/24/1iLYepaK732XVBw.png" alt="image-20230924152235522"></p>
+<h2 id="下载编译第三方库（包括paraview）"><a href="#下载编译第三方库（包括paraview）" class="headerlink" title="下载编译第三方库（包括paraview）"></a>下载编译第三方库（包括paraview）</h2><h3 id="Installing-Scotch-PT-Scotch"><a href="#Installing-Scotch-PT-Scotch" class="headerlink" title="Installing Scotch&#x2F;PT-Scotch"></a>Installing Scotch&#x2F;PT-Scotch</h3><p><img src="https://s2.loli.net/2023/09/24/6TENoFiHRfj97Y2.png" alt="image-20230924154149151"></p>
+<h3 id="Installing-ParaView"><a href="#Installing-ParaView" class="headerlink" title="Installing ParaView"></a>Installing ParaView</h3><p><img src="https://s2.loli.net/2023/09/24/ldoEZeqDvt6PAHu.png" alt="image-20230924154308317"></p>
+<blockquote>
+<ul>
+<li>这里出问题了，但是不用管，可以用<strong>paraFoam -builtin</strong>代替</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/09/24/cEt6iRV1BNHpf9m.png" alt="image-20230924155942595"></p>
+</blockquote>
+<h2 id="编译OpenFOAM"><a href="#编译OpenFOAM" class="headerlink" title="编译OpenFOAM"></a>编译OpenFOAM</h2><p><img src="https://s2.loli.net/2023/09/24/vuVrpsQejiHLNtI.png" alt="image-20230924160049450"></p>
+<h2 id="运行简单算例并可视化"><a href="#运行简单算例并可视化" class="headerlink" title="运行简单算例并可视化"></a>运行简单算例并可视化</h2><h3 id="创建运行文件夹"><a href="#创建运行文件夹" class="headerlink" title="创建运行文件夹"></a>创建运行文件夹</h3><p><img src="https://s2.loli.net/2023/09/24/WD2LAREJhTSl5aO.png" alt="image-20230924160932211"></p>
+<h3 id="运行简单算例"><a href="#运行简单算例" class="headerlink" title="运行简单算例"></a>运行简单算例</h3><p><img src="https://s2.loli.net/2023/09/25/ugl7SPyibWa9vI3.png" alt="image-20230925212038629"></p>
+<ul>
+<li>成功运行</li>
+</ul>
+<p>​	<img src="https://s2.loli.net/2023/09/25/MPivyQYuLrEoksH.png" alt="image-20230925212121916"></p>
+</div>
+]]></content>
+      <categories>
+        <category>vsfFOAM</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>OpenFOAM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ParaView使用</title>
+    <url>/ParaView%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<div class="note warning"><h1 id="ParaView使用"><a href="#ParaView使用" class="headerlink" title="ParaView使用"></a>ParaView使用</h1><h2 id="本地ParaView查看远程工作站文件"><a href="#本地ParaView查看远程工作站文件" class="headerlink" title="本地ParaView查看远程工作站文件"></a>本地ParaView查看远程工作站文件</h2><ol>
+<li><p>首先在远程终端输入<code>pvserver</code><br> <img src="https://s2.loli.net/2023/10/08/qIGsmbXt6exFWQ5.png" alt="image-20231007191801789"></p>
+</li>
+<li><p>在本地ParaView中 File-&gt;connect  进行配置</p>
+<ul>
+<li>Server Type 选择Client&#x2F;Server</li>
+<li>Host输入工作站IP</li>
+<li>port默认即可</li>
+</ul>
+</li>
+<li><p>双击刚创建好的Server即可连接到远程机器，直接打开远程文件</p>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>注意如果没有foam文件，手动创建一个run.foam的空文件，然后用ParaView打开此空文件即可</li>
+<li>此后连接过程中，有可能出现提示框等待60s，且一直不消失导致卡住，个人解决办法是删掉并重新配置step 2<ul>
+<li>update：梯子关了就好了</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="ParaView的基本使用"><a href="#ParaView的基本使用" class="headerlink" title="ParaView的基本使用"></a>ParaView的基本使用</h2><blockquote>
+<p>官方教程：<a href="https://docs.paraview.org/en/latest/UsersGuide/index.html">https://docs.paraview.org/en/latest/UsersGuide/index.html</a></p>
+</blockquote>
+<ol>
+<li><p>切片、切块</p>
+<ul>
+<li>Slice&#x2F;Clip，Properties中的Nomal调整方向（法向量）</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/10/08/6FD8X1lZduhaMcQ.png" alt="image-20231008154400595"></p>
+</li>
+<li><p>显示外部、框架、内部</p>
+<p><img src="https://s2.loli.net/2023/10/08/8WhQRTYdKNI4qt3.png" alt="image-20231008155015532"></p>
+<ul>
+<li><p>外部：Surface&#x2F;Surface with edges&#x2F;Wireframe&#x2F;Feature Edges</p>
+</li>
+<li><p>内部：Volume（需要渲染，有点慢）</p>
+</li>
+</ul>
+</li>
+<li><p>画等值面</p>
+<ul>
+<li><p>contour -&gt;  properties -&gt; Value Range中设置参数（代表的就是值为该参数的等值面）</p>
+<p><img src="https://s2.loli.net/2023/10/08/3NyAhnGTLHjrzfx.png" alt="image-20231008160013396"></p>
+<p><img src="https://s2.loli.net/2023/10/08/7iuy14xfdB8Q65C.png" alt="image-20231008165533308"></p>
+</li>
+</ul>
+</li>
+<li><p>设置阈值（高于某值的一律设为最大值，低于某值则设为最小值）</p>
+<ul>
+<li><p>Lower&#x2F;Higher Threshold</p>
+<p><img src="https://s2.loli.net/2023/10/08/V7lciHktSv6nJj3.png" alt="image-20231008160619201"></p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="后处理计算涡量"><a href="#后处理计算涡量" class="headerlink" title="后处理计算涡量"></a>后处理计算涡量</h2><img src="https://s2.loli.net/2024/06/26/RNmVj6Bw3XE8dnu.png" alt="image-20240626153115437" style="zoom:50%;" />
+
+<p><code>(GradientU_1 - GradientU_5) (GradientU_4 - GradientU_7)( GradientU_8 - GradientU_3)</code></p>
+</div>]]></content>
+      <categories>
+        <category>vsfFOAM</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>OpenFOAM</tag>
+        <tag>vsfFOAM</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>git&amp;github</title>
     <url>/git-github/</url>
     <content><![CDATA[<div class="note warning"><h2 id="git-merge-pull-request"><a href="#git-merge-pull-request" class="headerlink" title="git merge&#x2F;pull request"></a>git merge&#x2F;pull request</h2><img src="https://s2.loli.net/2023/11/22/Qfo34dlcw5W1NBH.png" alt="image-20231122205333317" style="zoom:50%;" />
@@ -1337,6 +1340,12 @@ git add . &amp;&amp; git commit -m &quot;test-dev&quot;
 </blockquote>
 <h3 id="paraFoam-builtin后处理"><a href="#paraFoam-builtin后处理" class="headerlink" title="paraFoam -builtin后处理"></a>paraFoam -builtin后处理</h3><p><img src="https://s2.loli.net/2023/09/27/vR2LHDcAF9mib6p.png" alt="image-20230927213541886"></p>
 <p><img src="https://s2.loli.net/2023/09/27/IFOfxmJ2jiysdGY.png" alt="image-20230927213631892"></p>
+<h1 id="vsfFOAM编程相关"><a href="#vsfFOAM编程相关" class="headerlink" title="vsfFOAM编程相关"></a>vsfFOAM编程相关</h1><ul>
+<li>引入OpenFOAM中的.H文件的时候要在Make-options中一并设置<ul>
+<li>有时会出现在OpenFOAM中，该.H文件引用的某一.H文件无法找到，但是OpenFOAM中确实存在，那么先find -name “xxx”找到该文件的位置，也在Make-options中链接</li>
+</ul>
+</li>
+</ul>
 </div>
 ]]></content>
       <categories>
