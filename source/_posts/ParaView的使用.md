@@ -61,4 +61,10 @@ categories:
 
      ![image-20231008160619201](https://s2.loli.net/2023/10/08/V7lciHktSv6nJj3.png)
 
+## 后处理计算涡量
+
+<img src="https://s2.loli.net/2024/06/26/RNmVj6Bw3XE8dnu.png" alt="image-20240626153115437" style="zoom:50%;" />
+
+`(GradientU_1 - GradientU_5) (GradientU_4 - GradientU_7)( GradientU_8 - GradientU_3)`
+
 {% endnote %}
