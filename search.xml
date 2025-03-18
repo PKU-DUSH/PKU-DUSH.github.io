@@ -794,7 +794,26 @@
 </ul>
 </li>
 <li><p>注意一旦有<code>fast -&gt;next -&gt;next</code>,那么不仅要判断<code>fast != NULL</code>， 也要判断 <code>fast -&gt;next != NULL</code>，因为空指针是不能-&gt;next的。</p>
+<ul>
+<li>并且要判断fast而不是slow，因为fast在slow前面</li>
+</ul>
 </li>
+<li><p>注意while中的if判断一般是在语句之前，因为有边界情况是不需要动就已经满足条件了</p>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (slowPtr == fastPtr) &#123;</span><br><span class="line">                <span class="keyword">while</span> (cur) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (cur == slowPtr)</span><br><span class="line">                        <span class="keyword">return</span> cur;</span><br><span class="line">                    cur = cur -&gt; next;</span><br><span class="line">                    slowPtr = slowPtr -&gt; next;</span><br><span class="line">                &#125; </span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="合并两个有序链表"><a href="#合并两个有序链表" class="headerlink" title="合并两个有序链表"></a>合并两个有序链表</h3><blockquote>
+<p>题目链接：<a href="https://leetcode.cn/problems/merge-two-sorted-lists/description/?envType=study-plan-v2&envId=top-100-liked">https://leetcode.cn/problems/merge-two-sorted-lists/description/?envType=study-plan-v2&amp;envId=top-100-liked</a></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) &#123;</span><br><span class="line">        ListNode* head = new ListNode(-1);</span><br><span class="line">        ListNode* pre = head;</span><br><span class="line"></span><br><span class="line">        while (list1 &amp;&amp; list2) &#123;</span><br><span class="line">            if (list2-&gt;val &gt;= list1-&gt;val) &#123;</span><br><span class="line">                pre -&gt; next = list1;</span><br><span class="line">                list1 = list1 -&gt; next;</span><br><span class="line">            &#125;</span><br><span class="line">            else &#123;</span><br><span class="line">                pre -&gt; next = list2;</span><br><span class="line">                list2 = list2 -&gt; next;</span><br><span class="line">            &#125;</span><br><span class="line">            pre = pre -&gt; next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        pre -&gt; next = list1? list1 : list2;</span><br><span class="line"></span><br><span class="line">        return head -&gt; next;</span><br><span class="line"></span><br><span class="line">    &#125;   </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>想知道前一个结点，必须要在一开始就设置一个</li>
+<li>返回链表头节点，也要设置</li>
+<li>注意体会这道题一开始设置的两个链表节点</li>
 </ul>
 </div>
 
@@ -899,7 +918,7 @@
 <li><p>再看看思路：<a href="https://www.programmercarl.com/0015.%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C.html#%E6%80%9D%E8%B7%AF">https://www.programmercarl.com/0015.%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C.html#%E6%80%9D%E8%B7%AF</a></p>
 </li>
 </ul>
-<h3 id="四树之和"><a href="#四树之和" class="headerlink" title="四树之和"></a>四树之和</h3><blockquote>
+<h3 id="四数之和"><a href="#四数之和" class="headerlink" title="四数之和"></a>四数之和</h3><blockquote>
 <p>题目链接：<a href="https://leetcode.cn/problems/4sum/description/">https://leetcode.cn/problems/4sum/description/</a></p>
 </blockquote>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">~~~</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#123;% note info %&#125;</span><br><span class="line"></span><br><span class="line">## 字符串</span><br><span class="line"></span><br><span class="line">### 反转字符串</span><br><span class="line"></span><br><span class="line">&gt; 题目链接：https:<span class="comment">//leetcode.cn/problems/reverse-string/description/</span></span><br><span class="line"></span><br><span class="line">~~~C++</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">reverseString</span><span class="params">(vector&lt;<span class="type">char</span>&gt;&amp; s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>, j = s.<span class="built_in">size</span>() - <span class="number">1</span>; i &lt; (s.<span class="built_in">size</span>())/<span class="number">2</span>; i++ , j--)</span><br><span class="line">            <span class="built_in">swap</span>(s[i], s[j]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
@@ -1199,69 +1218,6 @@
       </tags>
   </entry>
   <entry>
-    <title>git&amp;github</title>
-    <url>/git-github/</url>
-    <content><![CDATA[<div class="note warning"><h2 id="git-merge-pull-request"><a href="#git-merge-pull-request" class="headerlink" title="git merge&#x2F;pull request"></a>git merge&#x2F;pull request</h2><img src="https://s2.loli.net/2023/11/22/Qfo34dlcw5W1NBH.png" alt="image-20231122205333317" style="zoom:50%;" />
-
-<img src="https://s2.loli.net/2023/11/22/Rfg36EaTvnxbLIs.png" alt="image-20231122201538592" style="zoom:50%;" />
-
-<div class="note info"><ul>
-<li><code>git status</code> # 查看当前状态</li>
-<li><code>git log</code> # 查看操作记录</li>
-<li><code>git branch</code>  # 显示所有本地分支</li>
-<li><code>git branch -d dev</code> # 删除分支</li>
-</ul>
-</div>
-
-<blockquote>
-<ol>
-<li><code>git clone</code></li>
-<li><code>git checkout -b dev</code> # 创建并切换至“dev”分支</li>
-<li><code>git add . </code> <strong># 将目录中所有文件添加到暂存区中</strong></li>
-<li><code>git commit -m &quot;xxx&quot;</code>  <strong># 把暂存区中的文件提交到本地仓库中并添加描述信息</strong></li>
-<li><code>git checkout master</code> # 切换到master分支</li>
-<li><code>git merge dev</code> # 把dev分支合并到当前master分支</li>
-<li><code>git push -u origin master</code>  # <strong>将本地仓库的分支提交至相应的远程仓库分支</strong><ul>
-<li>第一次使用 <code>git push -u origin master</code> 之后，下次可以直接使用 <code>git pull</code> 拉取代码，就不需要输入完整的命令 <code>git pull origin master </code>来拉取代码了。第二次也可以用<code> git push</code>推送代码而不用<code>git push origin master</code>。</li>
-<li>一般情况下(多人合作)，本地修改代码后，每次从本地仓库merge到远程仓库之前都要先进行git pull（会自动和本地提交合并，与本地有冲突时需要手动合并，所以要commit之后再pull否则会覆盖修改的代码）操作，保证push到远程仓库时没有版本冲突。</li>
-</ul>
-</li>
-</ol>
-<ul>
-<li><pre><code class="bash">git clone
-cd
-git checkout -b dev
-git add . &amp;&amp; git commit -m &quot;test-dev&quot;
-    
-<p>#如果推送到远程的dev就直接git push origin dev<br>git checkout master<br>git merge dev<br>git push origin master<br></code></pre></p>
-</li>
-</ul>
-</blockquote>
-<blockquote>
-<p>tips:</p>
-<ul>
-<li><code>git clone</code>包括了<code>git init</code>（本地创建文件git remote origin关联远程仓库才之前需要git init）</li>
-<li>以上是合作者的操作方式，如果不是，那么需要先fork成为自己的github仓库 -&gt; git clone到本地修改 -&gt; 推送到自己的github上之后再PR</li>
-<li>git merge 冲突问题解决方案：<a href="https://blog.csdn.net/qq_42780289/article/details/97945300">https://blog.csdn.net/qq_42780289/article/details/97945300</a></li>
-</ul>
-</blockquote>
-<h2 id="终端git超时问题"><a href="#终端git超时问题" class="headerlink" title="终端git超时问题"></a>终端git超时问题</h2><blockquote>
-<p>fatal: unable to connect to github.com:<br>github.com[0: 20.205.243.166]: errno&#x3D;Connection timed out</p>
-</blockquote>
-<ul>
-<li>把<code>git clone git://github.com/ninja-build/ninja.git</code>中的<code>git</code>改成<code>https</code>就好了</li>
-</ul></div>
-
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-        <tag>Github</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>远程工作站安装vsfFOAM</title>
     <url>/%E8%BF%9C%E7%A8%8B%E5%B7%A5%E4%BD%9C%E7%AB%99%E5%AE%89%E8%A3%85vsfFOAM/</url>
     <content><![CDATA[<div class="note warning"><h1 id="vsfFOAM安装"><a href="#vsfFOAM安装" class="headerlink" title="vsfFOAM安装"></a>vsfFOAM安装</h1><blockquote>
@@ -1355,6 +1311,69 @@ git add . &amp;&amp; git commit -m &quot;test-dev&quot;
         <tag>Linux</tag>
         <tag>OpenFOAM</tag>
         <tag>vsfFOAM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git&amp;github</title>
+    <url>/git-github/</url>
+    <content><![CDATA[<div class="note warning"><h2 id="git-merge-pull-request"><a href="#git-merge-pull-request" class="headerlink" title="git merge&#x2F;pull request"></a>git merge&#x2F;pull request</h2><img src="https://s2.loli.net/2023/11/22/Qfo34dlcw5W1NBH.png" alt="image-20231122205333317" style="zoom:50%;" />
+
+<img src="https://s2.loli.net/2023/11/22/Rfg36EaTvnxbLIs.png" alt="image-20231122201538592" style="zoom:50%;" />
+
+<div class="note info"><ul>
+<li><code>git status</code> # 查看当前状态</li>
+<li><code>git log</code> # 查看操作记录</li>
+<li><code>git branch</code>  # 显示所有本地分支</li>
+<li><code>git branch -d dev</code> # 删除分支</li>
+</ul>
+</div>
+
+<blockquote>
+<ol>
+<li><code>git clone</code></li>
+<li><code>git checkout -b dev</code> # 创建并切换至“dev”分支</li>
+<li><code>git add . </code> <strong># 将目录中所有文件添加到暂存区中</strong></li>
+<li><code>git commit -m &quot;xxx&quot;</code>  <strong># 把暂存区中的文件提交到本地仓库中并添加描述信息</strong></li>
+<li><code>git checkout master</code> # 切换到master分支</li>
+<li><code>git merge dev</code> # 把dev分支合并到当前master分支</li>
+<li><code>git push -u origin master</code>  # <strong>将本地仓库的分支提交至相应的远程仓库分支</strong><ul>
+<li>第一次使用 <code>git push -u origin master</code> 之后，下次可以直接使用 <code>git pull</code> 拉取代码，就不需要输入完整的命令 <code>git pull origin master </code>来拉取代码了。第二次也可以用<code> git push</code>推送代码而不用<code>git push origin master</code>。</li>
+<li>一般情况下(多人合作)，本地修改代码后，每次从本地仓库merge到远程仓库之前都要先进行git pull（会自动和本地提交合并，与本地有冲突时需要手动合并，所以要commit之后再pull否则会覆盖修改的代码）操作，保证push到远程仓库时没有版本冲突。</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><pre><code class="bash">git clone
+cd
+git checkout -b dev
+git add . &amp;&amp; git commit -m &quot;test-dev&quot;
+    
+<p>#如果推送到远程的dev就直接git push origin dev<br>git checkout master<br>git merge dev<br>git push origin master<br></code></pre></p>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>tips:</p>
+<ul>
+<li><code>git clone</code>包括了<code>git init</code>（本地创建文件git remote origin关联远程仓库才之前需要git init）</li>
+<li>以上是合作者的操作方式，如果不是，那么需要先fork成为自己的github仓库 -&gt; git clone到本地修改 -&gt; 推送到自己的github上之后再PR</li>
+<li>git merge 冲突问题解决方案：<a href="https://blog.csdn.net/qq_42780289/article/details/97945300">https://blog.csdn.net/qq_42780289/article/details/97945300</a></li>
+</ul>
+</blockquote>
+<h2 id="终端git超时问题"><a href="#终端git超时问题" class="headerlink" title="终端git超时问题"></a>终端git超时问题</h2><blockquote>
+<p>fatal: unable to connect to github.com:<br>github.com[0: 20.205.243.166]: errno&#x3D;Connection timed out</p>
+</blockquote>
+<ul>
+<li>把<code>git clone git://github.com/ninja-build/ninja.git</code>中的<code>git</code>改成<code>https</code>就好了</li>
+</ul></div>
+
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+        <tag>Github</tag>
       </tags>
   </entry>
 </search>
