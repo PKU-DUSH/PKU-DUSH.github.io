@@ -641,7 +641,57 @@ public:
     ![image-20231009171140021](https://s2.loli.net/2023/10/09/gV763BlhrF1pPsR.png)
 
 * 注意一旦有`fast ->next ->next`,那么不仅要判断`fast != NULL`， 也要判断 `fast ->next != NULL`，因为空指针是不能->next的。
+  * 并且要判断fast而不是slow，因为fast在slow前面
 
+* 注意while中的if判断一般是在语句之前，因为有边界情况是不需要动就已经满足条件了
+
+~~~C++
+if (slowPtr == fastPtr) {
+                while (cur) {
+                    if (cur == slowPtr)
+                        return cur;
+                    cur = cur -> next;
+                    slowPtr = slowPtr -> next;
+                } 
+            }
+~~~
+
+
+
+### 合并两个有序链表
+
+> 题目链接：https://leetcode.cn/problems/merge-two-sorted-lists/description/?envType=study-plan-v2&envId=top-100-liked
+
+~~~
+class Solution {
+public:
+    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
+        ListNode* head = new ListNode(-1);
+        ListNode* pre = head;
+
+        while (list1 && list2) {
+            if (list2->val >= list1->val) {
+                pre -> next = list1;
+                list1 = list1 -> next;
+            }
+            else {
+                pre -> next = list2;
+                list2 = list2 -> next;
+            }
+            pre = pre -> next;
+        }
+
+        pre -> next = list1? list1 : list2;
+
+        return head -> next;
+
+    }   
+};
+~~~
+
+* 想知道前一个结点，必须要在一开始就设置一个
+* 返回链表头节点，也要设置
+* 注意体会这道题一开始设置的两个链表节点
 
 {% endnote %}
 
@@ -880,7 +930,7 @@ public:
 
 * 再看看思路：https://www.programmercarl.com/0015.%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C.html#%E6%80%9D%E8%B7%AF
 
-### 四树之和
+### 四数之和
 
 > 题目链接：https://leetcode.cn/problems/4sum/description/
 
