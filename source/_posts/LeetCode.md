@@ -693,6 +693,77 @@ public:
 * 返回链表头节点，也要设置
 * 注意体会这道题一开始设置的两个链表节点
 
+
+
+### 两数相加链表版
+
+> 题目链接：https://leetcode.cn/problems/add-two-numbers/description/?envType=study-plan-v2&envId=top-100-liked
+
+~~~C++
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        ListNode* head = nullptr;
+        ListNode* tail = nullptr;
+        int carry = 0;
+
+        while (l1 || l2){
+            int n1 = l1 ? l1->val:0;
+            int n2 = l2 ? l2->val:0;
+            int sum = n1 + n2 + carry;
+
+            if (sum >= 10) {
+                carry = 1;
+            }else{
+                carry = 0;
+            }
+            
+            if (!head){
+                head = tail = new ListNode(sum%10);
+            }else{
+                tail -> next = new ListNode(sum%10);
+                tail = tail -> next;
+            }   
+
+            if(l1){
+                l1 = l1 -> next;
+            } 
+            if(l2){
+                l2 = l2 -> next;
+            } 
+        } 
+        if(carry){
+            tail -> next = new ListNode(1);
+        }
+        return head;
+    }
+};
+~~~
+
+* 链表操作要通过一个指针，找到（返回）链表头也需要一个指针！
+* 初始化的链表不能直接指向下一个，要新建new下一个结点
+* 1.进位问题; 避免进位超过10要mod 2.长度不一致问题 3.最后一位进位，结果要多出一个节点
+
+
+
+
+
+
+
+
+
+
+
 {% endnote %}
 
 {% note info %}
@@ -935,15 +1006,16 @@ public:
 > 题目链接：https://leetcode.cn/problems/4sum/description/
 
 ~~~C++
+
 ~~~
 
 
 
 
 
+
+
 {% endnote %}
-
-
 
 {% note info %}
 
